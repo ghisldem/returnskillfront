@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-
+import {UserService} from './data/user.service';
+import {WebService} from './data/web.service';
 
 @NgModule({
   imports: [
@@ -9,7 +10,8 @@ import { NgModule } from '@angular/core';
 
   ],
   providers: [
-
+    WebService,
+    UserService
   ],
 })
-export class SevicesModule { }
+export class ServicesModule { }
