@@ -23,7 +23,7 @@ import { FooterComponent } from './themes/footer/footer.component';
 import {RouterModule, Routes} from '@angular/router';
 
 import { UserComponent } from './pages/user/user.component';
-import {UsersTable1Component} from './pages/components/tables/users-table1/users-table1.component';
+import {UsersTable1Component} from './pages/_components/tables/users-table1/users-table1.component';
 
 const appRoutes: Routes = [
   {
@@ -34,7 +34,7 @@ const appRoutes: Routes = [
     path: 'users-table1',
     component: UsersTable1Component
   }
-]
+];
 
 @NgModule({
   declarations: [
@@ -51,9 +51,9 @@ const appRoutes: Routes = [
     MatCheckboxModule,
     PagesModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
-    MatInputModule
-    CommonModule,
+    RouterModule.forRoot(appRoutes),
+    MatInputModule,
+    CommonModule
 
   ],
   providers: [],
