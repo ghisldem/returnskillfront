@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Input } from '@angular/core';
-import {MatTableDataSource} from '@angular/material';
+import {MatTableDataSource, MatInputModule} from '@angular/material';
 /*
  * Modules
  */
@@ -25,7 +25,6 @@ import { User } from '../../../../models/user';
 })
 export class UsersTable1Component implements OnInit {
 
-  user: User;
   users: User[] ;
   /*= 
   [{id : 1, lastname : 'Ferrand', firstname : 'Julien' },
@@ -38,13 +37,12 @@ export class UsersTable1Component implements OnInit {
 
   }
 
-  getAllUsers(): User[] {
-    this.userService.getAll().subscribe(reponse => this.users = reponse);
-    return this.users;
+  getAllUsers() {
+    this.userService.getAll().subscribe(reponse => this.dataSource = new MatTableDataSource(this.users = reponse));
   }
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource(this.getAllUsers());
+   this.getAllUsers();
   }
 
   applyFilter(filterValue: string) {
