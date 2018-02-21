@@ -19,7 +19,12 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "app/themes/styles/reset.style.css",
+        "styles.css",
+        "app/themes/styles/modis.global.css",
+        "app/themes/styles/modis-custom.css",
+        "app/themes/styles/modis-custom2.css",
+        "app/themes/styles/modis-icons-font.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

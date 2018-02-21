@@ -1,5 +1,5 @@
 
-
+<div class="gt-container">
 <div ChangeColor mycolor = "#F9F2A4" (result)="truc($event)" class="gt-header mat-elevation-z8">
   <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -7,7 +7,7 @@
 </div>
 
 
-<div class="gt-container mat-elevation-z8">
+<div class="mat-elevation-z8">
 
   <mat-table [dataSource]="dataSource" matSort>
 
@@ -41,4 +41,5 @@
   </mat-table>
 
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
 </div>

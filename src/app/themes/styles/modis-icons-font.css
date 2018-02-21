@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'modis-icons';
+    src: url('/~/media/adeccogroup/brands/modis-new-brand/france/font/modis-icons-eot.eot');
+    src: url('/~/media/adeccogroup/brands/modis-new-brand/france/font/modis-icons-eot.eot?#iefix') format('embedded-opentype'),
+    url('/~/media/adeccogroup/brands/modis-new-brand/france/font/modis-icons-ttf.ttf') format('truetype'),
+    url('/~/media/adeccogroup/brands/modis-new-brand/france/font/modis-icons-woff.woff') format('woff'),
+    url('/~/media/adeccogroup/brands/modis-new-brand/france/font/modis-icons-svg.svg?#modis-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.SecteursMet [class^="icon-"]:before, .SecteursMet [class*=" icon-"]:before,
+ .solutions-wrapper [class^="icon-"]:before, .solutions-wrapper [class*=" icon-"]:before {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'modis-icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-aero:before {
+    content: "\e900";
+}
+
+.icon-banque:before {
+    content: "\e901";
+}
+
+.icon-energie:before {
+    content: "\e902";
+}
+
+.icon-environnement:before {
+    content: "\e903";
+}
+
+.icon-science:before {
+    content: "\e904";
+}
+
+.icon-telecom:before {
+    content: "\e905";
+}
+
+.icon-transport:before {
+    content: "\e906";
+}
+
+.icon-ingenieur:before {
+    content: "\e907";
+}
+
+.icon-it:before {
+    content: "\e908";
+}
+
+.icon-sciences:before {
+    content: "\e909";
+}
