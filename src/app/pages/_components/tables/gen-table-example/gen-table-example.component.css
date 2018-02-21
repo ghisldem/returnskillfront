@@ -1,13 +1,12 @@
-.gt-container {
+.example-container {
     display: flex;
     flex-direction: column;
     min-width: 300px;
   }
   
-  .gt-header {
+  .example-header {
     min-height: 64px;
     padding: 8px 24px 0;
-    background: #dd9d9d;
   }
   
   .mat-form-field {

@@ -2,12 +2,11 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource,MatInputModule} from '@angular/material';
 
 @Component({
-  selector: 'app-generic-table',
-  templateUrl: './generic-table.component.html',
-  styleUrls: ['./generic-table.component.css']
+  selector: 'app-gen-table-example',
+  templateUrl: './gen-table-example.component.html',
+  styleUrls: ['./gen-table-example.component.css']
 })
-
-export class GenericTableComponent  {
+export class GenTableExampleComponent  {
 
   displayedColumns = ['id', 'name', 'progress', 'color'];
   dataSource: MatTableDataSource<any>;
@@ -17,7 +16,7 @@ export class GenericTableComponent  {
 
   constructor() {
     // Create 100 users
-    const users: any[] = [];
+    const users: UserData[] = [];
     for (let i = 1; i <= 100; i++) { users.push(createNewUser(i)); }
 
     // Assign the data to the data source for the table to render
