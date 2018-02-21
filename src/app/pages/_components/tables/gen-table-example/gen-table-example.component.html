@@ -1,13 +1,11 @@
-
-
-<div ChangeColor mycolor = "#F9F2A4" (result)="truc($event)" class="gt-header mat-elevation-z8">
+<div class="example-header">
   <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>
 </div>
 
 
-<div class="gt-container mat-elevation-z8">
+<div class="example-container mat-elevation-z8">
 
   <mat-table [dataSource]="dataSource" matSort>
 

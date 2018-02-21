@@ -16,6 +16,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle'
  */
 import { UserService } from '../services/data/user.service';
 
+
 /*
  * components
  */
@@ -24,6 +25,7 @@ import { UserComponent } from './user/user.component';
 import { UsersTable1Component } from './_components/tables/users-table1/users-table1.component';
 import { GenericTableComponent } from './_components/tables/generic-table/generic-table.component';
 import { GenericAutocompleteComponent } from './_components/forms/generic-autocomplete/generic-autocomplete.component';
+import { GenTableExampleComponent } from './_components/tables/gen-table-example/gen-table-example.component';
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { GenericAutocompleteComponent } from './_components/forms/generic-autoco
     UserCompleteFormComponent,
     UsersTable1Component,
     GenericTableComponent,
-    GenericAutocompleteComponent
+    GenericAutocompleteComponent,
+    GenTableExampleComponent
   ],
   providers: [
     UserService
@@ -54,7 +57,8 @@ import { GenericAutocompleteComponent } from './_components/forms/generic-autoco
     UserCompleteFormComponent,
     UsersTable1Component,
     GenericTableComponent,
-    GenericAutocompleteComponent
+    GenericAutocompleteComponent,
+    GenTableExampleComponent
   ]
 })
 export class PagesModule { }

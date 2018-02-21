@@ -4,7 +4,6 @@ export class User {
        lastname : string;
        firstname : string;
   
-      constructor(){
-  
-      }
+       constructor(){
+        }
   }
