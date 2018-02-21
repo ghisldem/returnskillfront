@@ -17,12 +17,31 @@ import 'hammerjs';
  * components
  */
 import { AppComponent } from './app.component';
-//import { UserComponent } from './pages/user/user.component';
+import { LoginFormComponent } from './pages/components/forms/login-form/login-form.component';
+import { HeaderComponent } from './themes/header/header.component';
+import { FooterComponent } from './themes/footer/footer.component';
+import {RouterModule, Routes} from '@angular/router';
 
+import { UserComponent } from './pages/user/user.component';
+import {UsersTable1Component} from './pages/components/tables/users-table1/users-table1.component';
+
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: LoginFormComponent
+  },
+  {
+    path: 'users-table1',
+    component: UsersTable1Component
+  }
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginFormComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -32,8 +51,9 @@ import { AppComponent } from './app.component';
     MatCheckboxModule,
     PagesModule,
     FormsModule,
-    CommonModule,
+    RouterModule.forRoot(appRoutes)
     MatInputModule
+    CommonModule,
 
   ],
   providers: [],
