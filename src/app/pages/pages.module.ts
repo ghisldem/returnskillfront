@@ -12,6 +12,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {PagesRoutingModule} from './pages-routing.module';
+import {} from './pages-view/pages-view.module'
+import {ThemesModule} from '../themes/themes.module'
 /*
  * services
  */
@@ -48,7 +50,8 @@ import { PageTestComponent } from './pages-view/page-test/page-test.component';
     MatInputModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    ThemesModule
   ],
   declarations: [
 
