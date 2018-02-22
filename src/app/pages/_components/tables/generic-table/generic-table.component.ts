@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, Input} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource,MatInputModule} from '@angular/material';
 
 @Component({
@@ -8,6 +8,8 @@ import {MatPaginator, MatSort, MatTableDataSource,MatInputModule} from '@angular
 })
 
 export class GenericTableComponent  {
+
+  @Input() dataTable : any[];
 
   displayedColumns = ['id', 'name', 'progress', 'color'];
   dataSource: MatTableDataSource<any>;
