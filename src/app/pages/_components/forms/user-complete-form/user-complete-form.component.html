@@ -1,23 +1,47 @@
-<div *ngIf='users'>
+<mat-card class="card">
+
+  <mat-card-header>
+    <div mat-card-avatar class="card-header-image">
+      <fa name="user" size="3x"></fa>
+    </div>
+    <mat-card-title > {{user.lastname | capitalizefirst }}</mat-card-title>
+    <mat-card-subtitle>{{user.firstname | capitalizefirst}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>
+      Informations collaborateur
+    </p>
+
+    <div class="forms-container">
+      <mat-form-field>
+        <input matInput placeholder="Nom" [(ngModel)]="user.lastname">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Prénom" [(ngModel)]="user.firstname">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Email">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Téléphone">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Ville">
+      </mat-form-field>
+
+      <mat-checkbox>Référent</mat-checkbox>
 
 
-  <p>********************************************************************************************************</p>
-  <h4>Liste des utilisateurs</h4>
+    </div>
 
-
-  <div *ngFor="let user of users">
-      {{user.id}} {{user.firstname}} {{user.lastname}}
-  </div>
-
-
-
-
-  <p>********************************************************************************************************</p>
-
-
-
-
-  <br>
-
-
-</div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>VALIDER</button>
+    <button mat-button>FERMER</button>
+  </mat-card-actions>
+</mat-card>

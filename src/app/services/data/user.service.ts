@@ -22,8 +22,8 @@ export class UserService {
     return this.webService.getAll("users?page="+this.page+"&size="+this.size ).map(r => r.content);
   }
 
-  get(id: number): User {
-    return null;
+  get(id: number): Observable<User> {
+    return this.webService.get("users",id).map(r => r.content);
   }
 
   create(user : User): void { }
