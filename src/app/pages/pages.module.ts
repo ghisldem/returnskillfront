@@ -10,7 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle'
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {PagesRoutingModule} from './pages-routing.module';
 /*
  * services
  */
@@ -26,6 +27,13 @@ import { UsersTable1Component } from './_components/tables/users-table1/users-ta
 import { GenericTableComponent } from './_components/tables/generic-table/generic-table.component';
 import { GenericAutocompleteComponent } from './_components/forms/generic-autocomplete/generic-autocomplete.component';
 import { GenTableExampleComponent } from './_components/tables/gen-table-example/gen-table-example.component';
+import {LoginFormComponent} from './_components/forms/login-form/login-form.component'
+
+
+/*
+ * components - pages
+ */
+import { PageTestComponent } from './pages-view/page-test/page-test.component';
 
 
 @NgModule({
@@ -39,15 +47,27 @@ import { GenTableExampleComponent } from './_components/tables/gen-table-example
     MatAutocompleteModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    PagesRoutingModule
   ],
   declarations: [
+
+    /*
+     * components - 
+     */
     UserComponent,
     UserCompleteFormComponent,
     UsersTable1Component,
     GenericTableComponent,
     GenericAutocompleteComponent,
-    GenTableExampleComponent
+    GenTableExampleComponent,
+    LoginFormComponent,
+
+
+    /*
+     *pages
+     */
+    PageTestComponent,
   ],
   providers: [
     UserService

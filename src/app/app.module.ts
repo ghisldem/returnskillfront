@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material';
 import 'hammerjs';
+import {AppRoutingModule} from './app-routing.module';
 /*
  * components
  */
@@ -39,9 +40,9 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    LoginFormComponent,
-    HeaderComponent,
-    FooterComponent
+    // LoginFormComponent,
+    // HeaderComponent,
+    // FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -51,9 +52,10 @@ const appRoutes: Routes = [
     MatCheckboxModule,
     PagesModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
+    //RouterModule.forRoot(appRoutes),
     MatInputModule,
-    CommonModule
+    CommonModule,
+    AppRoutingModule
 
   ],
   providers: [],
