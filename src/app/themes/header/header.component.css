@@ -1,6 +1,21 @@
 header{
-  text-align: center;
+  background: #373A36;
+
+  height : 50px;
+  line-height: 25px;
+
+  text-align: left;
+
   padding: 20px 0;
   font-size: 30px;
   border-bottom: 2px solid #eee;
+
+ /* position: fixed;
+  z-index: 1000;*/
 }
+
+.logo{
+  height: 30px;
+}
+
+

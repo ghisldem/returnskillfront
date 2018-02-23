@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon-modis.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,11 +19,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "app/themes/styles/reset.style.css",
+        "app/themes/styles/reset-style.css",
         "styles.css",
-        "app/themes/styles/modis.global.css",
-        "app/themes/styles/modis-custom.css",
-        "app/themes/styles/modis-custom2.css",
+        "app/themes/styles/modis-global.css",
         "app/themes/styles/modis-icons-font.css",
         "../node_modules/font-awesome/css/font-awesome.css"
       ],
