@@ -8,14 +8,14 @@ import { MatPaginator, MatSort, MatTableDataSource, MatInputModule } from '@angu
   styleUrls: ['./generic-table.component.css']
 })
 
-export class GenericTableComponent implements OnInit{
+export class GenericTableComponent implements OnInit {
 
   @Input() dataTable: any[];
   @Input() columnsData: Array<[string, string]>;
 
-  displayItemsColumns :  string[] = ['id','nom', 'progression', 'couleur'];
-  displayedColumns:  string[] = ['id', 'name', 'progress', 'color'];
-  dataSource: MatTableDataSource<any>;
+  displayItemsColumns: string[] = ['id', 'nom', 'progression', 'couleur'];
+  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
+  dataSource;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -24,12 +24,18 @@ export class GenericTableComponent implements OnInit{
 
   }
 
-  ngOnInit(){
-    
+  ngOnInit() {
+
     this.updateDisplayedColumns();
     this.updateItemsColumns();
     this.dataSource = new MatTableDataSource(this.dataTable);
-   
+    setTimeout(() => {
+      console.log(this.dataTable);
+
+      console.log(this.dataSource);
+      this.dataSource = new MatTableDataSource(this.dataTable);
+      this.ngAfterViewInit();
+    }, 2000);
   }
 
   /** 
@@ -38,23 +44,23 @@ export class GenericTableComponent implements OnInit{
 
 
   updateDisplayedColumns() {
-    let tabProperty : string [] = [];
-    for(const infoColumn of this.columnsData){
+    let tabProperty: string[] = [];
+    for (const infoColumn of this.columnsData) {
       tabProperty.push(infoColumn[0]);
     }
     this.displayedColumns = tabProperty;
   }
 
   updateItemsColumns() {
-    let tabItem : string [] = [];
-    for(const infoColumn of this.columnsData){
+    let tabItem: string[] = [];
+    for (const infoColumn of this.columnsData) {
       tabItem.push(infoColumn[1]);
     }
-    this.displayItemsColumns  = tabItem;
+    this.displayItemsColumns = tabItem;
     console.log(this.displayItemsColumns);
   }
 
-  
+
 
   /**
    * Set the paginator and sort after the view init since this component will
@@ -73,6 +79,10 @@ export class GenericTableComponent implements OnInit{
 
 
 
+}
+class Column {
+  nameProperty: string;
+  nameTitle: String;
 }
 
 

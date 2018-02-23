@@ -7,7 +7,7 @@ import {} from '../../_components/forms/login-form';
 /*
  * models
  */
-import {UserComplete, User} from '../../../models/user'
+import {User} from '../../../models/user'
 
 /*
  * services

@@ -3,19 +3,15 @@ export class User {
        id : number;
        lastname : string;
        firstname : string;
-
-       constructor(id: number, lastname : string, firstname : string){
+       email : string;
+       phoneNumber : string;
+       townOfResisdence :  String;
+       constructor(){
         }
   }
 
 
-export class UserComplete extends User{
 
-  email : string;
-  phoneNumber : string;
 
-  constructor(id: number, lastname : string, firstname : string){
-    super(id, lastname, firstname);
-  }
 
-}
+

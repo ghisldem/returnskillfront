@@ -6,16 +6,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
-import { ThemesModule } from '../themes/themes.module'
+import { ThemesModule } from '../themes/themes.module';
 import { ServicesModule } from '../services/services.module';
 
-import {MaterialModule} from './material.module'
+import {MaterialModule} from './material.module';
 
 /*
  * Modules material/animation/font
  */
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 

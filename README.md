@@ -25,3 +25,18 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+wiki start
+
+Ouvrir une console, taper la ligne suivante
+
+npm install -g @angular/cli
+
+cloner le dossier front , ouvrir une console depuis le dossier et taper la commande suivante :
+
+npm install
+
+Pour lancer le front, il suffit de taper la commande suivante toujours depuis le dossier :
+
+ng serve --open
