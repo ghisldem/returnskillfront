@@ -1,5 +1,6 @@
-import {Component, OnInit, ViewChild, Input} from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource,MatInputModule} from '@angular/material';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
+
+import { MatPaginator, MatSort, MatTableDataSource, MatInputModule } from '@angular/material';
 
 @Component({
   selector: 'app-generic-table',
@@ -7,24 +8,53 @@ import {MatPaginator, MatSort, MatTableDataSource,MatInputModule} from '@angular
   styleUrls: ['./generic-table.component.css']
 })
 
-export class GenericTableComponent  {
+export class GenericTableComponent implements OnInit{
 
-  @Input() dataTable : any[];
+  @Input() dataTable: any[];
+  @Input() columnsData: Array<[string, string]>;
 
-  displayedColumns = ['id', 'name', 'progress', 'color'];
+  displayItemsColumns :  string[] = ['id','nom', 'progression', 'couleur'];
+  displayedColumns:  string[] = ['id', 'name', 'progress', 'color'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor() {
-    // Create 100 users
-    const users: any[] = [];
-    for (let i = 1; i <= 100; i++) { users.push(createNewUser(i)); }
 
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
   }
+
+  ngOnInit(){
+    
+    this.updateDisplayedColumns();
+    this.updateItemsColumns();
+    this.dataSource = new MatTableDataSource(this.dataTable);
+   
+  }
+
+  /** 
+   * update data
+  */
+
+
+  updateDisplayedColumns() {
+    let tabProperty : string [] = [];
+    for(const infoColumn of this.columnsData){
+      tabProperty.push(infoColumn[0]);
+    }
+    this.displayedColumns = tabProperty;
+  }
+
+  updateItemsColumns() {
+    let tabItem : string [] = [];
+    for(const infoColumn of this.columnsData){
+      tabItem.push(infoColumn[1]);
+    }
+    this.displayItemsColumns  = tabItem;
+    console.log(this.displayItemsColumns);
+  }
+
+  
 
   /**
    * Set the paginator and sort after the view init since this component will
@@ -40,32 +70,12 @@ export class GenericTableComponent  {
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
+
+
+
 }
 
-/** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
-  const name =
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
 
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
-  };
-}
 
-/** Constants used to fill up our data base. */
-const COLORS = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
-  'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
-const NAMES = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
-  'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
-  'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  color: string;
-}
+
