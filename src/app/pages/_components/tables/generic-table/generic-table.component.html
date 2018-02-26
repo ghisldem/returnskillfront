@@ -1,0 +1,33 @@
+<div *ngIf="dataSource" class="gt-container">
+  <div ChangeColor mycolor="#F9F2A4" (result)="truc($event)" class="gt-header mat-elevation-z8">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+
+  <div class="mat-elevation-z8">
+
+
+    <mat-table [dataSource]="dataSource" matSort>
+
+
+
+      <ng-container *ngFor="let column of displayColumns" matColumnDef={{column.nameProperty}}>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{column.nameTitle}} </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row[column.nameProperty]}} </mat-cell>
+      </ng-container>
+
+
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+
+      </mat-row>
+
+    </mat-table>
+
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>
