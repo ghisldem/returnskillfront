@@ -5,7 +5,7 @@ import { UserService } from '../../../../services/data/user.service';
 import { Input } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import {  } from '';
+import { } from '';
 
 @Component({
   selector: 'app-user-complete-form',
@@ -15,16 +15,18 @@ import {  } from '';
 
 export class UserCompleteFormComponent implements OnInit {
 
-  user: User ;
+  user: User;
   users: User[];
-  //lastname: string = "Demester";
- // firstname: string = "Ghislain";
+
 
   constructor(private userService: UserService) {
- this.user={
-      id : 1,
-      lastname : "demester",
-      firstname : "ghislain"
+    this.user = {
+      id: 1,
+      lastname: "toto",
+      firstname: "ghislain",
+      email: "gd@gmail",
+      phoneNumber: "07.06.05.04",
+      townOfResisdence : "lille"
     }
   }
 
@@ -33,12 +35,18 @@ export class UserCompleteFormComponent implements OnInit {
 
   }
 
-  getUserById (){
-    this.userService.get(1).subscribe(reponse => this.user = reponse);
+  getUserById() {
+    this.userService.get(2).subscribe(reponse => console.log(this.user = reponse));
+  }
+
+  update(){
+    console.log(this.user);
+    this.userService.update(this.user);
   }
 
   ngOnInit() {
     this.getAllUsers();
+    this.getUserById();
   }
 
 

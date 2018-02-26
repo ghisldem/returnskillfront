@@ -1,3 +1,4 @@
+<div *ngIf='user'>
 <mat-card class="card">
 
   <mat-card-header>
@@ -23,15 +24,15 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Email">
+        <input matInput placeholder="Email" [(ngModel)]="user.email">
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Téléphone">
+        <input matInput placeholder="Téléphone" [(ngModel)]="user.phoneNumber">
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Ville">
+        <input matInput placeholder="Ville" [(ngModel)]="user.townOfResisdence">
       </mat-form-field>
 
       <mat-checkbox>Référent</mat-checkbox>
@@ -41,7 +42,9 @@
 
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>VALIDER</button>
-    <button mat-button>FERMER</button>
+    <button mat-button color="primary" (click)="update();">VALIDER</button>
+    <button mat-button (click)="getUserById();">FERMER</button>
   </mat-card-actions>
 </mat-card>
+
+</div>

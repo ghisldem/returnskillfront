@@ -12,10 +12,11 @@ export class WebService {
 
   getAll(type: string) {
     return this.http.get(this.url + type).map(r => r.json());
+
   }
 
   get(type: string, id: number) {
-    return this.http.get(this.url + type + '/' + id).map(r => r.json());
+    return this.http.get(this.url + type +'/' + id).map(r => r.json());
   }
 
   create(type: string, body: Object) {
@@ -30,11 +31,18 @@ export class WebService {
   delete(type: string, id: number) {
     return this.http.delete(this.url + type + '/' + id).map(r => r.json());
   }
-  update(type: string, body: Object, id : number) {
+
+  update(type: string, body: Object) {
     const bodyString = JSON.stringify(body);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    const options = new RequestOptions({ headers: headers });
-    return this.http.put(this.url + type + '/' + id, bodyString, options).map(r => r.json());
+    //const headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
+    //const options = new RequestOptions({headers: headers});
+    console.log(bodyString);
+    console.log(this.url);
+    console.log(type);
+    console.log(this.url+type);
+    console.log(bodyString);
+    
+    return this.http.put(this.url + type, bodyString).map(r => r.json());
   }
 
   getAllByElement(type: string, elementId:number, element:string){

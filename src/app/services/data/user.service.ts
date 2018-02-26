@@ -8,13 +8,13 @@ export class UserService {
 
   users : Array<User>; //mock (fausses données  pour test)
   page : number = 0;
-  size : number = 4;
+  size : number = 10;
 
 
   constructor(private webService :  WebService) { 
     this.users = new Array<User>();
-    this.users.push({id : 1, lastname : 'Ferrand', firstname : 'Julien' }); //test
-    this.users.push({id : 2, lastname : 'Dugrain', firstname : 'Rémi'}); //test
+    this.users.push({id : 1, lastname : 'Ferrand', firstname : 'Julien', email: "fj@gmail", phoneNumber: "07.06.05.02", townOfResisdence:"lille" }); //test
+    this.users.push({id : 2, lastname : 'Dugrain', firstname : 'Rémi', email: "dr@gmail", phoneNumber: "07.06.05.03", townOfResisdence:"lille"}); //test
   }
 
 
@@ -23,14 +23,16 @@ export class UserService {
   }
 
   get(id: number): Observable<User> {
-    return this.webService.get("users",id).map(r => r.content);
+    return this.webService.get("users",id);
   }
 
   create(user : User): void { }
 
   delete(): void { }
 
-  update(user: User): void { }
+  update(user: User): Observable<User> {
+    return this.webService.update("users",user);
+   }
 
 
 
