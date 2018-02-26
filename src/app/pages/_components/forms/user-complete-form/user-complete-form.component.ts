@@ -18,18 +18,15 @@ export class UserCompleteFormComponent implements OnInit {
   user: User;
   users: User[];
 
+  checkedReferent = false;
 
   constructor(private userService: UserService) {
-    this.user = {
-      id: 1,
-      lastname: "toto",
-      firstname: "ghislain",
-      email: "gd@gmail",
-      phoneNumber: "07.06.05.04",
-      townOfResisdence : "lille"
-    }
+
   }
 
+  /*
+   * METHODS FORMS
+   */
   getAllUsers() {
     this.userService.getAll().subscribe(reponse => this.users = reponse);
 
@@ -40,8 +37,13 @@ export class UserCompleteFormComponent implements OnInit {
   }
 
   update(){
+    console.log("contenu à la validation");
     console.log(this.user);
-    this.userService.update(this.user);
+    this.userService.update(this.user).subscribe(reponse => this.user=reponse);
+  }
+
+  create(){
+    this.userService.create(this.user).subscribe(reponse => this.update());
   }
 
   ngOnInit() {

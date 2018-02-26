@@ -13,8 +13,8 @@ export class UserService {
 
   constructor(private webService :  WebService) { 
     this.users = new Array<User>();
-    this.users.push({id : 1, lastname : 'Ferrand', firstname : 'Julien', email: "fj@gmail", phoneNumber: "07.06.05.02", townOfResisdence:"lille" }); //test
-    this.users.push({id : 2, lastname : 'Dugrain', firstname : 'Rémi', email: "dr@gmail", phoneNumber: "07.06.05.03", townOfResisdence:"lille"}); //test
+    this.users.push({id : 1, lastname : 'Ferrand', firstname : 'Julien', email: "fj@gmail", phoneNumber: "07.06.05.02", townOfResidence:"lille" }); //test
+    this.users.push({id : 2, lastname : 'Dugrain', firstname : 'Rémi', email: "dr@gmail", phoneNumber: "07.06.05.03", townOfResidence:"lille"}); //test
   }
 
 
@@ -26,12 +26,15 @@ export class UserService {
     return this.webService.get("users",id);
   }
 
-  create(user : User): void { }
+  create(user : User): Observable<User> { 
+    return this.webService.create("users/",user);
+  }
 
   delete(): void { }
 
   update(user: User): Observable<User> {
-    return this.webService.update("users",user);
+    let id : number = user.id;
+    return this.webService.update("users/" + id ,user);
    }
 
 

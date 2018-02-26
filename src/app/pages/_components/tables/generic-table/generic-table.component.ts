@@ -13,7 +13,7 @@ export class GenericTableComponent implements OnInit {
   @Input() dataTable: any[];
   @Input() columnsData: Array<[string, string]>;
 
-  displayItemsColumns: string[] = ['id', 'nom', 'progression', 'couleur'];
+  displayColumns: Column[];
   displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
   dataSource;
 
@@ -24,25 +24,21 @@ export class GenericTableComponent implements OnInit {
 
   }
 
+  
   ngOnInit() {
 
     this.updateDisplayedColumns();
-    this.updateItemsColumns();
+    this.updateColumns();
     this.dataSource = new MatTableDataSource(this.dataTable);
     setTimeout(() => {
-      console.log(this.dataTable);
-
-      console.log(this.dataSource);
       this.dataSource = new MatTableDataSource(this.dataTable);
       this.ngAfterViewInit();
     }, 2000);
   }
 
   /** 
-   * update data
+   * update data columns model
   */
-
-
   updateDisplayedColumns() {
     let tabProperty: string[] = [];
     for (const infoColumn of this.columnsData) {
@@ -51,16 +47,16 @@ export class GenericTableComponent implements OnInit {
     this.displayedColumns = tabProperty;
   }
 
-  updateItemsColumns() {
-    let tabItem: string[] = [];
+  updateColumns(){
+    let tabColumns: Column[] = [];
     for (const infoColumn of this.columnsData) {
-      tabItem.push(infoColumn[1]);
+      let col : Column = new Column();
+      col.nameProperty = infoColumn[0];
+      col.nameTitle = infoColumn[1];
+      tabColumns.push(col);
     }
-    this.displayItemsColumns = tabItem;
-    console.log(this.displayItemsColumns);
+    this.displayColumns = tabColumns;
   }
-
-
 
   /**
    * Set the paginator and sort after the view init since this component will
@@ -76,8 +72,6 @@ export class GenericTableComponent implements OnInit {
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
-
-
 
 }
 class Column {

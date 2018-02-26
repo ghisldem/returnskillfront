@@ -34,15 +34,12 @@ export class WebService {
 
   update(type: string, body: Object) {
     const bodyString = JSON.stringify(body);
-    //const headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
-    //const options = new RequestOptions({headers: headers});
-    console.log(bodyString);
-    console.log(this.url);
-    console.log(type);
-    console.log(this.url+type);
-    console.log(bodyString);
-    
-    return this.http.put(this.url + type, bodyString).map(r => r.json());
+    const headers = new Headers({ 'access-control-allow-credentials' : 'true','Access-Control-Allow-Origin': 'http://localhost:4200','content-type': 'application/json; charset=utf-8'});
+    const options = new RequestOptions({headers: headers});
+    console.log ("url : " + this.url + type);
+    console.log ("body : " + bodyString);
+
+    return this.http.put(this.url + type, bodyString,options).map(r => r.json());
   }
 
   getAllByElement(type: string, elementId:number, element:string){

@@ -40,7 +40,9 @@ usersList : User[];
 COLUMNSTABLE : Array<[string, string]> = [
   ['id','Id' ],
   ['firstname','Prénom' ],
-  ['lastname','Nom' ]
+  ['lastname','Nom' ],
+  ['email', 'Email'],
+ // ['phoneNumber', 'num tel']
 ];
 
 getUsersList(){
