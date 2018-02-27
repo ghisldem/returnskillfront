@@ -17,13 +17,13 @@
 
     <div class="forms-container">
       <div>
-        <mat-radio-group>
+        <mat-radio-group [(ngModel)]="trainingType">
           <mat-radio-button value="1" matTooltip="formation du cursus scolaire" checked="true">formation initiale</mat-radio-button>
           <mat-radio-button value="2" matTooltip="formation durant l'activité professionnelle">formation continue</mat-radio-button>
         </mat-radio-group>
       </div>
       <div>
-        <div>
+        <div *ngIf="trainingType == 2">
           <mat-form-field>
             <input matInput [matDatepicker]="picker1" placeholder="Date de commencement">
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -35,7 +35,7 @@
             <mat-datepicker #picker2></mat-datepicker>
           </mat-form-field>
         </div>
-        <div>
+        <div *ngIf="trainingType == 1">
           <mat-form-field>
             <input matInput placeholder="Année" type="year" maxlength="4">
           </mat-form-field>
@@ -47,20 +47,41 @@
       </mat-form-field>
 
       <mat-form-field>
-        <textarea matInput placeholder="Détail" matTooltip="Description libre" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="10"
-          #input maxlength="1000"></textarea>
-        <mat-hint align="end">{{input.value?.length || 0}}/1000</mat-hint>
+        <textarea matInput placeholder="Détail (facultatif - exemple :  délivré par le centre de formation xxxx)" matTooltip="Description libre"
+          matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="10" #input maxlength="400"></textarea>
+        <mat-hint align="end">{{input.value?.length || 0}}/400</mat-hint>
       </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Téléphone">
-      </mat-form-field>
+      <div class="data">
 
-      <mat-form-field>
-        <input matInput placeholder="Ville">
-      </mat-form-field>
+        <div class="elementData" *ngIf="studyLevelList">
+          <mat-form-field>
+            <input type="text" placeholder="Niveau d'étude de la formation" aria-label="Niveau d'étude" matInput [formControl]="studyLevelControl"
+              [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let studyLevel of filteredStudyLevel | async" [value]="studyLevel.levelDescription">
+                {{ studyLevel.levelDescription}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
 
-      <mat-checkbox>Référent</mat-checkbox>
+
+
+        <div *ngIf="filteredTrainingArea">
+          <mat-form-field>
+            <input type="text" placeholder="Domaine de formation" aria-label="Domaine" matInput [formControl]="trainingAreaControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let trainingArea of filteredTrainingArea | async" [value]="trainingArea.areaDescription">
+                {{ trainingArea.areaDescription}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+
+
+
+      </div>
 
 
     </div>

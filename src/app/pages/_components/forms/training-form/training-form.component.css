@@ -13,3 +13,12 @@ mat-card-title{
     display: flex;
     flex-direction: column;
   }
+
+  .data{
+      display: flex;
+      /*justify-content: space-between;*/
+  }
+
+  .elementData{
+      margin : 0,10,0,0;
+  }
