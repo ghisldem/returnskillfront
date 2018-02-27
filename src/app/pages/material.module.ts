@@ -15,7 +15,7 @@ import { MatInputModule, MatSelectModule, MatRadioModule, MatCheckboxModule } fr
 import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
 /*buttons*/
-import { MatButtonModule,MatChipsModule } from '@angular/material';
+import { MatButtonModule,MatChipsModule,MatIconModule } from '@angular/material';
 
 /*tables*/
 import { MatTableModule } from '@angular/material';
@@ -48,7 +48,8 @@ import {} from '@angular/material';
         MatTooltipModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        MatChipsModule
+        MatChipsModule,
+        MatIconModule
     ],
     exports: [
         MatTableModule,
@@ -66,7 +67,8 @@ import {} from '@angular/material';
         MatTooltipModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        MatChipsModule
+        MatChipsModule,
+        MatIconModule
     ]
 })
 export class MaterialModule { }

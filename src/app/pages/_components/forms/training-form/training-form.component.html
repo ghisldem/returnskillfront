@@ -54,36 +54,30 @@
 
       <div class="data">
 
-        <div class="elementData" *ngIf="studyLevelList">
-          <mat-form-field>
-            <input type="text" placeholder="Niveau d'étude de la formation" aria-label="Niveau d'étude" matInput [formControl]="studyLevelControl"
-              [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let studyLevel of filteredStudyLevel | async" [value]="studyLevel.levelDescription">
-                {{ studyLevel.levelDescription}}
-              </mat-option>
-            </mat-autocomplete>
-          </mat-form-field>
-        </div>
 
+        <mat-form-field class="elementData" *ngIf="filteredStudyLevel">
+          <input type="text" placeholder="Niveau d'étude de la formation" aria-label="Niveau d'étude" matInput [formControl]="studyLevelControl"
+            [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let studyLevel of filteredStudyLevel | async" [value]="studyLevel.levelDescription">
+              {{ studyLevel.levelDescription}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
 
+        <mat-form-field class="elementData" *ngIf="filteredTrainingArea">
+          <input type="text" placeholder="Domaine de formation" aria-label="Domaine" matInput [formControl]="trainingAreaControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let trainingArea of filteredTrainingArea | async" [value]="trainingArea.areaDescription">
+              {{ trainingArea.areaDescription}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
 
-        <div *ngIf="filteredTrainingArea">
-          <mat-form-field>
-            <input type="text" placeholder="Domaine de formation" aria-label="Domaine" matInput [formControl]="trainingAreaControl" [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let trainingArea of filteredTrainingArea | async" [value]="trainingArea.areaDescription">
-                {{ trainingArea.areaDescription}}
-              </mat-option>
-            </mat-autocomplete>
-          </mat-form-field>
-        </div>
 
       </div>
-
-      
+     
     </div>
-
 
   </mat-card-content>
 
