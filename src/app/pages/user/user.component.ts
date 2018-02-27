@@ -17,28 +17,14 @@ export class UserComponent implements OnInit {
   users: User[];
 
   constructor( private userService: UserService) {
- 
-    
   }
 
   getAllUsers() {
     this.userService.getAll().subscribe(reponse => console.log(this.users = reponse));
-
-    
-    //this.userService.getAll().subscribe(reponse => console.log(reponse));
   }
 
   ngOnInit() {
-    
     this.getAllUsers();
-    // this.user={
-    //   id : 1,
-    //   lastname : "demester",
-    //   firstname : "ghislain"
-    // }
-
-    //this.getAllUsers();
-    
   }
 
 }

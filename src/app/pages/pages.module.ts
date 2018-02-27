@@ -35,12 +35,15 @@ import { GenericAutocompleteComponent } from './_components/forms/generic-autoco
 import { GenTableExampleComponent } from './_components/tables/gen-table-example/gen-table-example.component';
 import { LoginFormComponent } from './_components/forms/login-form/login-form.component';
 import { TestViewComponent } from './_components/test/test-view/test-view.component';
+import { SkillFormComponent } from './_components/forms/skill-form/skill-form.component';
 
 
 /*
  * components - pages
  */
 import { PageTestComponent } from './pages-view/page-test/page-test.component';
+import { TrainingFormComponent } from './_components/forms/training-form/training-form.component';
+
 
 
 @NgModule({
@@ -54,7 +57,7 @@ import { PageTestComponent } from './pages-view/page-test/page-test.component';
     ReactiveFormsModule,
     PagesRoutingModule,
     ThemesModule,
-    MaterialModule,   
+    MaterialModule,
     AngularFontAwesomeModule
   ],
 
@@ -71,6 +74,7 @@ import { PageTestComponent } from './pages-view/page-test/page-test.component';
     GenTableExampleComponent,
     LoginFormComponent,
     TestViewComponent,
+    SkillFormComponent,
 
 
 
@@ -78,6 +82,10 @@ import { PageTestComponent } from './pages-view/page-test/page-test.component';
      *pages
      */
     PageTestComponent,
+
+
+
+    TrainingFormComponent,
   ],
   providers: [
     UserService

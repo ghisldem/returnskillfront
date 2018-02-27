@@ -13,15 +13,15 @@
 
 
 
-      <ng-container *ngFor="let column of displayColumns" matColumnDef={{column.nameProperty}}>
-        <mat-header-cell *matHeaderCellDef mat-sort-header> {{column.nameTitle}} </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row[column.nameProperty]}} </mat-cell>
+      <ng-container  *ngFor="let column of displayColumns" matColumnDef={{column.nameProperty}}>
+        <mat-header-cell  *matHeaderCellDef mat-sort-header> {{column.nameTitle}} </mat-header-cell>
+        <mat-cell  *matCellDef="let row"> {{row[column.nameProperty]}} </mat-cell>
       </ng-container>
 
 
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      <mat-row class="cell" *matRowDef="let row; columns: displayedColumns;">
 
       </mat-row>
 

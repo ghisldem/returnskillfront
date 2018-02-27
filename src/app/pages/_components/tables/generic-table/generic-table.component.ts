@@ -24,7 +24,6 @@ export class GenericTableComponent implements OnInit {
 
   }
 
-  
   ngOnInit() {
 
     this.updateDisplayedColumns();
@@ -40,7 +39,7 @@ export class GenericTableComponent implements OnInit {
    * update data columns model
   */
   updateDisplayedColumns() {
-    let tabProperty: string[] = [];
+    const tabProperty: string[] = [];
     for (const infoColumn of this.columnsData) {
       tabProperty.push(infoColumn[0]);
     }
@@ -48,9 +47,9 @@ export class GenericTableComponent implements OnInit {
   }
 
   updateColumns(){
-    let tabColumns: Column[] = [];
+    const tabColumns: Column[] = [];
     for (const infoColumn of this.columnsData) {
-      let col : Column = new Column();
+      const col : Column = new Column();
       col.nameProperty = infoColumn[0];
       col.nameTitle = infoColumn[1];
       tabColumns.push(col);
