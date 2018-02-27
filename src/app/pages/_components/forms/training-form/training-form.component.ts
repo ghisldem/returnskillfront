@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { startWith } from 'rxjs/operators/startWith';
 import { map } from 'rxjs/operators/map';
 import { TrainingArea } from '../../../../models/training-area';
+import { Skill } from '../../../../models/Skill';
 
 @Component({
   selector: 'app-training-form',
@@ -54,8 +55,8 @@ export class TrainingFormComponent implements OnInit {
   }
 
 
-  /*
- * input Autocomplete study level 
+/*
+ * input Autocomplete training aera
  */
 
   @Input() trainingAreaList: TrainingArea[];
@@ -67,5 +68,12 @@ export class TrainingFormComponent implements OnInit {
     return this.trainingAreaList.filter(trainingArea =>
       trainingArea.areaDescription.toLowerCase().indexOf(name.toLowerCase()) === 0);
   }
+
+/*
+ * input Autocomplete skill
+ */
+@Input() skillList: Skill[];
+
+
 
 }

@@ -17,6 +17,8 @@ import { StudyLevelService } from '../../../services/data/study-level.service';
 import { StudyLevel } from '../../../models/study-level';
 import { TrainingArea } from '../../../models/training-area';
 import { TrainingAreaService } from '../../../services/data/training-area.service';
+import { Skill } from '../../../models/Skill';
+import { SkillService } from '../../../services/data/skill.service';
 
 
 
@@ -33,12 +35,12 @@ export class PageTestComponent implements OnInit {
 
 
   constructor( private userService: UserService, private studyLevelService: StudyLevelService,
-              private trainingAreaService : TrainingAreaService) { }
+              private trainingAreaService : TrainingAreaService, private skillService : SkillService) { }
 
   ngOnInit() {
     this.getUsersList();
     this.getStudyLevelList();
-    this.getTrainingAreaList()
+    this.getTrainingAreaList();
   }
 
 
@@ -74,6 +76,17 @@ export class PageTestComponent implements OnInit {
   getTrainingAreaList() {
     this.trainingAreaList = this.trainingAreaService.getAll();
   }
+
+  /*
+   *display skills
+   */
+  skillList: Skill[];
+  getSkillList() {
+    this.skillList = this.skillService.getAll();
+  }
+
+
+
 
 }
 
