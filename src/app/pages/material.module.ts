@@ -12,7 +12,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 /*forms*/
 import { MatSlideToggleModule, MatFormFieldModule, MatAutocompleteModule } from '@angular/material';
 import { MatInputModule, MatSelectModule, MatRadioModule, MatCheckboxModule } from '@angular/material';
-
+import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
 /*buttons*/
 import { MatButtonModule } from '@angular/material';
@@ -21,7 +21,11 @@ import { MatButtonModule } from '@angular/material';
 import { MatTableModule } from '@angular/material';
 
 /*layout*/
-import { MatCardModule } from '@angular/material';
+import { MatCardModule, MatDividerModule } from '@angular/material';
+
+/*popup modals*/
+import { MatTooltipModule } from '@angular/material';
+
 
 /*directives*/
 import {} from '@angular/material';
@@ -39,7 +43,11 @@ import {} from '@angular/material';
         MatCardModule,
         MatSelectModule,
         MatRadioModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        MatDividerModule,
+        MatTooltipModule,
+        MatDatepickerModule,
+        MatNativeDateModule
     ],
     exports: [
         MatTableModule,
@@ -50,9 +58,13 @@ import {} from '@angular/material';
         MatSlideToggleModule,
         MatButtonModule,
         MatCardModule,
-        MatSelectModule, 
+        MatSelectModule,
         MatRadioModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        MatDividerModule,
+        MatTooltipModule,
+        MatDatepickerModule,
+        MatNativeDateModule
     ]
 })
 export class MaterialModule { }

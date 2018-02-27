@@ -21,3 +21,6 @@
     max-height: 500px;
   }
   
+  .cell:hover{
+    background-color: gold;
+  }

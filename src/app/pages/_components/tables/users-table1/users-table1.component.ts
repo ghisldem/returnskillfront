@@ -26,10 +26,7 @@ import { User } from '../../../../models/user';
 export class UsersTable1Component implements OnInit {
 
   users: User[] ;
-  /*= 
-  [{id : 1, lastname : 'Ferrand', firstname : 'Julien' },
-  {id : 2, lastname : 'Dugrain', firstname : 'Rémi'}
-  ];*/
+
   displayedColumns = ['id', 'lastname', 'firstname'];
   dataSource;
 
@@ -41,9 +38,7 @@ export class UsersTable1Component implements OnInit {
     this.userService.getAll().subscribe(reponse => this.dataSource = new MatTableDataSource(this.users = reponse));
     setTimeout(() => {
       console.log(this.dataSource);
-    }, 3000);
-   
-  }
+    }, 3000); }
 
   ngOnInit() {
    this.getAllUsers();
