@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,ViewChild } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators, NgModel } from '@angular/forms';
 import { StudyLevel } from '../../../../models/study-level';
 import { Observable } from 'rxjs/Observable';
@@ -6,6 +6,8 @@ import { startWith } from 'rxjs/operators/startWith';
 import { map } from 'rxjs/operators/map';
 import { TrainingArea } from '../../../../models/training-area';
 import { Skill } from '../../../../models/Skill';
+import { MatChipInputEvent, MatInput } from '@angular/material';
+import { ENTER, COMMA } from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'app-training-form',
@@ -24,11 +26,20 @@ export class TrainingFormComponent implements OnInit {
       );
 
     this.trainingAreaControl = new FormControl();
-      this.filteredTrainingArea = this.trainingAreaControl.valueChanges
+    this.filteredTrainingArea = this.trainingAreaControl.valueChanges
       .pipe(
         startWith(''),
         map(trainingArea => trainingArea ? this.filterTrainingArea(trainingArea) : this.trainingAreaList.slice())
       );
+
+    // this.skillControl = new FormControl();
+    // this.filteredSkill = this.skillControl.valueChanges
+    //   .pipe(
+    //     startWith(''),
+    //     map(skill => skill ? this.filterTrainingArea(skill) : this.skillList.slice())
+    //   );
+
+    // this.retainedSkills = new Array<Skill>();
   }
 
   ngOnInit() {
@@ -55,25 +66,22 @@ export class TrainingFormComponent implements OnInit {
   }
 
 
-/*
- * input Autocomplete training aera
- */
+  /*
+   * input Autocomplete training aera
+   */
 
   @Input() trainingAreaList: TrainingArea[];
   trainingAreaControl: FormControl;
   filteredTrainingArea: Observable<any[]>;
 
   filterTrainingArea(name: string) {
-    console.log(name);
     return this.trainingAreaList.filter(trainingArea =>
       trainingArea.areaDescription.toLowerCase().indexOf(name.toLowerCase()) === 0);
   }
 
-/*
- * input Autocomplete skill
- */
-@Input() skillList: Skill[];
-
-
+  /*
+   * input Autocomplete skill
+   */
+  @Input() skillList: Skill[];
 
 }

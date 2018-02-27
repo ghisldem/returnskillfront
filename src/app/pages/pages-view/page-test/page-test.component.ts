@@ -41,6 +41,7 @@ export class PageTestComponent implements OnInit {
     this.getUsersList();
     this.getStudyLevelList();
     this.getTrainingAreaList();
+    this.getSkillList();
   }
 
 
