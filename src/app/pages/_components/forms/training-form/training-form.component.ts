@@ -104,7 +104,7 @@ export class TrainingFormComponent implements OnInit {
 
     // Add our skill
     if ((value || '').trim()) {
-      this.skillsRetained.push({ tag: value.trim() });
+      this.skillsRetained.push({ id:null,tag: value.trim(), description:null,type : null });
     }
 
     // Reset the input value
