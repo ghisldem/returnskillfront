@@ -1,4 +1,4 @@
-import { Component, OnInit, Input,ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators, NgModel } from '@angular/forms';
 import { StudyLevel } from '../../../../models/study-level';
 import { Observable } from 'rxjs/Observable';
@@ -32,12 +32,12 @@ export class TrainingFormComponent implements OnInit {
         map(trainingArea => trainingArea ? this.filterTrainingArea(trainingArea) : this.trainingAreaList.slice())
       );
 
-    // this.skillControl = new FormControl();
-    // this.filteredSkill = this.skillControl.valueChanges
-    //   .pipe(
-    //     startWith(''),
-    //     map(skill => skill ? this.filterTrainingArea(skill) : this.skillList.slice())
-    //   );
+    this.skillControl = new FormControl();
+    this.filteredSkill = this.skillControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(skill => skill ? this.filterSkill(skill) : this.skillList.slice())
+      );
 
     // this.retainedSkills = new Array<Skill>();
   }
@@ -79,9 +79,78 @@ export class TrainingFormComponent implements OnInit {
       trainingArea.areaDescription.toLowerCase().indexOf(name.toLowerCase()) === 0);
   }
 
+
+
+  /*
+   * chiplist skillsRetained
+   */
+  skillsRetained: Skill[] = [
+    { id: 4, description: 'allemand', tag: 'allemand', type: 'langue' },
+  ];
+
+  visible: boolean = true;
+  selectable: boolean = true;
+  removable: boolean = true;
+  addOnBlur: boolean = true;
+
+    // Enter, comma
+    separatorKeysCodes = [ENTER, COMMA];
+
+
+  add(event: MatChipInputEvent): void {
+    let input = event.input;
+    let value = event.value;
+    this.skillControl = new FormControl();
+
+    // Add our skill
+    if ((value || '').trim()) {
+      this.skillsRetained.push({ tag: value.trim() });
+    }
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+
+    // chipList visible
+    if (this.skillsRetained.length === 0) {
+      this.visible = false;
+    } else {
+      this.visible = true;
+    }
+  }
+
+
+  remove(skill: any): void {
+    let index = this.skillsRetained.indexOf(skill);
+
+    if (index >= 0) {
+      this.skillsRetained.splice(index, 1);
+    }
+    // chipList visible
+    if (this.skillsRetained.length === 0) {
+      this.visible = false;
+    } else {
+      this.visible = true;
+    }
+  }
+
+
+
+
   /*
    * input Autocomplete skill
    */
   @Input() skillList: Skill[];
+  skillControl: FormControl;
+  filteredSkill: Observable<any[]>;
+
+  filterSkill(name: string) {
+    return this.skillList.filter(skill =>
+      skill.tag.toLowerCase().indexOf(name.toLowerCase()) === 0);
+  }
+
+
+
 
 }
