@@ -37,7 +37,14 @@
         </div>
         <div *ngIf="trainingType == 1">
           <mat-form-field>
-            <input matInput placeholder="Année" type="year" maxlength="4">
+            <input matInput placeholder="periode en année, selon modèle (2017/2018)" type="text" maxlength="9" [formControl]="dateFormControl"
+            [errorStateMatcher]="matcher">
+            <mat-error *ngIf="dateFormControl.hasError('pattern') && !dateFormControl.hasError('required')">
+              La période entrée est invalide
+            </mat-error>
+            <mat-error *ngIf="dateFormControl.hasError('required')">
+              la période est <strong>requise</strong>
+            </mat-error>
           </mat-form-field>
         </div>
       </div>

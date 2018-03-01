@@ -8,6 +8,9 @@ import { TrainingArea } from '../../../../models/training-area';
 import { Skill } from '../../../../models/Skill';
 import { MatChipInputEvent, MatInput } from '@angular/material';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
+import {ErrorStateMatcher} from '@angular/material/core';
+
+
 
 @Component({
   selector: 'app-training-form',
@@ -44,6 +47,20 @@ export class TrainingFormComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  /*
+   * error on date value
+   */
+  dateFormControl = new FormControl('', [
+    Validators.required,
+    Validators.pattern('(19|20)[0-9]{2}\/(19|20)[0-9]{2}')
+    /*
+    (19|20)\d{2}\/(19|20)\d{2}
+    */
+  ]);
+
+  matcher = new MyErrorStateMatcher();
+
 
   /*
    * radiobox (option)  training type
@@ -150,7 +167,12 @@ export class TrainingFormComponent implements OnInit {
       skill.tag.toLowerCase().indexOf(name.toLowerCase()) === 0);
   }
 
+}
 
 
-
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
 }
