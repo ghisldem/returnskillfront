@@ -17,7 +17,6 @@ listTrainingArea :  Array<TrainingArea>;
    }
 
    getAll(){
-     console.log(this.listTrainingArea);
      return this.listTrainingArea;
    }
 

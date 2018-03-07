@@ -20,7 +20,7 @@ export class UserComponent implements OnInit {
   }
 
   getAllUsers() {
-    this.userService.getAll().subscribe(reponse => console.log(this.users = reponse));
+    this.userService.getAll().subscribe(reponse => this.users = reponse);
   }
 
   ngOnInit() {

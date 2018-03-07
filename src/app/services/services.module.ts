@@ -14,6 +14,7 @@ import { SkillService } from './data/skill.service';
 import { ChangeColorDirective } from './utils/directives/change-color.directive';
 import { LoadDataDirective } from './utils/directives/load-data.directive';
 import { CapitalizeFirstPipe } from './utils/pipes/capitalize-first.pipe';
+import { AddSearchBarDirective } from './utils/directives/add-search-bar.directive';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { CapitalizeFirstPipe } from './utils/pipes/capitalize-first.pipe';
   declarations: [
     ChangeColorDirective,
     LoadDataDirective,
-    CapitalizeFirstPipe
+    CapitalizeFirstPipe,
+    AddSearchBarDirective
   ],
 
   providers: [

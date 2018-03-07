@@ -14,11 +14,11 @@ import { MatSlideToggleModule, MatFormFieldModule, MatAutocompleteModule } from 
 import { MatInputModule, MatSelectModule, MatRadioModule, MatCheckboxModule } from '@angular/material';
 import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
-/*buttons*/
+/*buttons and indicators*/
 import { MatButtonModule,MatChipsModule,MatIconModule } from '@angular/material';
-
+import {MatProgressSpinnerModule} from '@angular/material';
 /*tables*/
-import { MatTableModule } from '@angular/material';
+import { MatTableModule, MatSortModule } from '@angular/material';
 
 /*layout*/
 import { MatCardModule, MatDividerModule } from '@angular/material';
@@ -49,7 +49,9 @@ import {} from '@angular/material';
         MatDatepickerModule,
         MatNativeDateModule,
         MatChipsModule,
-        MatIconModule
+        MatIconModule,
+        MatProgressSpinnerModule,
+        MatSortModule
     ],
     exports: [
         MatTableModule,
@@ -68,7 +70,9 @@ import {} from '@angular/material';
         MatDatepickerModule,
         MatNativeDateModule,
         MatChipsModule,
-        MatIconModule
+        MatIconModule,
+        MatProgressSpinnerModule,
+        MatSortModule
     ]
 })
 export class MaterialModule { }

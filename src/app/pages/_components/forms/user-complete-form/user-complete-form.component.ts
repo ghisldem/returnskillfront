@@ -33,12 +33,10 @@ export class UserCompleteFormComponent implements OnInit {
   }
 
   getUserById() {
-    this.userService.get(2).subscribe(reponse => console.log(this.user = reponse));
+    this.userService.get(2).subscribe(reponse => this.user = reponse);
   }
 
   update(){
-    console.log("contenu à la validation");
-    console.log(this.user);
     this.userService.update(this.user).subscribe(reponse => this.user=reponse);
   }
 
@@ -50,7 +48,6 @@ export class UserCompleteFormComponent implements OnInit {
     this.getAllUsers();
     this.getUserById();
   }
-
 
 }
 

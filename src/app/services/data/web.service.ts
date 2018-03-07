@@ -23,7 +23,6 @@ export class WebService {
     const bodyString = JSON.stringify(body);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    console.log(this.http.post(this.url + type, bodyString, options).map(r => r.json()));
     return this.http.post(this.url + type, bodyString, options).map(r => r.json());
 
   }
@@ -36,8 +35,6 @@ export class WebService {
     const bodyString = JSON.stringify(body);
     const headers = new Headers({ 'access-control-allow-credentials' : 'true','Access-Control-Allow-Origin': 'http://localhost:4200','content-type': 'application/json; charset=utf-8'});
     const options = new RequestOptions({headers: headers});
-    console.log ("url : " + this.url + type);
-    console.log ("body : " + bodyString);
 
     return this.http.put(this.url + type, bodyString,options).map(r => r.json());
   }

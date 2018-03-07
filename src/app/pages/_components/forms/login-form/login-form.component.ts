@@ -22,7 +22,7 @@ export class LoginFormComponent implements OnInit {
   if (username === 'admin' && password === 'password') {
     this.router.navigate(['users-table1']);
   }
-  console.log(username, password);
+ 
   }
 
 }
