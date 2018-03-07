@@ -43,6 +43,7 @@ import { SkillFormComponent } from './_components/forms/skill-form/skill-form.co
  */
 import { PageTestComponent } from './pages-view/page-test/page-test.component';
 import { TrainingFormComponent } from './_components/forms/training-form/training-form.component';
+import {ExperienceFormComponent} from './_components/forms/experience-form/experience-form.component'
 
 
 
@@ -75,6 +76,7 @@ import { TrainingFormComponent } from './_components/forms/training-form/trainin
     LoginFormComponent,
     TestViewComponent,
     SkillFormComponent,
+    ExperienceFormComponent,
 
 
 
