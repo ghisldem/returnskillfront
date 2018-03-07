@@ -1,0 +1,12 @@
+.entreprise-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .entreprise-container > * {
+    width: 30%;
+  }
+
+.iconsDelete{
+  float: right;
+}
