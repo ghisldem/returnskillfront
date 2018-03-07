@@ -14,7 +14,7 @@ export class ExperienceFormComponent implements OnInit {
     this.options = fb.group({
       'color': 'primary'
     });
-  }
+  } 
 
   ngOnInit() {
   }
