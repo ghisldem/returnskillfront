@@ -2,6 +2,15 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 
 import { MatPaginator, MatSort, MatTableDataSource, MatInputModule } from '@angular/material';
 
+import {Observable} from 'rxjs/Observable'
+import {merge} from 'rxjs/observable/merge';
+import {of as observableOf} from 'rxjs/observable/of';
+import {catchError} from 'rxjs/operators/catchError';
+import {map} from 'rxjs/operators/map';
+import {startWith} from 'rxjs/operators/startWith';
+import {switchMap} from 'rxjs/operators/switchMap';
+
+
 @Component({
   selector: 'app-generic-table',
   templateUrl: './generic-table.component.html',
@@ -10,12 +19,19 @@ import { MatPaginator, MatSort, MatTableDataSource, MatInputModule } from '@angu
 
 export class GenericTableComponent implements OnInit {
 
-  @Input() dataTable: any[];
+  @Input() observableDataTable : Observable<any[]>
   @Input() columnsData: Array<[string, string]>;
+  @Input() actions : boolean = false;
 
+  
+  searchBarVisible :  boolean =  false;
+  dataTable: any[];
   displayColumns: Column[];
   displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
-  dataSource;
+  displayedColumnsAndActions : String [];
+  dataSource = new MatTableDataSource();
+
+  
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -28,11 +44,12 @@ export class GenericTableComponent implements OnInit {
 
     this.updateDisplayedColumns();
     this.updateColumns();
-    this.dataSource = new MatTableDataSource(this.dataTable);
-    setTimeout(() => {
-      this.dataSource = new MatTableDataSource(this.dataTable);
-      this.ngAfterViewInit();
-    }, 2000);
+    this.observableDataTable.subscribe(data => {
+ 
+      this.dataSource.data = data;
+      this.ngAfterViewInit;
+    });
+
   }
 
   /** 
@@ -40,10 +57,20 @@ export class GenericTableComponent implements OnInit {
   */
   updateDisplayedColumns() {
     const tabProperty: string[] = [];
+    const tabProperty2: string[] = [];
     for (const infoColumn of this.columnsData) {
       tabProperty.push(infoColumn[0]);
+      tabProperty2.push(infoColumn[0]);
     }
-    this.displayedColumns = tabProperty;
+
+    if (this.actions){ 
+      this.displayedColumnsAndActions = tabProperty2;
+      this.displayedColumnsAndActions.push('actionsColumn');
+    } else{
+      this.displayedColumns = tabProperty;
+      this.displayedColumnsAndActions =this.displayedColumns;
+        }
+
   }
 
   updateColumns(){
@@ -67,16 +94,38 @@ export class GenericTableComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
+
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
 
+  /**
+   * function display search bar
+   */
+
+   onClickDisplaySearchBar(){
+    if (this.searchBarVisible){
+this.searchBarVisible = false;
+    }else{
+      this.searchBarVisible = true;
+          }
+
+   }
+
+
 }
+
+
+
+
 class Column {
   nameProperty: string;
   nameTitle: String;
 }
+
+
+
 
 
 

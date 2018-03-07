@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
  * components
  */
 import { } from '../../_components/forms/login-form';
+import {Observable} from "rxjs/Observable";
 
 /*
  * models
@@ -50,17 +51,21 @@ export class PageTestComponent implements OnInit {
   /*
    *display tab users
    */
+  observavleUserList : Observable<any[]>;
   usersList: User[];
   COLUMNSTABLE: Array<[string, string]> = [
     ['id', 'Id'],
     ['firstname', 'Prénom'],
     ['lastname', 'Nom'],
     ['email', 'Email'],
+    
     // ['phoneNumber', 'num tel']
   ];
 
   getUsersList() {
-    this.userService.getAll().subscribe(reponse => this.usersList = reponse);
+    
+    this.observavleUserList = this.userService.getAll()
+    this.observavleUserList.subscribe(reponse => this.usersList = reponse);
   }
 
 

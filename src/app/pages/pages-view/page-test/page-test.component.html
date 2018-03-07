@@ -5,6 +5,6 @@
 <app-user-complete-form></app-user-complete-form>
 <app-login-form></app-login-form>
 <app-training-form [studyLevelList] = "studyLevelList" [trainingAreaList] = "trainingAreaList" [skillList]="skillList"></app-training-form>
-<app-generic-table [dataTable] = "usersList" [columnsData] = "COLUMNSTABLE"></app-generic-table>
+<app-generic-table [observableDataTable] = "observavleUserList" [columnsData] = "COLUMNSTABLE" [actions] = "true"></app-generic-table>
 <app-users-table1></app-users-table1>
 <app-footer></app-footer>

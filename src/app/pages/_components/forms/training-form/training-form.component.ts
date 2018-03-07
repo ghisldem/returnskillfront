@@ -54,9 +54,6 @@ export class TrainingFormComponent implements OnInit {
   dateFormControl = new FormControl('', [
     Validators.required,
     Validators.pattern('(19|20)[0-9]{2}\/(19|20)[0-9]{2}')
-    /*
-    (19|20)\d{2}\/(19|20)\d{2}
-    */
   ]);
 
   matcher = new MyErrorStateMatcher();

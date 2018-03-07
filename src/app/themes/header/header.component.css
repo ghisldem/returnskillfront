@@ -17,5 +17,14 @@ header{
 .logo{
   height: 30px;
 }
+.logo-returnskill{
+  height: 40px;
+}
+
+
+.site-header-inner{
+  display : flex;
+  align-items: center;
+}
 
 

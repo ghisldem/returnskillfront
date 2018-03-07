@@ -36,9 +36,7 @@ export class UsersTable1Component implements OnInit {
 
   getAllUsers() {
     this.userService.getAll().subscribe(reponse => this.dataSource = new MatTableDataSource(this.users = reponse));
-    setTimeout(() => {
-      console.log(this.dataSource);
-    }, 3000); }
+ }
 
   ngOnInit() {
    this.getAllUsers();
