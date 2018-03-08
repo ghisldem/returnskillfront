@@ -1,5 +1,7 @@
+import { MaterialModule } from './../../../material.module';
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup, FormBuilder, Validators} from '@angular/forms';
+
 
 @Component({
   selector: 'app-experience-form',
@@ -16,6 +18,7 @@ export class ExperienceFormComponent implements OnInit {
     });
   } 
 
+
   ngOnInit() {
   }
 
@@ -23,6 +26,7 @@ export class ExperienceFormComponent implements OnInit {
     return this.entreprise.hasError('required') ? 'Vous devez renseigner ce champs' :
         this.entreprise.hasError('entreprise') ? 'Entrez le nom de votre entreprise' :
             '';
+
   }
 
 }

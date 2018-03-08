@@ -1,3 +1,4 @@
+import { RegisterFormComponent } from './_components/forms/register-form/register-form.component';
 /*
  * Modules
  */
@@ -87,6 +88,7 @@ const PAGES_COMPONENTS = [
     SkillFormComponent,
     ExperienceFormComponent,
     TrainingFormComponent,
+    RegisterFormComponent,
 
 
 
