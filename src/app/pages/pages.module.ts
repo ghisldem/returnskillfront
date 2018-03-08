@@ -24,6 +24,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { ConsultingModule } from './pages-view/consulting/consulting.module';
 import { ManagerModule } from './pages-view/manager/manager.module';
+import { AdministratorModule } from './pages-view/administrator/administrator.module';
 
 /*
  * services
@@ -75,6 +76,7 @@ const PAGES_COMPONENTS = [
  */
     ConsultingModule,
     ManagerModule,
+    AdministratorModule,
   ],
 
   declarations: [

@@ -27,6 +27,10 @@ const routes: Routes = [{
             loadChildren: './pages-view/manager/manager.module#ManagerModule',
           },
           {
+            path: 'administrator',
+            loadChildren: './pages-view/administrator/administrator.module#AdministratorModule',
+          },
+          {
             path: '',
             redirectTo: 'home',
             pathMatch: 'full',
