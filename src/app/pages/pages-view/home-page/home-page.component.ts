@@ -1,5 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {Router} from '@angular/router';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-home-page',
@@ -15,13 +17,15 @@ export class HomePageComponent implements OnInit {
 
   openRegisterForm() {
     const dialogRef = this.dialog.open(RegisterFormDialog, {
-      height: '350px'
+      height: '400px',
+      width: '280px'
     });
 
   }
   openLoginForm() {
     const dialogRef = this.dialog.open(LoginFormDialog, {
-      height: '350px'
+      height: '400px',
+      width: '280px'
     });
 
   }
@@ -35,12 +39,78 @@ export class HomePageComponent implements OnInit {
   templateUrl: '../../_components/forms/login-form/login-form.component.html',
 })
 export class LoginFormDialog {
+  email = new FormControl('', [Validators.required, Validators.email]);
+ 
+  
+  constructor(private router: Router) { 
+  }
+
+  ngOnInit() {
+  }
+
+  loginUser(e) {
+    e.preventDefault();
+    console.log(e);
+  let username = e.target.elements[0].value;
+  let password = e.target.elements[1].value;
+
+  if (username === 'admin' && password === 'password') {
+    this.router.navigate(['users-table1']);
+  }
+ 
+  }
+
+  getErrorMessageEmail() {
+    return this.email.hasError('required') ? 'Vous devez renseigner ce champs' :
+        this.email.hasError('email') ? 'Entrez un Email valide' :
+            '';
+
+  }
 }
 
 
 @Component({
   selector: 'app-home-page-register-dialog',
-  templateUrl: '../../_components/forms/login-form/login-form.component.html',
+  templateUrl: '../../_components/forms/register-form/register-form.component.html',
 })
 export class RegisterFormDialog {
+  email = new FormControl('', [Validators.required, Validators.email]);
+  motDePasse = new FormControl('', [Validators.required, Validators.email]);
+  confMotDePasse= new FormControl('', [Validators.required, Validators.email]);
+  constructor(private router: Router) { }
+
+  ngOnInit() {
+  }
+
+  loginUser(e) {
+    e.preventDefault();
+    console.log(e);
+  let username = e.target.elements[0].value;
+  let password = e.target.elements[1].value;
+
+  if (username === 'admin' && password === 'password') {
+    this.router.navigate(['users-table1']);
+  }
+ 
+  }
+
+  getErrorMessageEmail() {
+    return this.email.hasError('required') ? 'Vous devez renseigner ce champs' :
+        this.email.hasError('email') ? 'Entrez un Email valide' :
+            '';
+
+  }
+  getErrorMessageMotDePasse() {
+    return this.motDePasse.hasError('required') ? 'Vous devez renseigner ce champs' :
+        this.motDePasse.hasError('motDePasse') ? 'Entrez un mot de passe valide' :
+            '';
+
+  }
+  getErrorMessageConfMotDePasse() {
+    return this.confMotDePasse.hasError('required') ? 'Vous devez renseigner ce champs' :
+        this.confMotDePasse.hasError('confMotDePasse') ? 'Confirmer votre mot de passe' :
+            '';
+
+  }
+  
 }

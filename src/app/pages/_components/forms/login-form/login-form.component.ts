@@ -1,14 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+//import { MaterialModule } from './../../../material.module';
 import {Router} from '@angular/router';
+import {FormControl, Validators} from '@angular/forms';
+
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-export class LoginFormComponent implements OnInit {
 
-  constructor(private router: Router) { }
+export class LoginFormComponent implements OnInit {
+  email = new FormControl('', [Validators.required, Validators.email]);
+ 
+  
+  constructor(private router: Router) { 
+  }
 
   ngOnInit() {
   }
@@ -24,5 +31,13 @@ export class LoginFormComponent implements OnInit {
   }
  
   }
+
+  getErrorMessageEmail() {
+    return this.email.hasError('required') ? 'Vous devez renseigner ce champs' :
+        this.email.hasError('email') ? 'Entrez un Email valide' :
+            '';
+
+  }
+  
 
 }

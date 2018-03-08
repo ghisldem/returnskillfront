@@ -1,29 +1,32 @@
-:host {
-  flex-grow: 1;
+.mat-card{
+  width: 250px;
+}
+
+.example-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 
-div.input {
-  position: relative;
+.example-container > * {
+  width: 100%;
 }
 
-div.input label {
-  position: absolute;
-  top: 0;
-  transform: translateY(-50%);
-  left: 10px;
-  background: white;
-  padding: 5px 2px;
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
 }
 
-div.input input {
-  padding: 10px 20px;
-  font-size: 25px;
-  outline: 0;
-}
 
-div.input {
-  margin-top: 20px;
-}
+
+
+
+
+
+

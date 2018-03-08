@@ -28,16 +28,22 @@
               <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
               <mat-datepicker #picker2></mat-datepicker>
             </mat-form-field>
-            <i class="material-icons iconsDelete">delete</i>
+           
+              <mat-card-actions>
+                <button md-button class="iconsDelete"  (click)="deleteMe">
+                    <i class="material-icons iconsDelete">delete</i>DELETE
+                </button>
+              </mat-card-actions>
+        
+           <!-- <i class="material-icons iconsDelete">delete</i>
+          <i class="material-icons iconsDelete">create</i>
+        -->
+            
           </div>
         </div>
          
-        
-        
-          <!--<fa name="trash-alt" size="4px"></fa>-->
+      
           
-        
-
         <div class="entreprise-container">
           <mat-form-field>
             <input matInput placeholder="Entrez le nom de votre Entreprise" [formControl]="entreprise" required>
