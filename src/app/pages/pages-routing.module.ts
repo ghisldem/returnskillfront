@@ -23,6 +23,10 @@ const routes: Routes = [{
             loadChildren: './pages-view/consulting/consulting.module#ConsultingModule',
           },
           {
+            path: 'manager',
+            loadChildren: './pages-view/manager/manager.module#ManagerModule',
+          },
+          {
             path: '',
             redirectTo: 'home',
             pathMatch: 'full',

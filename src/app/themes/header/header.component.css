@@ -27,4 +27,18 @@ header{
   align-items: center;
 }
 
+.project-name{
+font : 1.2em bold ;
+font-family: "ResoLight";
+color : white;
+margin: 0px 10px 0px 0px;
+vertical-align: bottom;
+}
 
+.title-by{
+  font : 0.8em bold ;
+font-family: "ResoLight";
+color : white;
+margin: 0px 10px 0px 0px;
+vertical-align: bottom;
+}

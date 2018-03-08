@@ -1,25 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ConsultingComponent } from '../consulting/consulting.component';
+import { ManagerComponent } from '../manager/manager.component';
 
 /**
  * sub pages
  */
 import { HomeComponent } from './home/home.component';
-import { TrainingComponent } from './training/training.component';
 
 
 const routes: Routes = [{
   path: '',
-  component: ConsultingComponent,
+  component: ManagerComponent,
             children: [{
               path: 'home',
               component: HomeComponent,
-            }, {
-              path: 'training',
-              component: TrainingComponent,
-            },
+            }, 
             {
               path: '',
               redirectTo: 'home',
@@ -35,12 +31,11 @@ const routes: Routes = [{
     RouterModule,
   ],
 })
-export class ConsultingRoutingModule {
+export class ManagerRoutingModule {
 
 }
 
 export const routedComponents = [
-    ConsultingComponent,
+    ManagerComponent,
     HomeComponent,
-    TrainingComponent,
 ];

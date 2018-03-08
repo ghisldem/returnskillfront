@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemesModule } from '../themes/themes.module';
 import { ServicesModule } from '../services/services.module';
-import {ConsultingModule} from './pages-view/consulting/consulting.module';
 
 import { MaterialModule } from './material.module';
 
@@ -19,6 +18,12 @@ import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
+/**
+ * Modules - pages
+ */
+
+import { ConsultingModule } from './pages-view/consulting/consulting.module';
+import { ManagerModule } from './pages-view/manager/manager.module';
 
 /*
  * services
@@ -69,6 +74,7 @@ const PAGES_COMPONENTS = [
  * modules pages
  */
     ConsultingModule,
+    ManagerModule,
   ],
 
   declarations: [
@@ -87,8 +93,6 @@ const PAGES_COMPONENTS = [
     SkillFormComponent,
     ExperienceFormComponent,
     TrainingFormComponent,
-
-
 
     /*
      *pages
