@@ -3,29 +3,30 @@ import { NgModule } from '@angular/core';
 
 import { PageTestComponent } from './pages-view/page-test/page-test.component';
 import { HomePageComponent } from './pages-view/home-page/home-page.component';
+import { PagesComponent } from './pages.component';
+
+
 
 const routes: Routes = [{
   path: '',
-  // component: PagesComponent,
-  children: [{
-    path: 'test',
-    component: PageTestComponent
-  },
-  {
-    path: 'home',
-    component: HomePageComponent
-  },
-  {
-    path: 'consulting',
-    loadChildren: './consulting/consulting.module#ConsultingModule',
-  },
-
-
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-  }]
+  component: PagesComponent,
+          children: [{
+            path: 'test',
+            component: PageTestComponent
+          },
+          {
+            path: 'home',
+            component: HomePageComponent
+          },
+          {
+            path: 'consulting',
+            loadChildren: './pages-view/consulting/consulting.module#ConsultingModule',
+          },
+          {
+            path: '',
+            redirectTo: 'home',
+            pathMatch: 'full',
+          }],
 }];
 
 @NgModule({

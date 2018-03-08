@@ -28,6 +28,7 @@ import { UserService } from '../services/data/user.service';
 /*
  * components
  */
+import { PagesComponent } from './pages.component';
 import { UserCompleteFormComponent } from './_components/forms/user-complete-form/user-complete-form.component';
 import { UserComponent } from './user/user.component';
 import { UsersTable1Component } from './_components/tables/users-table1/users-table1.component';
@@ -47,7 +48,9 @@ import { PageTestComponent } from './pages-view/page-test/page-test.component';
 import { HomePageComponent, LoginFormDialog, RegisterFormDialog } from './pages-view/home-page/home-page.component';
 
 
-
+const PAGES_COMPONENTS = [
+  PagesComponent,
+];
 
 @NgModule({
   imports: [
@@ -61,11 +64,15 @@ import { HomePageComponent, LoginFormDialog, RegisterFormDialog } from './pages-
     PagesRoutingModule,
     ThemesModule,
     MaterialModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+/**
+ * modules pages
+ */
+    ConsultingModule,
   ],
 
   declarations: [
-
+    ...PAGES_COMPONENTS,
     /*
      * components
      */

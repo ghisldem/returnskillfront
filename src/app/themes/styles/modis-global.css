@@ -2,6 +2,12 @@ html{
   font-family: Roboto,"Helvetica Neue",sans-serif;
 }
 
+@font-face {
+  font-family: 'ResoLight';
+  src: url("/assets/font/34A32A_2_eot.eot");
+  src: url("/assets/font/34A32A_2_eot.eot?#iefix") format("embedded-opentype"), url("/assets/font/34A32A_2_woff.woff") format("woff"), url("/assets/font/34A32A_2_ttf.ttf") format("truetype");
+}
+
 /*****************************************************
 * css - components 
 ******************************************************/

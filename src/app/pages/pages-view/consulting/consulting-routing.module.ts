@@ -12,14 +12,19 @@ import { TrainingComponent } from './training/training.component';
 
 const routes: Routes = [{
   path: '',
-  component: HomeComponent,
-  children: [{
-    path: 'home',
-    component: HomeComponent,
-  }, {
-    path: 'training',
-    component: TrainingComponent,
-  }],
+  component: ConsultingComponent,
+            children: [{
+              path: 'homeYOOO',
+              component: HomeComponent,
+            }, {
+              path: 'training',
+              component: TrainingComponent,
+            },
+            {
+              path: '',
+              redirectTo: 'training',
+              pathMatch: 'full',
+            }],
 }];
 
 @NgModule({
