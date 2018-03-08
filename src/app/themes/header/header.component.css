@@ -1,17 +1,28 @@
-header{
-  background: #373A36;
+.site-header{
 
-  height : 50px;
+  background: #373A36;
   line-height: 25px;
 
+  height : 60px;
+  min-height: 60px;
+  max-height: 60px;
+
   text-align: left;
+  vertical-align: middle;
 
   padding: 20px 0;
   font-size: 30px;
   border-bottom: 2px solid #eee;
 
- /* position: fixed;
-  z-index: 1000;*/
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+
+}
+.behind-element{
+  height : 100px;
+  min-height: 100px;
+  max-height: 100px;
 }
 
 .logo{
@@ -25,6 +36,39 @@ header{
 .site-header-inner{
   display : flex;
   align-items: center;
+  justify-content: space-around;
 }
+
+.element-header-line1{
+  display : flex;
+  align-items: center;
+  
+}
+
+#home, #returnskills {
+  text-decoration: none;
+  color: white;
+}
+#home:hover, #returnskills:hover{
+  color: #FF4081;
+}
+
+
+.project-name{
+font : 1.2em bold ;
+font-family: "ResoLight";
+color : white;
+margin: 0px 10px 0px 0px;
+vertical-align: bottom;
+}
+
+.title-by{
+  font : 0.8em bold ;
+font-family: "ResoLight";
+color : white;
+margin: 0px 10px 0px 0px;
+vertical-align: bottom;
+}
+
 
 
