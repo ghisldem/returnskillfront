@@ -7,7 +7,10 @@ import { CommonModule } from '@angular/common';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+/**
+ * navigation
+ */
+import {MatMenuModule} from '@angular/material';
 
 /*forms*/
 import { MatSlideToggleModule, MatFormFieldModule, MatAutocompleteModule } from '@angular/material';
@@ -24,7 +27,7 @@ import { MatTableModule, MatSortModule } from '@angular/material';
 import { MatCardModule, MatDividerModule } from '@angular/material';
 
 /*popup modals*/
-import { MatTooltipModule } from '@angular/material';
+import { MatTooltipModule, MatDialogModule} from '@angular/material';
 
 
 /*directives*/
@@ -51,7 +54,9 @@ import {} from '@angular/material';
         MatChipsModule,
         MatIconModule,
         MatProgressSpinnerModule,
-        MatSortModule
+        MatSortModule,
+        MatDialogModule,
+        MatMenuModule
     ],
     exports: [
         MatTableModule,
@@ -72,7 +77,9 @@ import {} from '@angular/material';
         MatChipsModule,
         MatIconModule,
         MatProgressSpinnerModule,
-        MatSortModule
+        MatSortModule,
+        MatDialogModule,
+        MatMenuModule
     ]
 })
 export class MaterialModule { }
