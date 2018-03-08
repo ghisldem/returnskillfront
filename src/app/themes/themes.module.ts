@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
  */
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { MaterialModule } from '../pages/material.module';
 
 /*
  * components
@@ -17,6 +18,7 @@ import { MenuComponent } from './menu/menu.component';
 @NgModule({
   imports: [
     AngularFontAwesomeModule,
+    MaterialModule
 
   ],
   declarations: [
