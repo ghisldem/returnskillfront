@@ -1,8 +1,8 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { PageTestComponent } from './pages-view/page-test/page-test.component'
-
+import { PageTestComponent } from './pages-view/page-test/page-test.component';
+import { HomePageComponent } from './pages-view/home-page/home-page.component';
 
 const routes: Routes = [{
   path: '',
@@ -12,8 +12,18 @@ const routes: Routes = [{
     component: PageTestComponent
   },
   {
+    path: 'home',
+    component: HomePageComponent
+  },
+  {
+    path: 'consulting',
+    loadChildren: './consulting/consulting.module#ConsultingModule',
+  },
+
+
+  {
     path: '',
-    redirectTo: 'test',
+    redirectTo: 'home',
     pathMatch: 'full',
   }]
 }];

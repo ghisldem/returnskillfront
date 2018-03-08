@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 /*
  * components
  */
-import {FooterComponent} from './footer/footer.component'
-import {HeaderComponent} from './header/header.component'
+import {FooterComponent} from './footer/footer.component';
+import {HeaderComponent} from './header/header.component';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -13,14 +14,16 @@ import {HeaderComponent} from './header/header.component'
   ],
   declarations: [
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    MenuComponent
   ],
   providers: [
 
   ],
   exports : [
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    MenuComponent
 
   ]
 })

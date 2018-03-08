@@ -8,8 +8,9 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemesModule } from '../themes/themes.module';
 import { ServicesModule } from '../services/services.module';
+import {ConsultingModule} from './pages-view/consulting/consulting.module';
 
-import {MaterialModule} from './material.module';
+import { MaterialModule } from './material.module';
 
 /*
  * Modules material/animation/font
@@ -36,14 +37,15 @@ import { GenTableExampleComponent } from './_components/tables/gen-table-example
 import { LoginFormComponent } from './_components/forms/login-form/login-form.component';
 import { TestViewComponent } from './_components/test/test-view/test-view.component';
 import { SkillFormComponent } from './_components/forms/skill-form/skill-form.component';
-
+import { TrainingFormComponent } from './_components/forms/training-form/training-form.component';
+import { ExperienceFormComponent } from './_components/forms/experience-form/experience-form.component';
 
 /*
  * components - pages
  */
 import { PageTestComponent } from './pages-view/page-test/page-test.component';
-import { TrainingFormComponent } from './_components/forms/training-form/training-form.component';
-import {ExperienceFormComponent} from './_components/forms/experience-form/experience-form.component'
+import { HomePageComponent, LoginFormDialog, RegisterFormDialog } from './pages-view/home-page/home-page.component';
+
 
 
 
@@ -77,6 +79,7 @@ import {ExperienceFormComponent} from './_components/forms/experience-form/exper
     TestViewComponent,
     SkillFormComponent,
     ExperienceFormComponent,
+    TrainingFormComponent,
 
 
 
@@ -84,13 +87,20 @@ import {ExperienceFormComponent} from './_components/forms/experience-form/exper
      *pages
      */
     PageTestComponent,
+    HomePageComponent,
 
+    /**
+     * dialogs
+     */
+    LoginFormDialog,
+    RegisterFormDialog,
 
-
-    TrainingFormComponent,
   ],
   providers: [
     UserService
+  ],
+  entryComponents: [
+    LoginFormDialog, HomePageComponent, RegisterFormDialog
   ],
   exports: [
 
