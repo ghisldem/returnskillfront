@@ -1,6 +1,12 @@
 import { NgModule } from '@angular/core';
 
 /*
+ * Modules material/animation/font
+ */
+
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+/*
  * components
  */
 import {FooterComponent} from './footer/footer.component';
@@ -10,6 +16,7 @@ import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   imports: [
+    AngularFontAwesomeModule,
 
   ],
   declarations: [
