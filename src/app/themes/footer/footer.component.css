@@ -1,0 +1,88 @@
+
+
+.footer__top .footer-links a {
+    color: #FFFFFF;
+    
+    width: 100%;
+    text-decoration:none; 
+}
+
+.footer__top .footer-links a:HOVER {
+    color: #e89f00;
+    text-decoration: none;
+}
+
+  /* line 58, ../sass/brand/_footer.scss */
+  .page-footer .links {
+    margin-top: 0.5rem;
+  }
+  /* line 60, ../sass/brand/_footer.scss */
+  .page-footer .links a {
+    font-size: 1rem;
+    color: white;
+    font-family: ResoLight,sans-serif;
+  }
+  /* line 65, ../sass/brand/_footer.scss */
+  .page-footer .links a:hover, .p, .page-footer .links a:focus {
+    color: white;
+  }
+  /* line 69, ../sass/brand/_footer.scss */
+  .page-footer .links ul {
+    padding: 0;
+    margin: 15px 0 0;
+    list-style: none;
+  }
+  /* line 73, ../sass/brand/_footer.scss */
+  .page-footer .links ul li {
+    padding-left: 0;
+    margin-bottom: 10px;
+  }
+  /* line 76, ../sass/brand/_footer.scss */
+  .page-footer .links ul li a {
+    color: #b2b2b2;
+    text-decoration:none; 
+  }
+  /* line 79, ../sass/brand/_footer.scss */
+  .page-footer .links ul li a:hover, .page-footer .links ul li a:focus {
+    text-decoration:none; 
+    color: white;
+  }
+
+  .flexBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 150px;
+    align-items: center;
+  }
+
+  .socialicon {
+    text-decoration:none; 
+    color: #b2b2b2;
+  }
+
+  .row-socialicon {
+    text-decoration:none; 
+    color: #b2b2b2;
+    padding: 15px 15px 15px 15px;
+  }
+
+
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #394448;
+  }
+  .page-footer .footer__top {
+    padding: 30px 0;
+    background: #394448;
+  }
+
+
+
+
+
+
