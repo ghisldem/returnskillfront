@@ -118,7 +118,7 @@ const PAGES_COMPONENTS = [
     LoginFormDialog, HomePageComponent, RegisterFormDialog
   ],
   exports: [
-
+    GenericTableComponent,
   ]
 })
 export class PagesModule { }

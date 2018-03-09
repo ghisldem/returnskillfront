@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 import {FormControl, Validators} from '@angular/forms';
 import { User } from '../../../models/user';
 import { UserService } from '../../../services/data/user.service';
+import {Observable} from "rxjs/Observable";
+
 
 @Component({
   selector: 'app-home-page',
@@ -12,9 +14,10 @@ import { UserService } from '../../../services/data/user.service';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private userService : UserService) {}
 
   ngOnInit() {
+    this.getUsersList();
   }
 
   openRegisterForm() {
@@ -30,6 +33,26 @@ export class HomePageComponent implements OnInit {
       width: '500px'
     });
 
+  }
+
+    /*
+   *display tab users
+   */
+  observavleUserList : Observable<any[]>;
+  usersList: User[];
+  COLUMNSTABLE: Array<[string, string]> = [
+    ['id', 'Id'],
+    ['firstname', 'Prénom'],
+    ['lastname', 'Nom'],
+    ['email', 'Email'],
+    
+    // ['phoneNumber', 'num tel']
+  ];
+
+  getUsersList() {
+    
+    this.observavleUserList = this.userService.getAll()
+    this.observavleUserList.subscribe(reponse => this.usersList = reponse);
   }
 
 }
