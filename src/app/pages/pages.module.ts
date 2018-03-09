@@ -119,6 +119,8 @@ const PAGES_COMPONENTS = [
   ],
   exports: [
     GenericTableComponent,
+    MaterialModule
+
   ]
 })
 export class PagesModule { }
