@@ -14,3 +14,17 @@ html{
 .card {
   margin: 15px;
 }
+.modis{
+  font-family: 'ResoLight';
+}
+
+.title1-modis{
+  font : 2em bold;
+  font-family: 'ResoLight';
+}
+.title1{
+  font : 2em bold;
+}
+.text-white{
+  color: white;
+}
