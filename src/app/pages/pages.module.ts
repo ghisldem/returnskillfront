@@ -11,7 +11,7 @@ import { ThemesModule } from '../themes/themes.module';
 import { ServicesModule } from '../services/services.module';
 
 import { MaterialModule } from './material.module';
-import {ComponentsModule} from '../components/components.modules';
+import { ComponentsModule } from '../components/components.modules';
 
 /*
  * Modules material/animation/font
@@ -46,7 +46,7 @@ import { GenTableExampleComponent } from './_components/tables/gen-table-example
 //import { LoginFormComponent } from './_components/forms/login-form/login-form.component';
 import { TestViewComponent } from './_components/test/test-view/test-view.component';
 //import { SkillFormComponent } from './_components/forms/skill-form/skill-form.component';
-import { TrainingFormComponent } from './_components/forms/training-form/training-form.component';
+//import { TrainingFormComponent } from './_components/forms/training-form/training-form.component';
 //import { ExperienceFormComponent } from './_components/forms/experience-form/experience-form.component';
 //import { RegisterFormComponent } from './_components/forms/register-form/register-form.component';
 
@@ -74,9 +74,9 @@ const PAGES_COMPONENTS = [
     ThemesModule,
     MaterialModule,
     AngularFontAwesomeModule,
-/**
- * modules pages
- */
+    /**
+     * modules pages
+     */
     ConsultingModule,
     ManagerModule,
     AdministratorModule,
@@ -91,15 +91,15 @@ const PAGES_COMPONENTS = [
     UserComponent,
     UserCompleteFormComponent,
     UsersTable1Component,
- //   GenericTableComponent,
-  //  GenericAutocompleteComponent,
+    //   GenericTableComponent,
+    //  GenericAutocompleteComponent,
     GenTableExampleComponent,
-   // LoginFormComponent,
+    // LoginFormComponent,
     TestViewComponent,
-   // SkillFormComponent,
-   // ExperienceFormComponent,
-    TrainingFormComponent,
-    //RegisterFormComponent,
+    // SkillFormComponent,
+    // ExperienceFormComponent,
+    // TrainingFormComponent,
+    // RegisterFormComponent,
 
     /*
      *pages

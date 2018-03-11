@@ -1,0 +1,28 @@
+.card {
+    max-width: 800px;
+    /*margin: 15px;*/
+  }
+
+
+.card-header-image{
+    line-height: 50px;  
+}
+
+mat-card-title{
+    line-height: 40px;
+    font-size: 10px;
+}
+
+.forms-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .data{
+      display: flex;
+      /*justify-content: space-between;*/
+  }
+
+  .elementData{
+      margin : 0,10,0,0;
+  }
