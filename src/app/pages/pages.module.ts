@@ -37,18 +37,6 @@ import { UserService } from '../services/data/user.service';
  * components
  */
 import { PagesComponent } from './pages.component';
-//import { UserCompleteFormComponent } from './_components/forms/user-complete-form/user-complete-form.component';
-import { UserComponent } from './user/user.component';
-//import { UsersTable1Component } from './_components/tables/users-table1/users-table1.component';
-//import { GenericTableComponent } from './_components/tables/generic-table/generic-table.component';
-//import { GenericAutocompleteComponent } from './_components/forms/generic-autocomplete/generic-autocomplete.component';
-//import { GenTableExampleComponent } from './_components/tables/gen-table-example/gen-table-example.component';
-//import { LoginFormComponent } from './_components/forms/login-form/login-form.component';
-//import { TestViewComponent } from './_components/test/test-view/test-view.component';
-//import { SkillFormComponent } from './_components/forms/skill-form/skill-form.component';
-//import { TrainingFormComponent } from './_components/forms/training-form/training-form.component';
-//import { ExperienceFormComponent } from './_components/forms/experience-form/experience-form.component';
-//import { RegisterFormComponent } from './_components/forms/register-form/register-form.component';
 
 /*
  * components - pages
@@ -85,21 +73,6 @@ const PAGES_COMPONENTS = [
 
   declarations: [
     ...PAGES_COMPONENTS,
-    /*
-     * components
-     */
-    UserComponent,
-    //UserCompleteFormComponent,
-    //UsersTable1Component,
-    //GenericTableComponent,
-    //GenericAutocompleteComponent,
-    //GenTableExampleComponent,
-    //LoginFormComponent,
-    //TestViewComponent,
-    //SkillFormComponent,
-    //ExperienceFormComponent,
-    //TrainingFormComponent,
-    //RegisterFormComponent,
 
     /*
      *pages
