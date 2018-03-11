@@ -30,6 +30,11 @@ import {ExperienceFormComponent} from './forms/experience-form/experience-form.c
 import {GenericAutocompleteComponent} from './forms/generic-autocomplete/generic-autocomplete.component';
 import {LoginFormComponent} from './forms/login-form/login-form.component';
 import {RegisterFormComponent} from './forms/register-form/register-form.component';
+import {SkillFormComponent} from './forms/skill-form/skill-form.component';
+import {} from './forms';
+import {} from './forms';
+import {} from './forms';
+import {} from './forms';
 import {} from './forms';
 import {} from './forms';
 import {GenericTableComponent} from './generic-table/generic-table.component';
@@ -57,6 +62,7 @@ import {GenericTableComponent} from './generic-table/generic-table.component';
         GenericAutocompleteComponent,
         LoginFormComponent,
         RegisterFormComponent,
+        SkillFormComponent,
         GenericTableComponent,
     ],
     providers: [
@@ -68,6 +74,7 @@ import {GenericTableComponent} from './generic-table/generic-table.component';
         GenericTableComponent,
         LoginFormComponent,
         RegisterFormComponent,
+        SkillFormComponent,
         MaterialModule,
     ]
 })

@@ -45,7 +45,7 @@ import { UsersTable1Component } from './_components/tables/users-table1/users-ta
 import { GenTableExampleComponent } from './_components/tables/gen-table-example/gen-table-example.component';
 //import { LoginFormComponent } from './_components/forms/login-form/login-form.component';
 import { TestViewComponent } from './_components/test/test-view/test-view.component';
-import { SkillFormComponent } from './_components/forms/skill-form/skill-form.component';
+//import { SkillFormComponent } from './_components/forms/skill-form/skill-form.component';
 import { TrainingFormComponent } from './_components/forms/training-form/training-form.component';
 //import { ExperienceFormComponent } from './_components/forms/experience-form/experience-form.component';
 //import { RegisterFormComponent } from './_components/forms/register-form/register-form.component';
@@ -96,7 +96,7 @@ const PAGES_COMPONENTS = [
     GenTableExampleComponent,
    // LoginFormComponent,
     TestViewComponent,
-    SkillFormComponent,
+   // SkillFormComponent,
    // ExperienceFormComponent,
     TrainingFormComponent,
     //RegisterFormComponent,
@@ -121,7 +121,6 @@ const PAGES_COMPONENTS = [
     LoginFormDialog, HomePageComponent, RegisterFormDialog
   ],
   exports: [
-
     MaterialModule,
   ]
 })
