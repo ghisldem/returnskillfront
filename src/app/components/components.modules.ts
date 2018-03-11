@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-
 import { ThemesModule } from '../themes/themes.module';
 import { ServicesModule } from '../services/services.module';
 
@@ -27,7 +26,7 @@ import { UserService } from '../services/data/user.service';
 /**
  * components
  */
-
+import {ExperienceFormComponent} from './forms/experience-form/experience-form.component';
 import {GenericTableComponent} from './generic-table/generic-table.component';
 
 @NgModule({
@@ -42,7 +41,6 @@ import {GenericTableComponent} from './generic-table/generic-table.component';
         ThemesModule,
         MaterialModule,
         AngularFontAwesomeModule,
-
     ],
 
     declarations: [
@@ -50,6 +48,7 @@ import {GenericTableComponent} from './generic-table/generic-table.component';
         /**
          * components
          */
+        ExperienceFormComponent,
         GenericTableComponent,
     ],
     providers: [
@@ -57,7 +56,9 @@ import {GenericTableComponent} from './generic-table/generic-table.component';
     ],
 
     exports: [
-
+        ExperienceFormComponent,
+        GenericTableComponent,
+        MaterialModule,
     ]
 })
-export class PagesModule { }
+export class ComponentsModule { }

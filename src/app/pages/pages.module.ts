@@ -11,6 +11,7 @@ import { ThemesModule } from '../themes/themes.module';
 import { ServicesModule } from '../services/services.module';
 
 import { MaterialModule } from './material.module';
+import {ComponentsModule} from '../components/components.modules';
 
 /*
  * Modules material/animation/font
@@ -39,14 +40,14 @@ import { PagesComponent } from './pages.component';
 import { UserCompleteFormComponent } from './_components/forms/user-complete-form/user-complete-form.component';
 import { UserComponent } from './user/user.component';
 import { UsersTable1Component } from './_components/tables/users-table1/users-table1.component';
-import { GenericTableComponent } from './_components/tables/generic-table/generic-table.component';
+//import { GenericTableComponent } from './_components/tables/generic-table/generic-table.component';
 import { GenericAutocompleteComponent } from './_components/forms/generic-autocomplete/generic-autocomplete.component';
 import { GenTableExampleComponent } from './_components/tables/gen-table-example/gen-table-example.component';
 import { LoginFormComponent } from './_components/forms/login-form/login-form.component';
 import { TestViewComponent } from './_components/test/test-view/test-view.component';
 import { SkillFormComponent } from './_components/forms/skill-form/skill-form.component';
 import { TrainingFormComponent } from './_components/forms/training-form/training-form.component';
-import { ExperienceFormComponent } from './_components/forms/experience-form/experience-form.component';
+//import { ExperienceFormComponent } from './_components/forms/experience-form/experience-form.component';
 
 /*
  * components - pages
@@ -78,6 +79,7 @@ const PAGES_COMPONENTS = [
     ConsultingModule,
     ManagerModule,
     AdministratorModule,
+    ComponentsModule,
   ],
 
   declarations: [
@@ -88,13 +90,13 @@ const PAGES_COMPONENTS = [
     UserComponent,
     UserCompleteFormComponent,
     UsersTable1Component,
-    GenericTableComponent,
+ //   GenericTableComponent,
     GenericAutocompleteComponent,
     GenTableExampleComponent,
     LoginFormComponent,
     TestViewComponent,
     SkillFormComponent,
-    ExperienceFormComponent,
+   // ExperienceFormComponent,
     TrainingFormComponent,
     RegisterFormComponent,
 
@@ -119,6 +121,7 @@ const PAGES_COMPONENTS = [
   ],
   exports: [
 
+    MaterialModule,
   ]
 })
 export class PagesModule { }

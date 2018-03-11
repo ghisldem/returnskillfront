@@ -12,7 +12,7 @@ import {switchMap} from 'rxjs/operators/switchMap';
 
 
 @Component({
-  selector: 'app-generic-table-test',
+  selector: 'app-generic-table',
   templateUrl: './generic-table.component.html',
   styleUrls: ['./generic-table.component.css']
 })

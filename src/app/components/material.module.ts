@@ -33,6 +33,7 @@ import { MatTooltipModule, MatDialogModule} from '@angular/material';
 /*directives*/
 import {} from '@angular/material';
 
+
 @NgModule({
     imports: [
 
@@ -80,6 +81,9 @@ import {} from '@angular/material';
         MatSortModule,
         MatDialogModule,
         MatMenuModule
+    ],
+    declarations: [
+        
     ]
 })
 export class MaterialModule { }
