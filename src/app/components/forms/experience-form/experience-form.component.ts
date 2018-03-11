@@ -1,6 +1,6 @@
-import { MaterialModule } from './../../../material.module';
+import { MaterialModule } from './../../material.module';
 import { Component, OnInit } from '@angular/core';
-import {FormControl,FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 
 @Component({

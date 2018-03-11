@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators, NgModel } from '@angular/forms';
-import { StudyLevel } from '../../../../models/study-level';
+import { StudyLevel } from '../../../models/study-level';
 import { Observable } from 'rxjs/Observable';
 import { startWith } from 'rxjs/operators/startWith';
 import { map } from 'rxjs/operators/map';
-import { TrainingArea } from '../../../../models/training-area';
-import { Skill } from '../../../../models/Skill';
+import { TrainingArea } from '../../../models/training-area';
+import { Skill } from '../../../models/Skill';
 import { MatChipInputEvent, MatInput } from '@angular/material';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import {ErrorStateMatcher} from '@angular/material/core';

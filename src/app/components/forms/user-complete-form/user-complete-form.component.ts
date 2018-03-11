@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../../../models/user';
+import { User } from '../../../models/user';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from '../../../../services/data/user.service';
+import { UserService } from '../../../services/data/user.service';
 import { Input } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';

@@ -3,6 +3,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {Router} from '@angular/router';
 import {FormControl, Validators} from '@angular/forms';
 import { User } from '../../../models/user';
+import { UserService } from '../../../services/data/user.service';
 
 @Component({
   selector: 'app-home-page',
@@ -31,14 +32,12 @@ export class HomePageComponent implements OnInit {
 
   }
 
-
-
 }
 
 @Component({
   selector: 'app-home-page-login-dialog',
-  templateUrl: '../../_components/forms/login-form/login-form.component.html',
-  styleUrls: ['../../_components/forms/login-form/login-form.component.css']
+  templateUrl: '../../../components/forms/login-form/login-form.component.html',
+  styleUrls: ['../../../components/forms/login-form/login-form.component.css']
 })
 export class LoginFormDialog {
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -73,14 +72,13 @@ export class LoginFormDialog {
 
 @Component({
   selector: 'app-home-page-register-dialog',
-  templateUrl: '../../_components/forms/register-form/register-form.component.html',
-  styleUrls:['../../_components/forms/register-form/register-form.component.css']
+  templateUrl: '../../../components/forms/register-form/register-form.component.html',
+  styleUrls:['../../../components/forms/register-form/register-form.component.css']
 })
 export class RegisterFormDialog {
  
 
-user : User;
-
+  user: User;
 
   name =  new FormControl('', [Validators.required, Validators.email]);
   firstname = new FormControl('', [Validators.required, Validators.email]);
@@ -88,11 +86,16 @@ user : User;
   motDePasse = new FormControl('', [Validators.required, Validators.email]);
   confMotDePasse = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { 
 
-  ngOnInit() {
+    this.user = new User();
+
   }
 
+
+  ngOnInit() {
+
+  }
 
   getErrorMessageName(){
     return this.name.hasError('required') ? 'Vous devez renseigner ce champs' :
@@ -113,17 +116,29 @@ user : User;
         '';
 
   }
+
   getErrorMessageMotDePasse() {
     return this.motDePasse.hasError('required') ? 'Vous devez renseigner ce champs' :
       this.motDePasse.hasError('motDePasse') ? 'Entrez un mot de passe valide' :
         '';
 
   }
+
   getErrorMessageConfMotDePasse() {
     return this.confMotDePasse.hasError('required') ? 'Vous devez renseigner ce champs' :
       this.confMotDePasse.hasError('confMotDePasse') ? 'Confirmer votre mot de passe' :
         '';
 
   }
+
+  saveUser() {
+    
+    this.user.firstname = this.firstname.value;
+    this.user.email = this.email.value;
+    this.user.lastname = this.motDePasse.value;
+    this.user.lastname = this.name.value;
+    this.userService.create(this.user).subscribe(userIdentified => this.user = userIdentified);
+  }
+
   
 }
