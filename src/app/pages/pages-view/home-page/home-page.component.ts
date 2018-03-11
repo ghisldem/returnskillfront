@@ -37,8 +37,8 @@ export class HomePageComponent implements OnInit {
 
 @Component({
   selector: 'app-home-page-login-dialog',
-  templateUrl: '../../_components/forms/login-form/login-form.component.html',
-  styleUrls: ['../../_components/forms/login-form/login-form.component.css']
+  templateUrl: '../../../components/forms/login-form/login-form.component.html',
+  styleUrls: ['../../../components/forms/login-form/login-form.component.css']
 })
 export class LoginFormDialog {
   email = new FormControl('', [Validators.required, Validators.email]);

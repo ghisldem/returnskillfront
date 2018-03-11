@@ -28,6 +28,10 @@ import { UserService } from '../services/data/user.service';
  */
 import {ExperienceFormComponent} from './forms/experience-form/experience-form.component';
 import {GenericAutocompleteComponent} from './forms/generic-autocomplete/generic-autocomplete.component';
+import {LoginFormComponent} from './forms/login-form/login-form.component';
+import {} from './forms';
+import {} from './forms';
+import {} from './forms';
 import {GenericTableComponent} from './generic-table/generic-table.component';
 
 @NgModule({
@@ -51,6 +55,7 @@ import {GenericTableComponent} from './generic-table/generic-table.component';
          */
         ExperienceFormComponent,
         GenericAutocompleteComponent,
+        LoginFormComponent,
         GenericTableComponent,
     ],
     providers: [
@@ -60,6 +65,7 @@ import {GenericTableComponent} from './generic-table/generic-table.component';
     exports: [
         ExperienceFormComponent,
         GenericTableComponent,
+        LoginFormComponent,
         MaterialModule,
     ]
 })

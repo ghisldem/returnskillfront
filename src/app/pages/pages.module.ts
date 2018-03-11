@@ -43,7 +43,7 @@ import { UsersTable1Component } from './_components/tables/users-table1/users-ta
 //import { GenericTableComponent } from './_components/tables/generic-table/generic-table.component';
 //import { GenericAutocompleteComponent } from './_components/forms/generic-autocomplete/generic-autocomplete.component';
 import { GenTableExampleComponent } from './_components/tables/gen-table-example/gen-table-example.component';
-import { LoginFormComponent } from './_components/forms/login-form/login-form.component';
+//import { LoginFormComponent } from './_components/forms/login-form/login-form.component';
 import { TestViewComponent } from './_components/test/test-view/test-view.component';
 import { SkillFormComponent } from './_components/forms/skill-form/skill-form.component';
 import { TrainingFormComponent } from './_components/forms/training-form/training-form.component';
@@ -93,7 +93,7 @@ const PAGES_COMPONENTS = [
  //   GenericTableComponent,
   //  GenericAutocompleteComponent,
     GenTableExampleComponent,
-    LoginFormComponent,
+   // LoginFormComponent,
     TestViewComponent,
     SkillFormComponent,
    // ExperienceFormComponent,
