@@ -10,7 +10,6 @@ import {map} from 'rxjs/operators/map';
 import {startWith} from 'rxjs/operators/startWith';
 import {switchMap} from 'rxjs/operators/switchMap';
 
-
 @Component({
   selector: 'app-generic-table',
   templateUrl: './generic-table.component.html',
@@ -117,17 +116,7 @@ this.searchBarVisible = false;
 }
 
 
-
-
 class Column {
   nameProperty: string;
   nameTitle: String;
 }
-
-
-
-
-
-
-
-

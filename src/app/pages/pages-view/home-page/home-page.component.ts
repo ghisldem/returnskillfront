@@ -78,7 +78,7 @@ export class LoginFormDialog {
 export class RegisterFormDialog {
  
 
-  user : User;
+  user: User;
 
   name =  new FormControl('', [Validators.required, Validators.email]);
   firstname = new FormControl('', [Validators.required, Validators.email]);
@@ -86,9 +86,9 @@ export class RegisterFormDialog {
   motDePasse = new FormControl('', [Validators.required, Validators.email]);
   confMotDePasse = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor(private router: Router, private userService:UserService) { 
+  constructor(private router: Router, private userService: UserService) { 
 
-    this.user=new User();
+    this.user = new User();
 
   }
 
@@ -137,7 +137,7 @@ export class RegisterFormDialog {
     this.user.email = this.email.value;
     this.user.lastname = this.motDePasse.value;
     this.user.lastname = this.name.value;
-    this.userService.create(this.user).subscribe(userIdentified => this.user=userIdentified);
+    this.userService.create(this.user).subscribe(userIdentified => this.user = userIdentified);
   }
 
   

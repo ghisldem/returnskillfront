@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
+import { User } from '../../../models/user';
+import { UserService } from '../../../services/data/user.service';
 
 @Component({
   selector: 'app-register-form',
@@ -9,36 +11,28 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class RegisterFormComponent implements OnInit {
 
-  name =  new FormControl('', [Validators.required, Validators.email]);
+  user: User;
+
+  name = new FormControl('', [Validators.required, Validators.email]);
   firstname = new FormControl('', [Validators.required, Validators.email]);
   email = new FormControl('', [Validators.required, Validators.email]);
   motDePasse = new FormControl('', [Validators.required, Validators.email]);
   confMotDePasse = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService : UserService) { 
+    this.user= new User();
+  }
 
   ngOnInit() {
   }
 
-  loginUser(e) {
-    e.preventDefault();
-    console.log(e);
-    let username = e.target.elements[0].value;
-    let password = e.target.elements[1].value;
-
-    if (username === 'admin' && password === 'password') {
-      this.router.navigate(['users-table1']);
-    }
-
-  }
-
-  getErrorMessageName(){
+  getErrorMessageName() {
     return this.name.hasError('required') ? 'Vous devez renseigner ce champs' :
       this.name.hasError('name') ? 'Entrez un nom valide' :
         '';
   }
 
- getErrorMessageFirstname(){
+  getErrorMessageFirstname() {
     return this.firstname.hasError('required') ? 'Vous devez renseigner ce champs' :
       this.firstname.hasError('firstname') ? 'Entrez un prénom valide' :
         '';
@@ -63,4 +57,16 @@ export class RegisterFormComponent implements OnInit {
         '';
 
   }
+
+
+  saveUser() {
+    
+    this.user.firstname = this.firstname.value;
+    this.user.email = this.email.value;
+    this.user.lastname = this.motDePasse.value;
+    this.user.lastname = this.name.value;
+
+    this.userService.create(this.user).subscribe(userIdentified => this.user = userIdentified);
+  }
+
 }
