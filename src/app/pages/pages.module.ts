@@ -37,7 +37,7 @@ import { UserService } from '../services/data/user.service';
  * components
  */
 import { PagesComponent } from './pages.component';
-import { UserCompleteFormComponent } from './_components/forms/user-complete-form/user-complete-form.component';
+//import { UserCompleteFormComponent } from './_components/forms/user-complete-form/user-complete-form.component';
 import { UserComponent } from './user/user.component';
 import { UsersTable1Component } from './_components/tables/users-table1/users-table1.component';
 //import { GenericTableComponent } from './_components/tables/generic-table/generic-table.component';
@@ -89,17 +89,17 @@ const PAGES_COMPONENTS = [
      * components
      */
     UserComponent,
-    UserCompleteFormComponent,
+    //UserCompleteFormComponent,
     UsersTable1Component,
-    //   GenericTableComponent,
-    //  GenericAutocompleteComponent,
+    //GenericTableComponent,
+    //GenericAutocompleteComponent,
     GenTableExampleComponent,
-    // LoginFormComponent,
+    //LoginFormComponent,
     TestViewComponent,
-    // SkillFormComponent,
-    // ExperienceFormComponent,
-    // TrainingFormComponent,
-    // RegisterFormComponent,
+    //SkillFormComponent,
+    //ExperienceFormComponent,
+    //TrainingFormComponent,
+    //RegisterFormComponent,
 
     /*
      *pages
