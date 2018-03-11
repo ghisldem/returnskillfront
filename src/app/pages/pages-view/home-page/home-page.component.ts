@@ -73,8 +73,8 @@ export class LoginFormDialog {
 
 @Component({
   selector: 'app-home-page-register-dialog',
-  templateUrl: '../../_components/forms/register-form/register-form.component.html',
-  styleUrls:['../../_components/forms/register-form/register-form.component.css']
+  templateUrl: '../../../components/forms/register-form/register-form.component.html',
+  styleUrls:['../../../components/forms/register-form/register-form.component.css']
 })
 export class RegisterFormDialog {
  

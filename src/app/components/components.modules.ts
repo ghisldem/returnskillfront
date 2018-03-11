@@ -29,7 +29,7 @@ import { UserService } from '../services/data/user.service';
 import {ExperienceFormComponent} from './forms/experience-form/experience-form.component';
 import {GenericAutocompleteComponent} from './forms/generic-autocomplete/generic-autocomplete.component';
 import {LoginFormComponent} from './forms/login-form/login-form.component';
-import {} from './forms';
+import {RegisterFormComponent} from './forms/register-form/register-form.component';
 import {} from './forms';
 import {} from './forms';
 import {GenericTableComponent} from './generic-table/generic-table.component';
@@ -56,6 +56,7 @@ import {GenericTableComponent} from './generic-table/generic-table.component';
         ExperienceFormComponent,
         GenericAutocompleteComponent,
         LoginFormComponent,
+        RegisterFormComponent,
         GenericTableComponent,
     ],
     providers: [
@@ -66,6 +67,7 @@ import {GenericTableComponent} from './generic-table/generic-table.component';
         ExperienceFormComponent,
         GenericTableComponent,
         LoginFormComponent,
+        RegisterFormComponent,
         MaterialModule,
     ]
 })

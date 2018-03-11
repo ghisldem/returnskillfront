@@ -1,4 +1,4 @@
-import { RegisterFormComponent } from './_components/forms/register-form/register-form.component';
+
 /*
  * Modules
  */
@@ -48,6 +48,7 @@ import { TestViewComponent } from './_components/test/test-view/test-view.compon
 import { SkillFormComponent } from './_components/forms/skill-form/skill-form.component';
 import { TrainingFormComponent } from './_components/forms/training-form/training-form.component';
 //import { ExperienceFormComponent } from './_components/forms/experience-form/experience-form.component';
+//import { RegisterFormComponent } from './_components/forms/register-form/register-form.component';
 
 /*
  * components - pages
@@ -98,7 +99,7 @@ const PAGES_COMPONENTS = [
     SkillFormComponent,
    // ExperienceFormComponent,
     TrainingFormComponent,
-    RegisterFormComponent,
+    //RegisterFormComponent,
 
     /*
      *pages

@@ -1,0 +1,53 @@
+<div class="container-header">
+  <div class="title1-modis  text-white">Nouveau compte</div>
+  <div class="container-logo">
+    <a href="https://www.modisfrance.fr/" target="blank">
+      <img class="logo" src="../../../../../assets/logo/modis-logo.png?">
+    </a>
+  </div>
+</div>
+
+
+<br>
+<div class="example-container">
+
+  <mat-form-field>
+    <input matInput placeholder="Entrez votre nom" [formControl]="name" required>
+    <mat-error *ngIf="name.invalid">{{getErrorMessageName()}}</mat-error>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput placeholder="Entrez votre prénom" [formControl]="firstname" required>
+    <mat-error *ngIf="firstname.invalid">{{getErrorMessageFirstname()}}</mat-error>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput placeholder="Entrez votre email" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput placeholder="Entrez votre mot de passe" type="password" [formControl]="motDePasse" required>
+    <mat-error *ngIf="motDePasse.invalid">{{getErrorMessageMotDePasse()}}</mat-error>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput placeholder="Confirmez votre mot de passe" type="password" [formControl]="confMotDePasse" required>
+    <mat-error *ngIf="confMotDePasse.invalid">{{getErrorMessageConfMotDePasse()}}</mat-error>
+  </mat-form-field>
+
+  <br>
+  <br>
+  <div class="container-action">
+    <button mat-button-raised class="button" value="Login">s'enregistrer</button>
+    <button mat-button-raised class="button" value="Login">sortir</button>
+  </div>
+</div>
