@@ -41,7 +41,7 @@ import { UserCompleteFormComponent } from './_components/forms/user-complete-for
 import { UserComponent } from './user/user.component';
 import { UsersTable1Component } from './_components/tables/users-table1/users-table1.component';
 //import { GenericTableComponent } from './_components/tables/generic-table/generic-table.component';
-import { GenericAutocompleteComponent } from './_components/forms/generic-autocomplete/generic-autocomplete.component';
+//import { GenericAutocompleteComponent } from './_components/forms/generic-autocomplete/generic-autocomplete.component';
 import { GenTableExampleComponent } from './_components/tables/gen-table-example/gen-table-example.component';
 import { LoginFormComponent } from './_components/forms/login-form/login-form.component';
 import { TestViewComponent } from './_components/test/test-view/test-view.component';
@@ -91,7 +91,7 @@ const PAGES_COMPONENTS = [
     UserCompleteFormComponent,
     UsersTable1Component,
  //   GenericTableComponent,
-    GenericAutocompleteComponent,
+  //  GenericAutocompleteComponent,
     GenTableExampleComponent,
     LoginFormComponent,
     TestViewComponent,
