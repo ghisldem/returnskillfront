@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'; 
 /*
  * Modules material/animation/font
  */
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { MaterialModule } from '../pages/material.module';
+import { MaterialModule } from '../components/material.module';
 
 /*
  * components
@@ -18,7 +19,10 @@ import { MenuComponent } from './menu/menu.component';
 @NgModule({
   imports: [
     AngularFontAwesomeModule,
-    MaterialModule
+    MaterialModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   declarations: [
