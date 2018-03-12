@@ -30,7 +30,7 @@
 .logo {
   height: 30px;
   padding-top: 10px;
-  padding-left: 30px;
+  padding-left: 10px;
 }
 .logo-returnskill{
   height: 40px;
@@ -43,23 +43,42 @@
 .site-header-inner{
   display : flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
 .element-header-line1{
   display : flex;
   align-items: center;
-  
+}
+
+.element-header-line1:nth-child(1)
+{
+  order: 1;
+}
+
+.element-header-line1:nth-child(2)
+{
+  order: 2;
+  flex:1;
+}
+
+.element-header-line1:nth-child(3)
+{
+  order: 3;
 }
 
 #home, #returnskills {
   text-decoration: none;
   color: white;
+  margin-right: 30px;
 }
 #home:hover, #returnskills:hover{
   color: #FF4081;
 }
 
+#titre {
+  margin-left: 30px;
+}
 
 .project-name{
 font : 1.2em bold ;
@@ -70,10 +89,10 @@ vertical-align: bottom;
 }
 
 .title-by{
-  font : 0.8em bold ;
+font : 0.8em bold ;
 font-family: "ResoLight";
 color : white;
-margin: 0px 10px 0px 0px;
+margin: 20px 0px 0px 0px;
 vertical-align: bottom;
 }
 
