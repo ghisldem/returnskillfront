@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'administrator-pages',
   template: `
     <div class="container"> 
-    <app-menu></app-menu>
+    <app-menu class="element"></app-menu>
     <router-outlet></router-outlet>
     </div>
   `,
