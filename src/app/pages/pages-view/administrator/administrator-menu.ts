@@ -1,20 +1,19 @@
 import { NbMenuItem } from '../../../themes/menu/menu.service';
 
-export const MENU_ITEMS: NbMenuItem[] = [
+
+interface MenuItem {
+    title : string;
+    link : string;
+    icon : string;
+    children?: MenuItem[];
+    parent?: MenuItem;
+    }
+
+export const MENU_ITEMS: MenuItem[] = [
     {
-        title: 'Dashboard',
-        icon: 'nb-home',
-        link: '/pages/dashboard',
-        home: true,
-    },
-    {
-        title: 'FEATURES',
-        group: true,
-    },
-    {
-        title: 'UI Features',
-        icon: 'nb-keypad',
-        link: '/pages/ui-features',
+        title: 'listes',
+        icon: 'test1',
+        link: 'test1',
         children: [
             {
                 title: 'Buttons',
@@ -24,26 +23,19 @@ export const MENU_ITEMS: NbMenuItem[] = [
                 title: 'Grid',
                 link: '/pages/ui-features/grid',
             },
-            {
-                title: 'Icons',
-                link: '/pages/ui-features/icons',
-            },
-            {
-                title: 'Modals',
-                link: '/pages/ui-features/modals',
-            },
-            {
-                title: 'Typography',
-                link: '/pages/ui-features/typography',
-            },
-            {
-                title: 'Animated Searches',
-                link: '/pages/ui-features/search-fields',
-            },
-            {
-                title: 'Tabs',
-                link: '/pages/ui-features/tabs',
-            },
-        ],
+       ],
+
+    },
+    {
+        title: 'FEATURES',
+        icon: '',
+        link: '',
+
+    },
+    {
+        title: 'UI Features',
+        icon: 'nb-keypad',
+        link: '/pages/ui-features',
+        
     },
 ];

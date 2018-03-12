@@ -1,7 +1,11 @@
 <mat-card class="mat-elevation-z8">
 
+
+
+
+
     <mat-accordion>
-        <mat-expansion-panel >
+        <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title class="title-menu title1-modis">
                     menu1
@@ -9,7 +13,7 @@
             </mat-expansion-panel-header>
 
             <div class="item">
-                <a   class="item" href="#/consulting">test1</a>
+                <a class="item" href="#/consulting">test1</a>
             </div>
 
             <div class="item">
@@ -48,5 +52,62 @@
         </mat-expansion-panel>
     </mat-accordion>
 
+
+
+
+    <div *ngIf="items && iconItems">
+        <div class="demo-menu">
+            <div class="menu-section">
+                <p>overlapTrigger: false</p>
+
+                <mat-toolbar>
+                    <button mat-icon-button [mat-menu-trigger-for]="menuOverlay">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                </mat-toolbar>
+
+                <mat-menu [overlapTrigger]="false" #menuOverlay="matMenu">
+                    <button mat-menu-item *ngFor="let item of items" [disabled]="item.disabled">
+                        {{ item.text }}
+                    </button>
+                </mat-menu>
+            </div>
+            <div class="menu-section">
+                <p>
+                    Position x: before, overlapTrigger: false
+                </p>
+                <mat-toolbar class="end-icon">
+                    <button mat-icon-button [mat-menu-trigger-for]="posXMenuOverlay">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                </mat-toolbar>
+
+                <mat-menu xPosition="before" [overlapTrigger]="false" #posXMenuOverlay="matMenu" class="before">
+                    <button mat-menu-item *ngFor="let item of iconItems" [disabled]="item.disabled">
+                        <mat-icon>{{ item.icon }}</mat-icon>
+                        {{ item.text }}
+                    </button>
+                </mat-menu>
+            </div>
+            <div class="menu-section">
+                <p>
+                    Position y: above, overlapTrigger: false
+                </p>
+                <mat-toolbar>
+                    <button mat-icon-button [mat-menu-trigger-for]="posYMenuOverlay">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                </mat-toolbar>
+
+                <mat-menu yPosition="above" [overlapTrigger]="false" #posYMenuOverlay="matMenu">
+                    <button mat-menu-item *ngFor="let item of items" [disabled]="item.disabled">
+                        {{ item.text }}
+                    </button>
+                </mat-menu>
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 500px">This div is for testing scrolled menus.</div>
 
 </mat-card>
