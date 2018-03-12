@@ -1,8 +1,8 @@
 .gt-container {
     display: flex;
     flex-direction: column;
-    min-width: 300px;
-    margin : 15px;
+    min-width: 500px;
+    margin : 20px;
   }
   
   .gt-header {

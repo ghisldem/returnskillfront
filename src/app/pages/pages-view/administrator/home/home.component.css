@@ -1,0 +1,17 @@
+.container-content{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.element-content{
+
+
+}
+
+.element-content:nth-child(1){
+flex:1;
+}
+
+.element-content:nth-child(2){
+    flex:1;
+}
