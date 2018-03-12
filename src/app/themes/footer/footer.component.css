@@ -2,13 +2,16 @@
 
 .footer__top .footer-links a {
     color: #FFFFFF;
-    
-    width: 100%;
+    -webkit-transition: color 2s ease-in;
+    -moz-transition: color 2s ease-in;
+    -ms-transition: color 2s ease-in;
+    -o-transition: color 2s ease-in;
+    transition: color .2s ease-in;
     text-decoration:none; 
 }
 
 .footer__top .footer-links a:HOVER {
-    color: #e89f00;
+    color: white;
     text-decoration: none;
 }
 
@@ -51,7 +54,7 @@
   .flexBox {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 100%;
     align-items: center;
   }
@@ -65,7 +68,12 @@
   .row-socialicon {
     text-decoration:none; 
     color: #b2b2b2;
-    padding: 15px 15px 15px 15px;
+    padding-bottom: 15px;
+    -webkit-transition: color 1s ease-in;
+    -moz-transition: color 1s ease-in;
+    -ms-transition: color 1s ease-in;
+    -o-transition: color 1s ease-in;
+    transition: color .1s ease-in;
   }
 
 
@@ -82,19 +90,32 @@
     background: #394448;
   }
 
-    /* line 122, ../sass/brand/_footer.scss */
-  a {
-    padding-right: 2rem;
-    text-decoration:none;
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  a:hover, a:focus {
+  #socio {
     color: white;
-    opacity: 1;
+    -webkit-transition: color 1s ease-in;
+    -moz-transition: color 1s ease-in;
+    -ms-transition: color 1s ease-in;
+    -o-transition: color 1s ease-in;
+    transition: color .1s ease-in;
+    padding-right: 1rem;
   }
 
+  #socio:hover {
+    color: #ffb81c;
+  }
 
+  #modis {
+    text-decoration:none;
+    color: white;
+    -webkit-transition: color 1s ease-in;
+    -moz-transition: color 1s ease-in;
+    -ms-transition: color 1s ease-in;
+    -o-transition: color 1s ease-in;
+    transition: color .1s ease-in;
+  }
+  #modis:hover {
+    color: #ffb81c;
+  }
 
 
 
