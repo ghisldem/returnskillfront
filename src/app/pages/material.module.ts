@@ -25,6 +25,7 @@ import { MatTableModule, MatSortModule } from '@angular/material';
 
 /*layout*/
 import { MatCardModule, MatDividerModule } from '@angular/material';
+import {MatExpansionModule} from '@angular/material';
 
 /*popup modals*/
 import { MatTooltipModule, MatDialogModule} from '@angular/material';
@@ -56,7 +57,8 @@ import {} from '@angular/material';
         MatProgressSpinnerModule,
         MatSortModule,
         MatDialogModule,
-        MatMenuModule
+        MatMenuModule,
+        MatExpansionModule,
     ],
     exports: [
         MatTableModule,
@@ -79,7 +81,8 @@ import {} from '@angular/material';
         MatProgressSpinnerModule,
         MatSortModule,
         MatDialogModule,
-        MatMenuModule
+        MatMenuModule,
+        MatExpansionModule,
     ]
 })
 export class MaterialModule { }
