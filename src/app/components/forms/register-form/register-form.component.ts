@@ -13,9 +13,10 @@ export class RegisterFormComponent implements OnInit {
 
   user: User;
 
-  name = new FormControl('', [Validators.required]);
-  firstname = new FormControl('', [Validators.required]);
-  email = new FormControl('', [Validators.required, Validators.email]);
+  name = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]);
+  firstname = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]);
+  email = new FormControl('', [Validators.required, Validators.email, 
+    Validators.pattern('/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/')]);
   motDePasse = new FormControl('', [Validators.required]);
   confMotDePasse = new FormControl('', [Validators.required]);
 
@@ -67,6 +68,21 @@ export class RegisterFormComponent implements OnInit {
     this.user.lastname = this.name.value;
 
     this.userService.create(this.user).subscribe(userIdentified => this.user = userIdentified);
+  }
+
+   emailDomainValidator(control: FormControl) { 
+    let email = control.value; 
+    if (email && email.indexOf("@") != -1) { 
+      let [_, domain] = email.split("@"); 
+      if (domain !== ".com" || ".fr") { 
+        return {
+          emailDomain: {
+            parsedDomain: domain
+          }
+        }
+      }
+    }
+    return null; 
   }
 
 }

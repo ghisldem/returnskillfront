@@ -4,6 +4,12 @@
     min-width: 500px;
     margin : 20px;
   }
+
+  .element:nth-child(1){
+    flex : 1;
+
+}
+
   
   .gt-header {
     min-height: 64px;

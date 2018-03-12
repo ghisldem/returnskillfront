@@ -1,4 +1,5 @@
-
+import { environment } from './../environments/environment';
+import { NGXLogger } from 'ngx-logger';
 
 /*
  * Modules
@@ -38,9 +39,9 @@ import {RouterModule, Routes} from '@angular/router';
     CommonModule,
     AppRoutingModule,
 
-
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}
