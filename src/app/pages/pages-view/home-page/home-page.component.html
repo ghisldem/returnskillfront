@@ -1,20 +1,54 @@
+<div class="container">
 
-<div>
-  <img src="../../../assets/img/header_home.jpg" alt="Image de présentation modis">
-</div>
+  <div>
+    <img src="../../../assets/img/header_home.jpg" alt="Image de présentation modis">
+  </div>
 
-<div class="action-button">
-  <button mat-raised-button [matMenuTriggerFor]="menu">Accès libre au site</button>
-  <button mat-raised-button (click)="openRegisterForm()">S'enregistrer</button>
-  <button mat-raised-button (click)="openLoginForm()">Se connecter</button>
-</div>
+  <div class="action-button">
+    <button mat-raised-button [matMenuTriggerFor]="menu">Accès libre au site</button>
+    <button mat-raised-button (click)="openRegisterForm()">S'enregistrer</button>
+    <button mat-raised-button (click)="openLoginForm()">Se connecter</button>
+  </div>
 
-<div style="font-family:ResoLight;">ReturnSkills</div>
-<div>blabla par défaut</div>
+  <div class="solutions">
 
-<mat-menu #menu="matMenu">
-    <button mat-menu-item> <a href="/#/test">page test</a> </button>
-    <button mat-menu-item><a href="/#/administrator">Administrateur</a></button>
-    <button mat-menu-item><a href="/#/consulting">Consultant</a></button>
-    <button mat-menu-item><a href="/#/manager">Manager</a></button>
+    <mat-card class="card mat-elevation-z8">
+      <div class="text">Dans un monde en mutation, prendre rapidement les bonnes décisions est un enjeu majeur. Maîtriser des technologies
+        et savoir-faire de pointe, être force de proposition, vous aider à prendre des décisions stratégiques : parce que
+        vous devez conserver une longueur d’avance, nous vous proposons une offre experte et complète.
+      </div>
+    </mat-card>
+
+    <mat-card class="card mat-elevation-z8">
+      <div class="text">Les innovations digitales font évoluer les usages et façonnent l’avenir des entreprises. Pour répondre à ces enjeux,
+        nous vous accompagnons dans votre démarche de transformation en plaçant le numérique au cœur de la stratégie.
+      </div>
+    </mat-card>
+
+    <mat-card class="card mat-elevation-z8">
+      <div class="text">Nous sommes bien plus qu’une CRO ! Pour compléter nos prestations de recherche clinique, nous vous fournissons des
+        solutions globales pour adresser vos enjeux d’ ingénierie de production médicale, de transformation numérique, et
+        de services autour du support aux patients.
+      </div>
+    </mat-card>
+
+  </div>
+
+  <div></div>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <a href="/#/test">page test</a>
+    </button>
+    <button mat-menu-item>
+      <a href="/#/administrator">Administrateur</a>
+    </button>
+    <button mat-menu-item>
+      <a href="/#/consulting">Consultant</a>
+    </button>
+    <button mat-menu-item>
+      <a href="/#/manager">Manager</a>
+    </button>
   </mat-menu>
+
+</div>
