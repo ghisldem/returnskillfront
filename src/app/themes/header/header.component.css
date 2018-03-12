@@ -71,9 +71,15 @@
   text-decoration: none;
   color: white;
   margin-right: 30px;
+    
+  -webkit-transition: color 2s ease-in;
+  -moz-transition: color 2s ease-in;
+  -ms-transition: color 2s ease-in;
+  -o-transition: color 2s ease-in;
+  transition: color .2s ease-in;
 }
 #home:hover, #returnskills:hover{
-  color: #FF4081;
+  color: #e89f00;
 }
 
 #titre {

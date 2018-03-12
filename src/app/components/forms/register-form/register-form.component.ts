@@ -13,11 +13,11 @@ export class RegisterFormComponent implements OnInit {
 
   user: User;
 
-  name = new FormControl('', [Validators.required, Validators.email]);
-  firstname = new FormControl('', [Validators.required, Validators.email]);
+  name = new FormControl('', [Validators.required]);
+  firstname = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required, Validators.email]);
-  motDePasse = new FormControl('', [Validators.required, Validators.email]);
-  confMotDePasse = new FormControl('', [Validators.required, Validators.email]);
+  motDePasse = new FormControl('', [Validators.required]);
+  confMotDePasse = new FormControl('', [Validators.required]);
 
   constructor(private router: Router, private userService : UserService) { 
     this.user= new User();
