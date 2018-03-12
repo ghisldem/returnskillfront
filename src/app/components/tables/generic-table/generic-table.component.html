@@ -2,7 +2,7 @@
   <mat-spinner></mat-spinner>
 </div>
 
-<div *ngIf="dataSource" class="gt-container">
+<div *ngIf="dataSource" class="gt-container element">
   <div *ngIf="searchBarVisible">
     <div ChangeColor mycolor="#F9F2A4" (result)="truc($event)" class="gt-header mat-elevation-z8">
       <mat-form-field>
@@ -14,7 +14,7 @@
   <div class="mat-elevation-z8">
 
 
-    <mat-table class="element" [dataSource]="dataSource" matSort>
+    <mat-table [dataSource]="dataSource" matSort>
 
 
 <!-- field table -->
@@ -27,6 +27,7 @@
 <!-- column actions -->
       <ng-container matColumnDef="actionsColumn">
           <mat-header-cell *matHeaderCellDef>
+            <button mat-icon-button color="primary" (click)="onClickDisplaySearchBar()"><fa name="search" size="2x"></fa></button>
             <button mat-icon-button color="accent" (click)="dataSource.createNew()"><fa name="plus-square" size="2x"></fa></button>
           </mat-header-cell>
           <mat-cell *matCellDef="let row">
