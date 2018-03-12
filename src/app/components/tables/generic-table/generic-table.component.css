@@ -1,9 +1,15 @@
 .gt-container {
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     min-width: 300px;
     margin : 15px;
   }
+
+  .element:nth-child(1){
+    flex : 1;
+
+}
+
   
   .gt-header {
     min-height: 64px;

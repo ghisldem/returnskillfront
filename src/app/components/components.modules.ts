@@ -1,3 +1,5 @@
+import { ConsoleLoggerService } from './../services/data/console-logger.service';
+import { LoggerService } from './../services/data/logger.service';
 /**
  * Modules
  */
@@ -73,7 +75,8 @@ import { GenericTableComponent } from './tables/generic-table/generic-table.comp
         
     ],
     providers: [
-        UserService
+        UserService,
+        { provide: LoggerService, useClass: ConsoleLoggerService }
     ],
 
     exports: [
