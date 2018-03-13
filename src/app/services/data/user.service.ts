@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../../models/user';
+import { User, UserComplete } from '../../models/user';
 import { WebService } from './web.service';
 import {Observable} from 'rxjs';
 
@@ -17,6 +17,11 @@ export class UserService {
     this.users.push({id : 2, lastname : 'Dugrain', firstname : 'Rémi', email: "dr@gmail", phoneNumber: "07.06.05.03", townOfResidence:"lille"}); //test
   }
 
+
+
+  getUserCompleteAll(): Observable<UserComplete[]>{
+    return this.webService.getAll("users/complete?page="+this.page+"&size="+this.size ).map(r => r.content);
+  }
 
   getAll(): Observable<User[]> {
     return this.webService.getAll("users?page="+this.page+"&size="+this.size ).map(r => r.content);

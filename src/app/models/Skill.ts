@@ -2,7 +2,7 @@ export class Skill {
 	id : number;
     tag : string;
     description : String;
-    type : string;
+    type? : string;
     constructor(){
      }
 }

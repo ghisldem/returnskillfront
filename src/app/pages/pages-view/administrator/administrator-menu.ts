@@ -25,6 +25,7 @@ export const MENU_ADMINISTRATOR: MenuItem[] = [
             {
                 text: 'Compétences',
                 icon : 'cogs',
+                link : '#/administrator/skills'
             },
 
         ]
