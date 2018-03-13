@@ -1,3 +1,4 @@
+import { NbMenuItem } from '../../../themes/menu/menu.service';
 
 import { MenuItem } from '../../../themes/menu/menu.component';
 
