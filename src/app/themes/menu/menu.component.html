@@ -4,102 +4,32 @@
 
     <div *ngIf="menuItems">
 
-        <mat-accordion *ngFor="let item of menuItems">
-            <mat-expansion-panel>
+        <mat-accordion *ngFor="let item of menuItems" >
+            <mat-expansion-panel >
+
+
                 <mat-expansion-panel-header>
                     <mat-panel-title class="title-menu title1-modis">
+                        <fa *ngIf="item.icon" name={{item.icon}} size="1x"></fa>
                         {{ item.text }}
                     </mat-panel-title>
                 </mat-expansion-panel-header>
+
+
                 <div *ngIf="item.children">
-                    
-                        <button mat-menu-item *ngFor="let childItem of item.children" [matMenuTriggerFor]="childItem">
-                            <a *ngIf="!childItem.children" href={{childItem.link}}>
+                    <div mat-menu-item *ngFor="let childItem of item.children">
+                        <a *ngIf="!childItem.children" href={{childItem.link}}>
+                            <div>
+                                <fa *ngIf="childItem.icon" name={{childItem.icon}} size="1x"></fa>
                                 {{childItem.text}}
-                            </a>
-                            <div *ngIf="childItem.children" >
-                                    {{childItem.text}}
-                                    <fa name="caret-right" size="2x"></fa>      
                             </div>
-                        </button>
-
-                    <mat-menu #youyou="matMenu">
-                        <button mat-menu-item [matMenuTriggerFor]="fish">Fishes</button>
-                        <button mat-menu-item [matMenuTriggerFor]="amphibians">Amphibians</button>
-                        <button mat-menu-item [matMenuTriggerFor]="reptiles">Reptiles</button>
-                        <button mat-menu-item>Birds</button>
-                        <button mat-menu-item>Mammals</button>
-                    </mat-menu>
-
+                        </a>
+                    </div>
                 </div>
 
             </mat-expansion-panel>
         </mat-accordion>
-
     </div>
-
-
-
-
-
-
-
-
-    <div *ngIf="items && iconItems">
-        <div class="demo-menu">
-            <div class="menu-section">
-                <p>overlapTrigger: false</p>
-
-                <mat-toolbar>
-                    <button mat-icon-button [mat-menu-trigger-for]="menuOverlay">
-                        <mat-icon>more_vert</mat-icon>
-                    </button>
-                </mat-toolbar>
-
-                <mat-menu [overlapTrigger]="false" #menuOverlay="matMenu">
-                    <button mat-menu-item *ngFor="let item of items" [disabled]="item.disabled">
-                        {{ item.text }}
-                    </button>
-                </mat-menu>
-            </div>
-            <div class="menu-section">
-                <p>
-                    Position x: before, overlapTrigger: false
-                </p>
-                <mat-toolbar class="end-icon">
-                    <button mat-icon-button [mat-menu-trigger-for]="posXMenuOverlay">
-                        <mat-icon>more_vert</mat-icon>
-                    </button>
-                </mat-toolbar>
-
-                <mat-menu xPosition="before" [overlapTrigger]="false" #posXMenuOverlay="matMenu" class="before">
-                    <button mat-menu-item *ngFor="let item of iconItems" [disabled]="item.disabled">
-                        <mat-icon>{{ item.icon }}</mat-icon>
-                        {{ item.text }}
-                    </button>
-                </mat-menu>
-            </div>
-            <div class="menu-section">
-                <p>
-                    Position y: above, overlapTrigger: false
-                </p>
-                <mat-toolbar>
-                    <button mat-icon-button [mat-menu-trigger-for]="posYMenuOverlay">
-                        <mat-icon>more_vert</mat-icon>
-                    </button>
-                </mat-toolbar>
-
-                <mat-menu yPosition="above" [overlapTrigger]="false" #posYMenuOverlay="matMenu">
-                    <button mat-menu-item *ngFor="let item of items" [disabled]="item.disabled">
-                        {{ item.text }}
-                    </button>
-                </mat-menu>
-            </div>
-        </div>
-    </div>
-
-    <div style="height: 500px">This div is for testing scrolled menus.</div>
-
 
 
 </mat-card>
