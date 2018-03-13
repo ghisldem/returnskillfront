@@ -3,6 +3,11 @@ import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { User } from '../../../models/user';
 import { UserService } from '../../../services/data/user.service';
+import { empty } from 'rxjs/observable/empty';
+import { EmptyError } from 'rxjs';
+import { EmptyObservable } from 'rxjs/observable/EmptyObservable';
+import { isEmpty } from 'rxjs/operator/isEmpty';
+import { DISABLED } from '@angular/forms/src/model';
 
 @Component({
   selector: 'app-register-form',
@@ -13,10 +18,11 @@ export class RegisterFormComponent implements OnInit {
 
   user: User;
 
+
   name = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]);
   firstname = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]);
-  email = new FormControl('', [Validators.required, Validators.email, 
-    Validators.pattern('/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/')]);
+  email = new FormControl('',Validators.compose([Validators.required, Validators.email, 
+    Validators.pattern('/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/')]));
   motDePasse = new FormControl('', [Validators.required]);
   confMotDePasse = new FormControl('', [Validators.required]);
 
@@ -66,23 +72,11 @@ export class RegisterFormComponent implements OnInit {
     this.user.email = this.email.value;
     this.user.lastname = this.motDePasse.value;
     this.user.lastname = this.name.value;
-
     this.userService.create(this.user).subscribe(userIdentified => this.user = userIdentified);
   }
 
-   emailDomainValidator(control: FormControl) { 
-    let email = control.value; 
-    if (email && email.indexOf("@") != -1) { 
-      let [_, domain] = email.split("@"); 
-      if (domain !== ".com" || ".fr") { 
-        return {
-          emailDomain: {
-            parsedDomain: domain
-          }
-        }
-      }
-    }
-    return null; 
-  }
+  
+
+  
 
 }
