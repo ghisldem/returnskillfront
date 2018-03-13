@@ -1,6 +1,35 @@
-
 <mat-card class="mat-elevation-z8">
 
-    
+
+
+    <div *ngIf="menuItems">
+
+        <mat-accordion *ngFor="let item of menuItems" >
+            <mat-expansion-panel >
+
+
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="title-menu title1-modis">
+                        <fa *ngIf="item.icon" name={{item.icon}} size="1x"></fa>
+                        {{ item.text }}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+
+                <div *ngIf="item.children">
+                    <div mat-menu-item *ngFor="let childItem of item.children">
+                        <a *ngIf="!childItem.children" href={{childItem.link}}>
+                            <div>
+                                <fa *ngIf="childItem.icon" name={{childItem.icon}} size="1x"></fa>
+                                {{childItem.text}}
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+
 
 </mat-card>

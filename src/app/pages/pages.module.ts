@@ -95,6 +95,7 @@ const PAGES_COMPONENTS = [
   ],
   exports: [
     MaterialModule,
+    FormsModule,
   ]
 })
 export class PagesModule { }

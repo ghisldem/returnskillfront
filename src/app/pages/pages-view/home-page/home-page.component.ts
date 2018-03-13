@@ -80,15 +80,16 @@ export class RegisterFormDialog {
 
   user: User;
 
-  name =  new FormControl('', [Validators.required, Validators.email]);
-  firstname = new FormControl('', [Validators.required, Validators.email]);
-  email = new FormControl('', [Validators.required, Validators.email]);
-  motDePasse = new FormControl('', [Validators.required, Validators.email]);
-  confMotDePasse = new FormControl('', [Validators.required, Validators.email]);
+  name =  new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]);
+  firstname = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]);
+  email = new FormControl('', [Validators.required, Validators.email, 
+    Validators.pattern('/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/')]);
+  motDePasse = new FormControl('', [Validators.required]);
+  confMotDePasse = new FormControl('', [Validators.required]);
 
   constructor(private router: Router, private userService: UserService) { 
 
-    this.user = new User();
+    this.user = new User(); 
 
   }
 
@@ -140,5 +141,19 @@ export class RegisterFormDialog {
     this.userService.create(this.user).subscribe(userIdentified => this.user = userIdentified);
   }
 
+  emailDomainValidator(control: FormControl) { 
+    let email = control.value; 
+    if (email && email.indexOf("@") != -1) { 
+      let [_, domain] = email.split("@"); 
+      if (domain !== ".com" || ".fr") { 
+        return {
+          emailDomain: {
+            parsedDomain: domain
+          }
+        }
+      }
+    }
+    return null; 
+  }
   
 }

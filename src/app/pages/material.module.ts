@@ -11,6 +11,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
  * navigation
  */
 import {MatMenuModule} from '@angular/material';
+import {MatToolbarModule} from '@angular/material';
 
 /*forms*/
 import { MatSlideToggleModule, MatFormFieldModule, MatAutocompleteModule } from '@angular/material';
@@ -25,6 +26,7 @@ import { MatTableModule, MatSortModule } from '@angular/material';
 
 /*layout*/
 import { MatCardModule, MatDividerModule } from '@angular/material';
+import {MatExpansionModule} from '@angular/material';
 
 /*popup modals*/
 import { MatTooltipModule, MatDialogModule} from '@angular/material';
@@ -56,7 +58,9 @@ import {} from '@angular/material';
         MatProgressSpinnerModule,
         MatSortModule,
         MatDialogModule,
-        MatMenuModule
+        MatMenuModule,
+        MatExpansionModule,
+        MatToolbarModule
     ],
     exports: [
         MatTableModule,
@@ -79,7 +83,10 @@ import {} from '@angular/material';
         MatProgressSpinnerModule,
         MatSortModule,
         MatDialogModule,
-        MatMenuModule
+        MatMenuModule,
+        MatExpansionModule,
+        MatToolbarModule,
+        MatDividerModule
     ]
 })
 export class MaterialModule { }
