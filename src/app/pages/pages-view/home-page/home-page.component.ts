@@ -26,8 +26,8 @@ export class HomePageComponent implements OnInit {
   }
   openLoginForm() {
     const dialogRef = this.dialog.open(LoginFormDialog, {
-      height: '400px',
-      width: '500px'
+      height: '500px',
+      width: '480px'
     });
 
   }
@@ -82,8 +82,8 @@ export class RegisterFormDialog {
 
   name =  new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]);
   firstname = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]);
-  email = new FormControl('', [Validators.required, Validators.email, 
-    Validators.pattern('/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/')]);
+  email = new FormControl('', Validators.compose([Validators.required, Validators.email, 
+    Validators.pattern('/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/')]));
   motDePasse = new FormControl('', [Validators.required]);
   confMotDePasse = new FormControl('', [Validators.required]);
 
@@ -141,19 +141,6 @@ export class RegisterFormDialog {
     this.userService.create(this.user).subscribe(userIdentified => this.user = userIdentified);
   }
 
-  emailDomainValidator(control: FormControl) { 
-    let email = control.value; 
-    if (email && email.indexOf("@") != -1) { 
-      let [_, domain] = email.split("@"); 
-      if (domain !== ".com" || ".fr") { 
-        return {
-          emailDomain: {
-            parsedDomain: domain
-          }
-        }
-      }
-    }
-    return null; 
-  }
+
   
 }
