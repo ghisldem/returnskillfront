@@ -2,16 +2,17 @@
 
 
 
-    <div *ngIf="menuItems">
+    <div *ngIf="menuItems"> <!-- si tableau vide suppression de la div -->
 
         <mat-accordion *ngFor="let item of menuItems" >
-            <mat-expansion-panel >
-
+            <mat-expansion-panel hideToggle={{item.children?false:true}}> <!-- controle pour chaque item la présence d'un children, si non, supprime la flèche d'ouverture (toggle) -->
 
                 <mat-expansion-panel-header>
                     <mat-panel-title class="title-menu title1-modis">
                         <fa *ngIf="item.icon" name={{item.icon}} size="1x"></fa>
+
                         {{ item.text }}
+
                     </mat-panel-title>
                 </mat-expansion-panel-header>
 
