@@ -20,10 +20,18 @@ html{
   font-family: 'ResoLight';
 }
 
+
 .title1-modis{
+  font : 1.5em bold;
+  font-family: 'ResoLight';
+}
+.title2-modis{
   font : 2em bold;
   font-family: 'ResoLight';
 }
+
+
+
 .title1{
   font : 2em bold;
 }

@@ -1,5 +1,5 @@
 import { environment } from './../environments/environment';
-import { NGXLogger } from 'ngx-logger';
+//import { NGXLogger } from 'ngx-logger';
 
 /*
  * Modules
