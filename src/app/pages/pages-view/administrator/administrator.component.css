@@ -1,8 +1,13 @@
 .container{
-display: flex;
-}
-.element:nth-child(1)
-{
+    display: flex;
+    }
+    .element:nth-child(1)
+    {
+        
+    }
+    .element:nth-child(2)
+    {
+        flex :1; 
+    }
     
-}
-
+    
