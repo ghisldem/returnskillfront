@@ -2,55 +2,45 @@
 
 
 
+    <div *ngIf="menuItems">
 
+        <mat-accordion *ngFor="let item of menuItems">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="title-menu title1-modis">
+                        {{ item.text }}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div *ngIf="item.children">
+                    
+                        <button mat-menu-item *ngFor="let childItem of item.children" [matMenuTriggerFor]="childItem">
+                            <a *ngIf="!childItem.children" href={{childItem.link}}>
+                                {{childItem.text}}
+                            </a>
+                            <div *ngIf="childItem.children" >
+                                    {{childItem.text}}
+                                    <fa name="caret-right" size="2x"></fa>      
+                            </div>
+                        </button>
 
-    <mat-accordion>
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title class="title-menu title1-modis">
-                    menu1
-                </mat-panel-title>
-            </mat-expansion-panel-header>
+                    <mat-menu #youyou="matMenu">
+                        <button mat-menu-item [matMenuTriggerFor]="fish">Fishes</button>
+                        <button mat-menu-item [matMenuTriggerFor]="amphibians">Amphibians</button>
+                        <button mat-menu-item [matMenuTriggerFor]="reptiles">Reptiles</button>
+                        <button mat-menu-item>Birds</button>
+                        <button mat-menu-item>Mammals</button>
+                    </mat-menu>
 
-            <div class="item">
-                <a class="item" href="#/consulting">test1</a>
-            </div>
+                </div>
 
-            <div class="item">
-                test2
-            </div>
+            </mat-expansion-panel>
+        </mat-accordion>
 
-            <div class="item">
-                test3
-            </div>
-
-        </mat-expansion-panel>
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    menu2
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-
-            <div>
-                test1
-            </div>
-            <mat-divider></mat-divider>
-            <div>
-                test2
-            </div>
-            <mat-divider></mat-divider>
-            <div>
-                test3
-            </div>
-            <mat-divider></mat-divider>
+    </div>
 
 
 
 
-
-        </mat-expansion-panel>
-    </mat-accordion>
 
 
 
@@ -109,5 +99,7 @@
     </div>
 
     <div style="height: 500px">This div is for testing scrolled menus.</div>
+
+
 
 </mat-card>

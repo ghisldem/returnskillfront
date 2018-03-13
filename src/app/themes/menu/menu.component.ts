@@ -1,11 +1,47 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+
+
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent  {
+export class MenuComponent implements OnInit {
+
+  menuItems: MenuItem [] = [
+    {
+      text : 'essai1',
+      children : [
+        {
+          text : 'essai1.1',
+          children : [{
+            text : 'essai1.1.1'
+          },
+          {
+            text : 'essai1.1.2'
+          },
+          ]
+        },
+        {
+          text : 'essai1.2',
+        },
+      ]
+    },
+    {
+      text : 'essai2',
+    },
+    {
+      text : 'essai3',
+    }
+  ];
+constructor() {}
+
+ngOnInit(){
+  console.log (this.menuItems);
+}
+
 
   selected = '';
   items = [
@@ -25,10 +61,10 @@ export class MenuComponent  {
 
 }
 
-interface MenuItem {
-title : string;
-link : string;
-icon : string;
+export interface MenuItem {
+text: string;
+link?: string;
+icon?: string;
 children?: MenuItem[];
 parent?: MenuItem;
 }

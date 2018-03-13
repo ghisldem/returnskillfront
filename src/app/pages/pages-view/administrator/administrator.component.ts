@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'administrator-pages',
+  selector: 'app-administrator-pages',
   template: `
     <div class="container"> 
     <app-menu class="element"></app-menu>
