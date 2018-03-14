@@ -20,34 +20,34 @@ export class TableActionsComponent implements OnInit {
 }
 
 
-const ACTIONS :  Action [] = [
+const ACTIONS: Action[] = [
   {
-    tag : 'search',
-    icon : 'search',
+    tag: 'search',
+    icon: 'search',
   },
   {
-    tag : 'edit',
-    icon : 'pencil'
+    tag: 'edit',
+    icon: 'pencil'
   },
   {
-    tag : 'delete',
-    icon : 'trash'
+    tag: 'delete',
+    icon: 'trash'
   },
   {
-    tag : 'add',
-    icon : 'plus-square'
+    tag: 'add',
+    icon: 'plus-square'
   },
   {
-    tag : 'add',
-    icon : 'plus-square'
+    tag: 'add',
+    icon: 'plus-square'
   },
 
-]
+];
 
 
 export class Action {
 
-  tag : string;
-  icon? : string;
-  control? : (...args)=> void;
+  tag: string;
+  icon?: string;
+  control?: (...args) => void;
 }

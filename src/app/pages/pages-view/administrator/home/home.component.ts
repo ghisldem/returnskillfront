@@ -28,15 +28,18 @@ export class HomeComponent implements OnInit {
   constructor( private userService: UserService, private skillService :  SkillService){}
 
 ngOnInit() {
+const that =  this;
+this.actionsOnUser = [{tag: 'edit', icon: 'pencil', control: function (user) {that.editUserFromTable(user); } }];
 this.getUsersList();
 this.getSkillsList();
 
-this.actionsOnUser = [{tag:"edit",icon:"edit", control: this.editUserFromTable}]
+
 
 }
 
-editUserFromTable(user:User) {
-
+editUserFromTable(user: User) {
+console.log(user);
+console.log(user.id);
 }
 
 /*
