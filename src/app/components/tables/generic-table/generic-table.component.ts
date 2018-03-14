@@ -26,7 +26,7 @@ export class GenericTableComponent implements OnInit {
   searchBarVisible :  boolean =  false;
   dataTable: any[];
   displayColumns: Column[];
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
+  displayedColumns: string[];
   displayedColumnsAndActions : String [];
   dataSource = new MatTableDataSource();
 

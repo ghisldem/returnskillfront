@@ -7,6 +7,8 @@ import { AdministratorComponent } from '../administrator/administrator.component
  * sub pages
  */
 import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { SkillsComponent } from './skills/skills.component';
 
 
 const routes: Routes = [{
@@ -16,6 +18,15 @@ const routes: Routes = [{
               path: 'home',
               component: HomeComponent,
             }, 
+            {
+              path: 'users',
+              component: UsersComponent,
+            },
+            {
+              path: 'skills',
+              component: SkillsComponent,
+            },  
+
             {
               path: '',
               redirectTo: 'home',

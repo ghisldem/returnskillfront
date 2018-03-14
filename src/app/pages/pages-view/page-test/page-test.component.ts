@@ -88,9 +88,11 @@ export class PageTestComponent implements OnInit {
   /*
    *display skills
    */
+  observavleSkillsList  : Observable<any[]>;
   skillList: Skill[];
   getSkillList() {
-    this.skillList = this.skillService.getAll();
+    this.observavleSkillsList = this.skillService.getAll();
+    this.observavleSkillsList.subscribe(reponse => this.skillList = reponse);
   }
 
 
