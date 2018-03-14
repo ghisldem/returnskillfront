@@ -33,7 +33,7 @@
 }
 
 .button {
-  background-color: #4CAF50; /* Green */
+  background:linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
   border: none;
   color: white;
   padding-bottom: 30px;

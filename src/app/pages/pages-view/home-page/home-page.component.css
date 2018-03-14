@@ -8,6 +8,10 @@
     /* background: #ffb81c; */
 }
 
+.card {
+    border-radius: 7px;
+}
+
 .solutions {
     display: -webkit-box;
     display: -moz-box;
@@ -24,15 +28,16 @@
     letter-spacing: -0.5px;
     font-size: 0.87rem;
     line-height: 1.32rem;
+    text-align: center;
+}
+
+.container {
+    background: linear-gradient(45deg,  rgba(255, 143, 83, 0.719) 10%, rgba(224, 192, 89, 0.685) 90%);
 }
 
 button{
     width: 200px;
-    background: #ffb81c;
+    background: #394448;
     border-radius: 0.35rem;
+    color:white;
 }
-
-
-
-
-

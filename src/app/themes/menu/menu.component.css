@@ -7,10 +7,6 @@ mat-card{
     background: #373A36;
 }
 
-.panel-menu{
-    background: #373A36;
-    
-}
 
 .mat-expansion-indicator::after{
     color : white;

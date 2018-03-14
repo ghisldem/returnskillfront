@@ -5,28 +5,35 @@ import { MenuItem } from '../../../themes/menu/menu.component';
 export const MENU_ADMINISTRATOR: MenuItem[] = [
     {
         text: 'Tableau de bord',
-        link : '#/administrator',
+        link: '#/administrator',
     },
     {
         text: 'Listes',
-        icon :'list-ul',
-        children : [
+        icon: 'list-ul',
+        children: [
             {
                 text: 'Tout',
-                link : '#/administrator'
+                link: '#/administrator'
 
             },
             {
                 text: 'Utilisateurs',
-                icon : 'users',
-                link : '#/administrator/users'
+                icon: 'users',
+                link: '#/administrator/users'
 
             },
             {
                 text: 'Compétences',
-                icon : 'cogs',
+                icon: 'cogs',
             },
 
         ]
-    }
+    },
+
+    {
+        text: 'retour',
+        link: '#/administrator',
+    },
+
+
 ]
