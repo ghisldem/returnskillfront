@@ -13,6 +13,7 @@ import { Skill} from '../../../../models/Skill';
  */
 import { UserService } from '../../../../services/data/user.service';
 import { SkillService } from '../../../../services/data/skill.service';
+import { Action } from '../../../../components/actions/table-actions/table-actions.component';
 
 @Component({
   selector: 'app-home',
@@ -21,6 +22,8 @@ import { SkillService } from '../../../../services/data/skill.service';
 })
 export class HomeComponent implements OnInit {
 
+  /** actions to apply to a table de type user */
+  actionsOnUser: Action [] ;
 
   constructor( private userService: UserService, private skillService :  SkillService){}
 
@@ -28,8 +31,13 @@ ngOnInit() {
 this.getUsersList();
 this.getSkillsList();
 
+this.actionsOnUser = [{tag:"edit",icon:"edit", control: this.editUserFromTable}]
+
 }
 
+editUserFromTable(user:User) {
+
+}
 
 /*
 *display tab users

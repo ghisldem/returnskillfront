@@ -21,8 +21,8 @@
       <ng-container *ngFor="let column of displayColumns" matColumnDef={{column.nameProperty}}>
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{column.nameTitle}} </mat-header-cell>
         <mat-cell *matCellDef="let element"> 
-            <mat-form-field floatLabel="never" >
-              <input matInput [readonly]="element.editing"  [(ngModel)]="element[column.nameProperty]">
+            <mat-form-field floatLabel="never" floatPlaceholder="{{!element.editing?'float':'never'}}">
+              <input matInput  [readonly]="element.editing"  [(ngModel)]="element[column.nameProperty]">
             </mat-form-field>
 
 
@@ -51,15 +51,6 @@
                 </button>
           </mat-cell>
         </ng-container>
-
-        <!-- column actions -->
-        <ng-container matColumnDef="actionsColumn2"></ng-container>
-        <mat-header-cell *matHeaderCellDef>
-            <button mat-icon-button color="primary" (click)="onClickDisplaySearchBar()"><fa name="search" size="2x"></fa></button>
-            <button mat-icon-button color="accent" (click)="dataSource.createNew()"><fa name="plus-square" size="2x"></fa></button>
-          </mat-header-cell>
-      </ng-container>
-
 
 
       <mat-header-row *matHeaderRowDef="displayedColumnsAndActions" class="matHeaderRow" ></mat-header-row>

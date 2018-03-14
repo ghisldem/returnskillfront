@@ -5,7 +5,7 @@
 <div *ngIf="dataSource" class="gt-container element">
   <div *ngIf="searchBarVisible">
     <div ChangeColor mycolor="#F9F2A4" (result)="truc($event)" class="gt-header mat-elevation-z8">
-      <mat-form-field>
+      <mat-form-field >
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
       </mat-form-field>
     </div>
@@ -20,17 +20,13 @@
 <!-- field table -->
       <ng-container *ngFor="let column of displayColumns" matColumnDef={{column.nameProperty}}>
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{column.nameTitle}} </mat-header-cell>
-        <mat-cell *matCellDef="let element"> 
-            <mat-form-field floatLabel="never" >
-              <input matInput [readonly]="element.editing"  [(ngModel)]="element[column.nameProperty]">
-            </mat-form-field>
+        <mat-cell *matCellDef="let row"> 
+          <mat-form-field floatLabel="never" >
+            <input matInput  [readonly]="row.editing"  [(ngModel)]="row[column.nameProperty]">
+          </mat-form-field>
+          <!--{{row[column.nameProperty]}}--> 
 
-
-            <!--{{row[column.nameProperty]}}--> 
-
-  
-          </mat-cell>
-
+        </mat-cell>
       </ng-container>
 
 <!-- column actions -->
@@ -39,11 +35,11 @@
             <button mat-icon-button color="primary" (click)="onClickDisplaySearchBar()"><fa name="search" size="2x"></fa></button>
             <button mat-icon-button color="accent" (click)="dataSource.createNew()"><fa name="plus-square" size="2x"></fa></button>
           </mat-header-cell>
-          <mat-cell *matCellDef="let element">
-            <button *ngIf="!element.editing" mat-icon-button color="primary" focusable="false" (click)="edit(element)">
+          <mat-cell *matCellDef="let row">
+            <button *ngIf="!row.editing" mat-icon-button color="primary" focusable="false" (click)="row.startEdit()">
                 <fa name="pencil" size="1x"></fa>
                 </button>
-            <button *ngIf="element.editing" mat-icon-button color="primary" focusable="false" (click)="confirmEditCreate(element)">
+            <button *ngIf="row.editing" mat-icon-button color="primary" focusable="false" (click)="row.confirmEditCreate()">
                 <fa name="check" size="1x"></fa>
                 </button>
             <button mat-icon-button color="primary" focusable="false" (click)="row.cancelOrDelete()">
@@ -51,15 +47,6 @@
                 </button>
           </mat-cell>
         </ng-container>
-
-        <!-- column actions -->
-        <ng-container matColumnDef="actionsColumn2"></ng-container>
-        <mat-header-cell *matHeaderCellDef>
-            <button mat-icon-button color="primary" (click)="onClickDisplaySearchBar()"><fa name="search" size="2x"></fa></button>
-            <button mat-icon-button color="accent" (click)="dataSource.createNew()"><fa name="plus-square" size="2x"></fa></button>
-          </mat-header-cell>
-      </ng-container>
-
 
 
       <mat-header-row *matHeaderRowDef="displayedColumnsAndActions" class="matHeaderRow" ></mat-header-row>

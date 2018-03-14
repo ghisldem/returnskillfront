@@ -8,6 +8,7 @@ export class User {
   referent?: User;
   constructor() {
   }
+
 }
 
 export class UserComplete extends User {

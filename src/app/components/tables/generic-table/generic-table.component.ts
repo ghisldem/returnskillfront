@@ -10,6 +10,12 @@ import {map} from 'rxjs/operators/map';
 import {startWith} from 'rxjs/operators/startWith';
 import {switchMap} from 'rxjs/operators/switchMap';
 
+/**
+ * services
+ */
+import {ActionsUserService} from '../../../services/actions/actions-user.service'
+import { Action } from '../../actions/table-actions/table-actions.component';
+
 @Component({
   selector: 'app-generic-table',
   templateUrl: './generic-table.component.html',
@@ -21,10 +27,12 @@ export class GenericTableComponent implements OnInit {
   @Input() observableDataTable : Observable<any[]>
   @Input() columnsData: Array<[string, string]>;
   @Input() actions : boolean = false;
-
+  @Input() actionsHeader: Action[];
+  @Input() actionsRow: Action[];
   
+
+
   searchBarVisible :  boolean =  false;
-  dataTable: any[];
   displayColumns: Column[];
   displayedColumns: string[];
   displayedColumnsAndActions : String [];
@@ -35,7 +43,7 @@ export class GenericTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() {
+  constructor(private actionsUserSevice : ActionsUserService ) {
 
   }
 
@@ -48,6 +56,8 @@ export class GenericTableComponent implements OnInit {
       this.dataSource.data = data;
       this.ngAfterViewInit;
     });
+
+    this.actionsHeader = [{tag: "search", icon : "search"}];
 
   }
 
@@ -112,9 +122,27 @@ this.searchBarVisible = false;
 
    }
 
+  /**
+   *  edit one row
+   */
+
+
+  edit(element :  any){
+    element.editing = !(element.editing);
+   this.actionsUserSevice.getUser(element);
+  }
+
+
+  confirmEditCreate(element : any) {
+    element.editing = !(element.editing);
+  }
 
 }
 
+interface DataTable {
+  editing : boolean;
+
+}
 
 class Column {
   nameProperty: string;
