@@ -27,20 +27,18 @@ export class HomeComponent implements OnInit {
   /** actions to apply to a table de type user */
   actionsOnUser: Action[];
 
-  user : User;
+
   constructor(private userService: UserService, private skillService: SkillService, public dialog: MatDialog) { }
+
 
   ngOnInit() {
     const that = this;
     this.actionsOnUser = [
       { tag: 'edit', icon: 'pencil', control: function (user) { that.editUserFromTable(user); } }
-
-
     ];
+
     this.getUsersList();
     this.getSkillsList();
-
-
 
   }
 
@@ -49,15 +47,17 @@ export class HomeComponent implements OnInit {
    */
 
   editUserFromTable(user: User) {
-    this.openModificationUserForm(user)
+    let userCopy = Object.assign({},user);
+    this.openModificationUserForm(userCopy);
   }
 
   /**
-   * dialog 
+   * dialog modify user
    */
 
   openModificationUserForm(user: User) {
 
+    let userResult : User = new User();
     /**create dialog, transmit component linked, configuration of box dialog and open the box dialog */
     const dialogRef = this.dialog.open(ModificationUserFormComponent,{
 
@@ -71,11 +71,29 @@ export class HomeComponent implements OnInit {
     });
     
     dialogRef.afterClosed().subscribe(result => {
-      this.user = result;
-      console.log(user.id);
-      console.log(user.firstname);
-      console.log(user.lastname);
-      console.log(user.email);
+      userResult = result;
+
+      /** comparison data between 2 object behind change and ater change */
+      /** if id undefined == action cancelled*/
+      if(userResult.id){
+        /** abnormal case */
+        if (userResult.id !== user.id) {
+          throw new Error("cas anormal 2 id different ");
+        }
+        /** comparison if different transmit in put request*/
+        if (userResult.id === user.id && userResult.lastname === user.lastname ){
+
+        } 
+  
+      }else{
+        throw new Error("Index Out of Bounds");
+      }
+      console.log(userResult.id);
+      console.log(userResult.firstname);
+      console.log(userResult.lastname);
+      console.log(userResult.email);
+
+
     });
 
 
@@ -85,6 +103,7 @@ export class HomeComponent implements OnInit {
   /*
   *display tab users
   */
+  titleTableUser : string = 'Liste des collaborateurs';
   observavleUserList: Observable<any[]>;
   usersList: User[];
   COLUMNSTABLE: Array<[string, string]> = [
@@ -105,6 +124,7 @@ export class HomeComponent implements OnInit {
   /*
   *display tab Skills
   */
+  titleTableSkill : string = 'Liste des compétences';
   observavleSkillsList: Observable<any[]>;
   skillsList: Skill[];
   COLUMNSTABLESKILL: Array<[string, string]> = [
@@ -130,7 +150,7 @@ export class HomeComponent implements OnInit {
 })
 export class ModificationUserFormComponent {
 
-  userModified : User ;
+userEmpty : User =  new User();
 
   constructor(
     public dialogRef: MatDialogRef<ModificationUserFormComponent>,
@@ -139,23 +159,17 @@ export class ModificationUserFormComponent {
       console.log(data);
       console.log(data.user.lastname);
 
-      this.userModified = new User();
      }
-
 
      onSubmit(){
        if (this.dialogRef){
-         this.dialogRef.close(this.userModified);
-         console.log(this.userModified);
-         console.log("dans dialog");
-         console.log(this.userModified.id);
-         console.log("sortie dialog");
+         this.dialogRef.close();
        }
      }
 
      onCancel(){
       if (this.dialogRef){
-        this.dialogRef.close();
+        this.dialogRef.close(this.userEmpty);
       }
      }
 }

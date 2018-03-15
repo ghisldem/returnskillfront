@@ -9,6 +9,7 @@ import { catchError } from 'rxjs/operators/catchError';
 import { map } from 'rxjs/operators/map';
 import { startWith } from 'rxjs/operators/startWith';
 import { switchMap } from 'rxjs/operators/switchMap';
+import { MatSnackBar } from '@angular/material';
 
 /**
  * services
@@ -21,6 +22,7 @@ import { ActionsUserService } from '../../../services/actions/actions-user.servi
  * Models-features
  */
 import { Action } from '../../../models/features/action';
+import { error } from 'util';
 
 
 
@@ -37,6 +39,7 @@ export class GenericTableComponent implements OnInit {
   @Input() actions: boolean = false;
   @Input() actionsHeader: Action[];
   @Input() actionsRow: Action[];
+  @Input() titleTable: string;
 
 
 
@@ -52,11 +55,13 @@ export class GenericTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private actionsUserSevice: ActionsUserService) {
+  constructor(private actionsUserSevice: ActionsUserService, public snackBar: MatSnackBar) {
 
   }
 
   ngOnInit() {
+
+    /** settings actions */
     const that = this;
     this.actionsHeader = [
       { tag: 'search', icon: 'search', control: function () { that.onClickDisplaySearchBar(); } },
@@ -64,18 +69,32 @@ export class GenericTableComponent implements OnInit {
       { tag: 'search', icon: 'search', control: this.onClickDisplaySearchBar },
     ];
 
-
+  
+    /**formatting column */
     this.updateDisplayedColumns();
     this.updateColumns();
-    this.observableDataTable.subscribe(data => {
 
-      this.dataSource.data = data;
-      if (data.length > 0) {
-        this.isData = true;
+    /**
+     * loading data
+     */
+    this.observableDataTable.subscribe(
+      /** transmit data to datasource */
+      data => {
+
+        this.dataSource.data = data;
+
+        if (data.length > 0) {
+          this.isData = true;
+        }
+      },
+      /**handler error */
+      error => {
+        let message = 'Erreur de chargement des données pour la table ' + this.titleTable;
+        this.snackBar.open(message, null, {
+          duration: 3000,
+        });
       }
-
-    });
-
+    );
 
   }
 
@@ -116,6 +135,7 @@ export class GenericTableComponent implements OnInit {
    * Set the paginator and sort after the view init since this component will
    * be able to query its view for the initialized paginator and sort.
    */
+
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
