@@ -1,4 +1,3 @@
-
 /*
  * Modules
  */
@@ -8,11 +7,10 @@ import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemesModule } from '../themes/themes.module';
-import { ServicesModule } from '../services/services.module';
+
 
 import { MaterialModule } from './material.module';
 import { ComponentsModule } from '../components/components.modules';
-
 /*
  * Modules material/animation/font
  */
@@ -32,6 +30,8 @@ import { AdministratorModule } from './pages-view/administrator/administrator.mo
  * services
  */
 import { UserService } from '../services/data/user.service';
+import { ServicesModule } from '../services/services.module';
+
 
 /*
  * components
@@ -43,6 +43,7 @@ import { PagesComponent } from './pages.component';
  */
 import { PageTestComponent } from './pages-view/page-test/page-test.component';
 import { HomePageComponent, LoginFormDialog, RegisterFormDialog } from './pages-view/home-page/home-page.component';
+import { Alert } from 'selenium-webdriver';
 
 
 const PAGES_COMPONENTS = [
@@ -88,7 +89,8 @@ const PAGES_COMPONENTS = [
 
   ],
   providers: [
-    UserService
+    UserService,
+    
   ],
   entryComponents: [
     LoginFormDialog, HomePageComponent, RegisterFormDialog

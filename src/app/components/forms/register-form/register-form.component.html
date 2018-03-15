@@ -26,27 +26,33 @@
   <br>
 
   <mat-form-field>
-    <input matInput required type="email"  placeholder="Entrez votre email" [formControl]="email" required>
+    <input matInput placeholder="Entrez votre email" type="email"   [formControl]="email" required>
     <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
   </mat-form-field>
 
   <br>
 
   <mat-form-field>
-    <input matInput placeholder="Entrez votre mot de passe" type="password" [formControl]="motDePasse" required>
-    <mat-error *ngIf="motDePasse.invalid">{{getErrorMessageMotDePasse()}}</mat-error>
+    <input matInput placeholder="Entrez votre mot de passe" type="password" [formControl]="password"  
+      name="password" required>
+    <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
   </mat-form-field>
 
-  <br>
+  <br> 
 
   <mat-form-field>
-    <input matInput placeholder="Confirmez votre mot de passe" type="password" [formControl]="confMotDePasse" required>
-    <mat-error *ngIf="confMotDePasse.invalid">{{getErrorMessageConfMotDePasse()}}</mat-error>
+    <input matInput placeholder="Confirmez votre mot de passe" type="password" [formControl]="confirmPassword" 
+       name="confirmPassword" required>
+    <!--<mat-error *ngIf="confirmPassword.invalid">{{getErrorMessageConfirmPassword()}}</mat-error>-->
+    <mat-error *ngIf="matchPassword.invalid">{{getErrorMessagematchPassword()}}</mat-error>
   </mat-form-field>
 
   <br>
   <br>
   <div class="container-action">
-    <button mat-raised-button disabled class="button" value="Login" (click)="saveUser()" > s'enregistrer</button>
+    <button mat-raised-button [disabled]="confirmPassword.invalid || password.invalid || email.invalid || firstname.invalid || name.invalid" class="button" value="Login"  (click)="controlPassword()" (click)="saveUser()" > s'enregistrer</button>
+    <span matTooltip="Enregistrement effectué" class="custom-tooltip" #tooltip="matTooltip"></span>
+   
   </div>
+
 </div>

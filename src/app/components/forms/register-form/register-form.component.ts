@@ -1,14 +1,12 @@
+import { EqualValidatorDirective } from './../../../services/utils/directives/equal-validator.directive';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, Validator } from '@angular/forms';
 import { User } from '../../../models/user';
 import { UserService } from '../../../services/data/user.service';
-import { empty } from 'rxjs/observable/empty';
-import { EmptyError } from 'rxjs';
-import { EmptyObservable } from 'rxjs/observable/EmptyObservable';
-import { isEmpty } from 'rxjs/operator/isEmpty';
 import { DISABLED } from '@angular/forms/src/model';
 
+ 
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
@@ -17,14 +15,17 @@ import { DISABLED } from '@angular/forms/src/model';
 export class RegisterFormComponent implements OnInit {
 
   user: User;
-
+  wrongPasswordMessage : String;
+  passwordValue : String;
+  confirmPasswordValue : String;
+  passwordMessageError : String = '';
 
   name = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]);
   firstname = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]);
-  email = new FormControl('',Validators.compose([Validators.required, Validators.email, 
-    Validators.pattern('/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/')]));
-  motDePasse = new FormControl('', [Validators.required]);
-  confMotDePasse = new FormControl('', [Validators.required]);
+  email = new FormControl('',[Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.required]);
+  confirmPassword = new FormControl('', [Validators.required]);
+ matchPassword =  new FormControl('', [Validators.required]); 
 
   constructor(private router: Router, private userService : UserService) { 
     this.user= new User();
@@ -52,31 +53,52 @@ export class RegisterFormComponent implements OnInit {
         '';
 
   }
-  getErrorMessageMotDePasse() {
-    return this.motDePasse.hasError('required') ? 'Vous devez renseigner ce champs' :
-      this.motDePasse.hasError('motDePasse') ? 'Entrez un mot de passe valide' :
+  getErrorMessagePassword() {
+    return this.password.hasError('required') ? 'Vous devez renseigner ce champs' :
+      this.password.hasError('password') ? 'Entrez un mot de passe valide' :
         '';
 
   }
-  getErrorMessageConfMotDePasse() {
-    return this.confMotDePasse.hasError('required') ? 'Vous devez renseigner ce champs' :
-      this.confMotDePasse.hasError('confMotDePasse') ? 'Confirmer votre mot de passe' :
+  getErrorMessageConfirmPassword() {
+    return this.confirmPassword.hasError('required') ? 'Vous devez renseigner ce champs' :
+      this.confirmPassword.hasError('confirmPassword') ? 'Confirmer votre mot de passe' :
+      
         '';
 
   }
+
+  getErrorMessagematchPassword() {
+    return this.matchPassword.hasError('required') ? 'Vos mots de passes ne corresponde pas' :
+      this.matchPassword.hasError('matchPassword') ? 'Retaper votre mot de passe' :
+      
+        '';
+
+  }
+
+ 
+
 
 
   saveUser() {
     
     this.user.firstname = this.firstname.value;
     this.user.email = this.email.value;
-    this.user.lastname = this.motDePasse.value;
     this.user.lastname = this.name.value;
     this.userService.create(this.user).subscribe(userIdentified => this.user = userIdentified);
+
   }
 
-  
+  controlPassword(){
+    
+    this.passwordValue = this.password.value; 
+    this.confirmPasswordValue = this.confirmPassword.value 
+    if( this.passwordValue !=  this.confirmPasswordValue) {
+            //this.passwordMessageError = "Les deux mots de passe de sont pas identique, recommencer!";
 
-  
+    } else {
+     // this.passwordMessageError = "";
+    }
+  }
+
 
 }

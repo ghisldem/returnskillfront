@@ -11,6 +11,7 @@
     justify-content: space-between;
     align-items: center;
     background: #373A36;
+    padding: 7px;
   }
 
   .logo{
@@ -44,3 +45,7 @@
   .button:hover{
     background-color: #5f5f5f;
   }
+
+.custom-tooltip{
+  height: 15px;
+}

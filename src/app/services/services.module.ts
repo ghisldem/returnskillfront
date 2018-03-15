@@ -15,6 +15,7 @@ import { ChangeColorDirective } from './utils/directives/change-color.directive'
 import { LoadDataDirective } from './utils/directives/load-data.directive';
 import { CapitalizeFirstPipe } from './utils/pipes/capitalize-first.pipe';
 import { AddSearchBarDirective } from './utils/directives/add-search-bar.directive';
+import { EqualValidatorDirective} from './utils/directives/equal-validator.directive';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { AddSearchBarDirective } from './utils/directives/add-search-bar.directi
     ChangeColorDirective,
     LoadDataDirective,
     CapitalizeFirstPipe,
-    AddSearchBarDirective
+    AddSearchBarDirective,
+    EqualValidatorDirective
   ],
 
   providers: [
@@ -33,13 +35,15 @@ import { AddSearchBarDirective } from './utils/directives/add-search-bar.directi
     UserService,
     StudyLevelService,
     TrainingAreaService,
-    SkillService
+    SkillService,
+    
   ],
   
   exports : [
     ChangeColorDirective,
     LoadDataDirective,
-    CapitalizeFirstPipe
+    CapitalizeFirstPipe,
+    EqualValidatorDirective,
   ]
 
 })
