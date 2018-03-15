@@ -21,14 +21,7 @@
       <ng-container *ngFor="let column of displayColumns" matColumnDef={{column.nameProperty}}>
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{column.nameTitle}} </mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <mat-form-field floatLabel="never">
-            <input matInput [readonly]="element.editing" [(ngModel)]="element[column.nameProperty]">
-          </mat-form-field>
-
-
-          <!--{{row[column.nameProperty]}}-->
-
-
+          {{element[column.nameProperty]}}
         </mat-cell>
 
       </ng-container>

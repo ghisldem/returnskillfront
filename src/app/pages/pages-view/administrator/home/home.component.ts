@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef,MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material';
 import { Observable } from 'rxjs/observable';
 
 /**
@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   /** actions to apply to a table de type user */
   actionsOnUser: Action[];
 
+  user : User;
   constructor(private userService: UserService, private skillService: SkillService, public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -56,11 +57,27 @@ export class HomeComponent implements OnInit {
    */
 
   openModificationUserForm(user: User) {
-    const dialogRef = this.dialog.open(ModificationUserFormComponent, {
-      height: '600px',
+
+    /**create dialog, transmit component linked, configuration of box dialog and open the box dialog */
+    const dialogRef = this.dialog.open(ModificationUserFormComponent,{
+
+      /** configuration of modal settings */
+      height: '500px',
       width: '500px',
       data: { user : user },
+      hasBackdrop : true,
+      disableClose :  true,
+
     });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      this.user = result;
+      console.log(user.id);
+      console.log(user.firstname);
+      console.log(user.lastname);
+      console.log(user.email);
+    });
+
 
   }
 
@@ -113,6 +130,8 @@ export class HomeComponent implements OnInit {
 })
 export class ModificationUserFormComponent {
 
+  userModified : User ;
+
   constructor(
     public dialogRef: MatDialogRef<ModificationUserFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
@@ -120,6 +139,23 @@ export class ModificationUserFormComponent {
       console.log(data);
       console.log(data.user.lastname);
 
+      this.userModified = new User();
      }
 
+
+     onSubmit(){
+       if (this.dialogRef){
+         this.dialogRef.close(this.userModified);
+         console.log(this.userModified);
+         console.log("dans dialog");
+         console.log(this.userModified.id);
+         console.log("sortie dialog");
+       }
+     }
+
+     onCancel(){
+      if (this.dialogRef){
+        this.dialogRef.close();
+      }
+     }
 }
