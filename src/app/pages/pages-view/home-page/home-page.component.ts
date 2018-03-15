@@ -101,7 +101,7 @@ export class RegisterFormDialog {
 
   ngOnInit() {
 
-    this.confirmControlPassword();
+   
   }
 
   getErrorMessageName(){
@@ -168,14 +168,6 @@ export class RegisterFormDialog {
     }
   }
 
- confirmControlPassword(): ValidatorFn {
-  console.log("test");
-    return (control: AbstractControl): {[key: string]: any} => {
-      console.log("test");
-      const name = control.value;
-      const no = name.test(name);
-      return no ? {'forbiddenName': {name}} : null;
-    };
-  }
+
   
 }
