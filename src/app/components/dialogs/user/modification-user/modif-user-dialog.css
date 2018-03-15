@@ -1,0 +1,23 @@
+mat-card{
+    min-width: 250px;
+    min-height: 600px;
+    margin: 20px 0px 0px 0px;
+    padding : 0px 0px 0px 0px;
+
+    background: #373A36;
+}
+
+
+.mat-expansion-indicator::after{
+    color : white;
+}
+
+
+.item{
+    height:30px;
+    /* line-height: 30px; */
+    
+}
+.item:hover{
+    font-weight: bold  ;
+}

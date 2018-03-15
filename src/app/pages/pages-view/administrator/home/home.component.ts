@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-
-import {Observable } from 'rxjs/observable';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Observable } from 'rxjs/observable';
 
 /**
  * Models
  */
 import { User } from '../../../../models/user';
-import { Skill} from '../../../../models/Skill';
-import { Action} from '../../../../models/features/action';
+import { Skill } from '../../../../models/Skill';
+import { Action } from '../../../../models/features/action';
 
 
 /**
@@ -25,70 +25,101 @@ import { SkillService } from '../../../../services/data/skill.service';
 export class HomeComponent implements OnInit {
 
   /** actions to apply to a table de type user */
-  actionsOnUser: Action [] ;
+  actionsOnUser: Action[];
 
-  constructor( private userService: UserService, private skillService :  SkillService){}
+  constructor(private userService: UserService, private skillService: SkillService, public dialog: MatDialog) { }
 
-ngOnInit() {
-const that =  this;
-this.actionsOnUser = [
-  {tag: 'edit', icon: 'pencil', control: function (user) {that.editUserFromTable(user); } }
-
-
-];
-this.getUsersList();
-this.getSkillsList();
+  ngOnInit() {
+    const that = this;
+    this.actionsOnUser = [
+      { tag: 'edit', icon: 'pencil', control: function (user) { that.editUserFromTable(user); } }
 
 
-
-}
-
-/**
- * definition actions on user
- */
-
-editUserFromTable(user: User) {
-
-}
+    ];
+    this.getUsersList();
+    this.getSkillsList();
 
 
-/*
-*display tab users
-*/
-observavleUserList : Observable<any[]>;
-usersList: User[];
-COLUMNSTABLE: Array<[string, string]> = [
-['id', 'Id'],
-['firstname', 'Prénom'],
-['lastname', 'Nom'],
-['email', 'Email'],
 
-// ['phoneNumber', 'num tel']
-];
+  }
 
-getUsersList() {
+  /**
+   * definition actions on user
+   */
 
-this.observavleUserList = this.userService.getAll();
-this.observavleUserList.subscribe(reponse => this.usersList = reponse);
-}
+  editUserFromTable(user: User) {
+    this.openModificationUserForm(user)
+  }
+
+  /**
+   * dialog 
+   */
+
+  openModificationUserForm(user: User) {
+    const dialogRef = this.dialog.open(ModificationUserFormComponent, {
+      height: '600px',
+      width: '500px',
+      data: { user : user },
+    });
+
+  }
+
+
+  /*
+  *display tab users
+  */
+  observavleUserList: Observable<any[]>;
+  usersList: User[];
+  COLUMNSTABLE: Array<[string, string]> = [
+    ['id', 'Id'],
+    ['firstname', 'Prénom'],
+    ['lastname', 'Nom'],
+    ['email', 'Email'],
+
+    // ['phoneNumber', 'num tel']
+  ];
+
+  getUsersList() {
+
+    this.observavleUserList = this.userService.getAll();
+    this.observavleUserList.subscribe(reponse => this.usersList = reponse);
+  }
 
   /*
   *display tab Skills
   */
- observavleSkillsList: Observable<any[]>;
- skillsList: Skill[];
- COLUMNSTABLESKILL: Array<[string, string]> = [
-   ['id', 'Id'],
-   ['tag', 'Tag'],
-   ['description', 'Description'],
-   ['type', 'Catégorie'],
- ];
+  observavleSkillsList: Observable<any[]>;
+  skillsList: Skill[];
+  COLUMNSTABLESKILL: Array<[string, string]> = [
+    ['id', 'Id'],
+    ['tag', 'Tag'],
+    ['description', 'Description'],
+    ['type', 'Catégorie'],
+  ];
 
 
- getSkillsList() {
+  getSkillsList() {
 
-   this.observavleSkillsList = this.skillService.getAll();
-   this.observavleSkillsList.subscribe(reponse => this.skillsList = reponse);
- }
+    this.observavleSkillsList = this.skillService.getAll();
+    this.observavleSkillsList.subscribe(reponse => this.skillsList = reponse);
+  }
+
+}
+
+
+@Component({
+  templateUrl: '../../../../components/dialogs/user/modification-user/modif-user-dialog.html',
+  styleUrls: ['../../../../components/dialogs/user/modification-user/modif-user-dialog.css']
+})
+export class ModificationUserFormComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<ModificationUserFormComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+
+      console.log(data);
+      console.log(data.user.lastname);
+
+     }
 
 }

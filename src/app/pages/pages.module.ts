@@ -42,7 +42,13 @@ import { PagesComponent } from './pages.component';
  * components - pages
  */
 import { PageTestComponent } from './pages-view/page-test/page-test.component';
+
+/**
+ * components - dialogs
+ */
 import { HomePageComponent, LoginFormDialog, RegisterFormDialog } from './pages-view/home-page/home-page.component';
+
+
 
 
 const PAGES_COMPONENTS = [
@@ -91,7 +97,10 @@ const PAGES_COMPONENTS = [
     UserService
   ],
   entryComponents: [
-    LoginFormDialog, HomePageComponent, RegisterFormDialog
+    LoginFormDialog,
+    HomePageComponent,
+    RegisterFormDialog,
+
   ],
   exports: [
     MaterialModule,
