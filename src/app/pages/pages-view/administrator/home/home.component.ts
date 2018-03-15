@@ -7,13 +7,15 @@ import {Observable } from 'rxjs/observable';
  */
 import { User } from '../../../../models/user';
 import { Skill} from '../../../../models/Skill';
+import { Action} from '../../../../models/features/action';
+
 
 /**
  * Services
  */
 import { UserService } from '../../../../services/data/user.service';
 import { SkillService } from '../../../../services/data/skill.service';
-import { Action } from '../../../../components/actions/table-actions/table-actions.component';
+
 
 @Component({
   selector: 'app-home',
@@ -29,7 +31,11 @@ export class HomeComponent implements OnInit {
 
 ngOnInit() {
 const that =  this;
-this.actionsOnUser = [{tag: 'edit', icon: 'pencil', control: function (user) {that.editUserFromTable(user); } }];
+this.actionsOnUser = [
+  {tag: 'edit', icon: 'pencil', control: function (user) {that.editUserFromTable(user); } }
+
+
+];
 this.getUsersList();
 this.getSkillsList();
 
@@ -37,10 +43,14 @@ this.getSkillsList();
 
 }
 
+/**
+ * definition actions on user
+ */
+
 editUserFromTable(user: User) {
-console.log(user);
-console.log(user.id);
+
 }
+
 
 /*
 *display tab users

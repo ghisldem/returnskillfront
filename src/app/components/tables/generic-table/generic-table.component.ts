@@ -13,8 +13,16 @@ import { switchMap } from 'rxjs/operators/switchMap';
 /**
  * services
  */
-import { ActionsUserService } from '../../../services/actions/actions-user.service'
-import { Action } from '../../actions/table-actions/table-actions.component';
+import { ActionsUserService } from '../../../services/actions/actions-user.service';
+
+
+
+/**
+ * Models-features
+ */
+import { Action } from '../../../models/features/action';
+
+
 
 @Component({
   selector: 'app-generic-table',
@@ -37,6 +45,7 @@ export class GenericTableComponent implements OnInit {
   displayedColumns: string[];
   displayedColumnsAndActions: String[];
   dataSource = new MatTableDataSource();
+  isData: boolean = false;
 
 
 
@@ -50,17 +59,20 @@ export class GenericTableComponent implements OnInit {
   ngOnInit() {
     const that = this;
     this.actionsHeader = [
-      { tag: 'search', icon: 'search', control: function () {that.onClickDisplaySearchBar(); } },
-      { tag: 'add', icon: 'plus-square', control: function () {that.onClickAddEntry(); } },
+      { tag: 'search', icon: 'search', control: function () { that.onClickDisplaySearchBar(); } },
+      { tag: 'add', icon: 'plus-square', control: function () { that.onClickAddEntry(); } },
       { tag: 'search', icon: 'search', control: this.onClickDisplaySearchBar },
     ];
 
-    
+
     this.updateDisplayedColumns();
     this.updateColumns();
     this.observableDataTable.subscribe(data => {
 
       this.dataSource.data = data;
+      if (data.length > 0) {
+        this.isData = true;
+      }
 
     });
 
@@ -133,7 +145,7 @@ export class GenericTableComponent implements OnInit {
    * add entry in datasource
    */
 
-  onClickAddEntry(){
+  onClickAddEntry() {
     console.log("ajouter une entrée");
   }
   /**

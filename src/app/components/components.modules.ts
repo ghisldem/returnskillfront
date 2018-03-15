@@ -41,7 +41,7 @@ import { } from './forms';
 import { } from './forms';
 import { GenericTableComponent } from './tables/generic-table/generic-table.component';
 
-import {TableActionsComponent} from './actions/table-actions/table-actions.component';
+
 
 @NgModule({
     imports: [
@@ -75,10 +75,6 @@ import {TableActionsComponent} from './actions/table-actions/table-actions.compo
          */
         GenericTableComponent,
 
-        /**
-         * components - actions
-         */
-        TableActionsComponent,
         
     ],
     providers: [
@@ -94,7 +90,6 @@ import {TableActionsComponent} from './actions/table-actions/table-actions.compo
         TrainingFormComponent,
         UserCompleteFormComponent,
         GenericTableComponent,
-        TableActionsComponent,
         MaterialModule,
     ]
 })

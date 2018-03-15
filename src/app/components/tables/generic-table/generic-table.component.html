@@ -1,8 +1,8 @@
-<div *ngIf="!dataSource" class="spinner">
+<div *ngIf="!isData" class="spinner">
   <mat-spinner></mat-spinner>
 </div>
 
-<div *ngIf="dataSource" class="gt-container element">
+<div *ngIf="isData" class="gt-container element">
   <div *ngIf="searchBarVisible">
     <div ChangeColor mycolor="#F9F2A4" (result)="truc($event)" class="gt-header mat-elevation-z8">
       <mat-form-field>
