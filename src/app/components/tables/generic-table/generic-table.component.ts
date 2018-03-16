@@ -63,11 +63,11 @@ export class GenericTableComponent implements OnInit {
 
     /** settings actions */
     const that = this;
-    this.actionsHeader = [
-      { tag: 'search', icon: 'search', control: function () { that.onClickDisplaySearchBar(); } },
-      { tag: 'add', icon: 'plus-square', control: function () { that.onClickAddEntry(); } },
-      { tag: 'search', icon: 'search', control: this.onClickDisplaySearchBar },
-    ];
+    // this.actionsHeader = [
+    //   { tag: 'search', icon: 'search', control: function () { that.onClickDisplaySearchBar(); } },
+    //   { tag: 'add', icon: 'plus-square', control: function () { that.onClickAddEntry(); } },
+    //   { tag: 'search', icon: 'search', control: this.onClickDisplaySearchBar },
+    // ];
 
   
     /**formatting column */

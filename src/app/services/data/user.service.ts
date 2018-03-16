@@ -12,11 +12,19 @@ export class UserService {
 
 
   constructor(private webService :  WebService) { 
-    this.users = new Array<User>();
-    this.users.push({id : 1, lastname : 'Ferrand', firstname : 'Julien', email: "fj@gmail", phoneNumber: "07.06.05.02", townOfResidence:"lille" }); //test
-    this.users.push({id : 2, lastname : 'Dugrain', firstname : 'Rémi', email: "dr@gmail", phoneNumber: "07.06.05.03", townOfResidence:"lille"}); //test
+
   }
 
+  /** mapping response in object */
+  mapArrayOfObjectToUser(a:Object[]):User[] {
+    let r:User[] = [];
+    a.forEach(element => {
+      let u:User = new User();
+      u.copyFrom(element);
+      r.push(u);
+    });
+    return r;
+  }
 
 
   getUserCompleteAll(): Observable<UserComplete[]>{
@@ -24,7 +32,7 @@ export class UserService {
   }
 
   getAll(): Observable<User[]> {
-    return this.webService.getAll("users?page="+this.page+"&size="+this.size ).map(r => r.content);
+    return this.webService.getAll("users?page="+this.page+"&size="+this.size ).map(r => this.mapArrayOfObjectToUser(r.content));
   }
 
   get(id: number): Observable<User> {
