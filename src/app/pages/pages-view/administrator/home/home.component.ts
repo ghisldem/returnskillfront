@@ -60,10 +60,33 @@ export class HomeComponent implements OnInit {
 
       if (user.compareBeforeCreate(userResult)) {
         console.log("**************on fait une insertion*************");
-        this.userService.create(userResult).subscribe(userIdentified => {
-          Object.assign(user, userIdentified);
+        this.userService.create(userResult).subscribe(
 
-        });
+          userIdentified => { Object.assign(user, userIdentified); 
+          console.log("taille user list avant" + this.usersList.length);
+          this.usersList.push(user);
+          console.log("********************************");
+          console.log("taille user list après" + this.usersList.length);
+
+          // this.observavleUserList.map(result=>{return this.usersList});
+          // this.observavleUserList.subscribe(data=> console.log("taille :: : " + data.length))
+          
+          },
+          /**handler error */
+          error => {
+            let message = 'collaborateur non sauvegardé';
+            this.snackBar.open(message, null, {
+              duration: 5000, panelClass: "snackbar-error",
+            });
+          },
+          /**handler success */
+          () => {
+            let message = 'collaborateur sauvegardé';
+            this.snackBar.open(message, null, {
+              duration: 5000, panelClass: "snackbar-success",
+            });
+          }
+        );
       };
 
     });
@@ -93,8 +116,8 @@ export class HomeComponent implements OnInit {
                 duration: 5000, panelClass: "snackbar-error",
               });
             },
-            
-            ()=>{
+            /**handler success */
+            () => {
               let message = 'collaborateur sauvegardé';
               this.snackBar.open(message, null, {
                 duration: 5000, panelClass: "snackbar-success",

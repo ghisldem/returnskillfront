@@ -8,7 +8,7 @@ export class UserService {
 
   users : Array<User>; //mock (fausses données  pour test)
   page : number = 0;
-  size : number = 10;
+  size : number = 20;
 
 
   constructor(private webService :  WebService) { 
