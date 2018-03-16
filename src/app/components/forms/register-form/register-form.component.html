@@ -42,15 +42,18 @@
 
   <mat-form-field>
     <input matInput placeholder="Confirmez votre mot de passe" type="password" [formControl]="confirmPassword" 
-       name="confirmPassword" required>
-    <!--<mat-error *ngIf="confirmPassword.invalid">{{getErrorMessageConfirmPassword()}}</mat-error>-->
-    <mat-error *ngIf="matchPassword.invalid">{{getErrorMessagematchPassword()}}</mat-error>
+       name="confirmPassword" [formControl]="matchPassword" required>
+    <mat-error *ngIf="confirmPassword.invalid">{{getErrorMessageConfirmPassword()}}</mat-error>
+    
   </mat-form-field>
+  <div class="passError" *ngIf="passwordMessageError">{{passwordMessageError}}</div>
+
 
   <br>
   <br>
   <div class="container-action">
-    <button mat-raised-button [disabled]="confirmPassword.invalid || password.invalid || email.invalid || firstname.invalid || name.invalid" class="button" value="Login"  (click)="controlPassword()" (click)="saveUser()" > s'enregistrer</button>
+    <button mat-raised-button [disabled]="confirmPassword.invalid || password.invalid
+     || email.invalid || firstname.invalid || name.invalid "  class="button" value="Login" (click)="controlPassword()" (click)="saveUser()" > s'enregistrer</button>
     <span matTooltip="Enregistrement effectué" class="custom-tooltip" #tooltip="matTooltip"></span>
    
   </div>

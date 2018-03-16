@@ -49,3 +49,8 @@
 .custom-tooltip{
   height: 15px;
 }
+
+.passError{
+  color: red;
+  font-weight: bold;
+}

@@ -118,9 +118,9 @@ export class RegisterFormDialog {
   }
 
   getErrorMessageEmail() {
-    return this.email.hasError('required') ? 'Vous devez renseigner ce champs' :
-      this.email.hasError('email') ? 'Entrez un Email valide' :
-        '';
+     return this.email.hasError('required') ? 'Vous devez renseigner ce champs' :
+       this.email.hasError('email') ? 'Entrez un Email valide' :
+         '';
 
   }
 
@@ -161,10 +161,11 @@ export class RegisterFormDialog {
     this.passwordValue = this.password.value; 
     this.confirmPasswordValue = this.confirmPassword.value 
     if( this.passwordValue !=  this.confirmPasswordValue) {
-            this.passwordMessageError = "Les deux mots de passe de sont pas identique, recommencer!";
-
+         this.passwordMessageError = "Les deux mots de passe de sont pas identique, recommencer!";
+          console.log('PAS IDENTIQUE');
     } else {
-      this.passwordMessageError = "";
+      this.passwordMessageError = '';
+      console.log('LOG REUSSI');
     }
   }
 
