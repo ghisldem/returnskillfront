@@ -91,7 +91,7 @@ export class GenericTableComponent implements OnInit {
       error => {
         let message = 'Erreur de chargement des données pour la table ' + this.titleTable;
         this.snackBar.open(message, null, {
-          duration: 3000,
+          duration: 5000, panelClass:"snackbar-error",
         });
       }
     );

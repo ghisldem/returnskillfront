@@ -20,5 +20,8 @@ export class AppComponent {
     logger.info('AppComponent: logger.info()');
     logger.warn('AppComponent: logger.warn()');
     logger.error('AppComponent: logger.error()'); 
+
+
+    
   };
 }

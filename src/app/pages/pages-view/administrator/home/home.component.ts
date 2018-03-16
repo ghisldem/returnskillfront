@@ -15,6 +15,7 @@ import { Action } from '../../../../models/features/action';
  */
 import { UserService } from '../../../../services/data/user.service';
 import { SkillService } from '../../../../services/data/skill.service';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class HomeComponent implements OnInit {
   actionsOnUser: Action[];
   actionsOnListUsers: Action[];
 
-  constructor(private userService: UserService, private skillService: SkillService, public dialog: MatDialog) { }
+  constructor(private userService: UserService, private skillService: SkillService, public dialog: MatDialog, public snackBar: MatSnackBar) { }
 
 
   ngOnInit() {
@@ -36,7 +37,7 @@ export class HomeComponent implements OnInit {
     this.actionsOnUser = [
       { tag: 'edit', icon: 'pencil', control: function (user) { that.editUserFromTable(user); } }
     ];
-    this.actionsOnListUsers =  [
+    this.actionsOnListUsers = [
       { tag: 'edit', icon: 'plus-square', control: function (user) { that.addUserFromTable(); } }
     ]
 
@@ -49,44 +50,60 @@ export class HomeComponent implements OnInit {
    * definition actions on user
    */
 
-  addUserFromTable(){
-  let user: User = new User();
-  let userResult:  User;
-  this.openModificationUserForm(user).subscribe(result => {
-    userResult = result;
-    console.log(user);
-    console.log(userResult);
+  addUserFromTable() {
+    let user: User = new User();
+    let userResult: User;
+    this.openModificationUserForm(user).subscribe(result => {
+      userResult = result;
+      console.log(user);
+      console.log(userResult);
 
-    if (user.compareBeforeCreate(userResult)) {
-      console.log("**************on fait une insertion*************");
-      this.userService.create(userResult).subscribe(userIdentified => {
-        Object.assign(user, userIdentified);
+      if (user.compareBeforeCreate(userResult)) {
+        console.log("**************on fait une insertion*************");
+        this.userService.create(userResult).subscribe(userIdentified => {
+          Object.assign(user, userIdentified);
 
-      });
-    };
+        });
+      };
 
-  });
+    });
   }
 
 
   editUserFromTable(user: User) {
-    
+
     let userCopy = Object.assign({}, user);
     let userResult: User;
 
     this.openModificationUserForm(userCopy).subscribe(
       result => {
 
-      userResult = result;
+        userResult = result;
 
-      if (user.compareBeforeUpdate(userResult)) {
-        console.log("**************on fait une mise à jour*************");
-        this.userService.update(userResult).subscribe(userIdentified => {
-          Object.assign(user, userIdentified);
+        if (user.compareBeforeUpdate(userResult)) {
+          console.log("**************on fait une mise à jour*************");
+          this.userService.update(userResult).subscribe(
 
-        });
-      };
-    });
+            userIdentified => { Object.assign(user, userIdentified); },
+
+            /**handler error */
+            error => {
+              let message = 'collaborateur non sauvegardé';
+              this.snackBar.open(message, null, {
+                duration: 5000, panelClass: "snackbar-error",
+              });
+            },
+            
+            ()=>{
+              let message = 'collaborateur sauvegardé';
+              this.snackBar.open(message, null, {
+                duration: 5000, panelClass: "snackbar-success",
+              });
+            }
+
+          );
+        }
+      });
   }
 
 
@@ -170,7 +187,7 @@ export class HomeComponent implements OnInit {
 export class ModificationUserFormComponent {
 
   userEmpty: User = new User();
-  
+
 
   constructor(
     public dialogRef: MatDialogRef<ModificationUserFormComponent>,
@@ -185,8 +202,8 @@ export class ModificationUserFormComponent {
   }
 
   onCancel() {
-    this.userEmpty.id=-1;  
-        
+    this.userEmpty.id = -1;
+
     console.log(this.userEmpty);
     if (this.dialogRef) {
       this.dialogRef.close(this.userEmpty);
