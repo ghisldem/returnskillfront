@@ -70,9 +70,9 @@ export class RegisterFormComponent implements OnInit {
   getErrorMessagematchPassword() {
     return this.matchPassword.hasError('required') ? 'Vos mots de passes ne corresponde pas' :
       this.matchPassword.hasError('matchPassword') ? 'Retaper votre mot de passe' :
-      
+    
         '';
-
+    
   }
 
  
@@ -93,10 +93,11 @@ export class RegisterFormComponent implements OnInit {
     this.passwordValue = this.password.value; 
     this.confirmPasswordValue = this.confirmPassword.value 
     if( this.passwordValue !=  this.confirmPasswordValue) {
-            //this.passwordMessageError = "Les deux mots de passe de sont pas identique, recommencer!";
+      this.passwordMessageError = "Les deux mots de passe de sont pas identique, recommencer!";
+      console.log('PAS IDENTIQUE');
 
     } else {
-     // this.passwordMessageError = "";
+      this.passwordMessageError = "";
     }
   }
 
