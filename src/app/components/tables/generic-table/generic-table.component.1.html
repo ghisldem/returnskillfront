@@ -1,0 +1,62 @@
+<div *ngIf="!dataSource" class="spinner">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="dataSource" class="gt-container element">
+  <div *ngIf="searchBarVisible">
+    <div ChangeColor mycolor="#F9F2A4" (result)="truc($event)" class="gt-header mat-elevation-z8">
+      <mat-form-field >
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="mat-elevation-z8 element">
+
+
+    <mat-table [dataSource]="dataSource" matSort>
+
+
+<!-- field table -->
+      <ng-container *ngFor="let column of displayColumns" matColumnDef={{column.nameProperty}}>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{column.nameTitle}} </mat-header-cell>
+        <mat-cell *matCellDef="let row"> 
+          <mat-form-field floatLabel="never" >
+            <input matInput  [readonly]="row.editing"  [(ngModel)]="row[column.nameProperty]">
+          </mat-form-field>
+          <!--{{row[column.nameProperty]}}--> 
+
+        </mat-cell>
+      </ng-container>
+
+<!-- column actions -->
+      <ng-container matColumnDef="actionsColumn">
+          <mat-header-cell *matHeaderCellDef>
+            <button mat-icon-button color="primary" (click)="onClickDisplaySearchBar()"><fa name="search" size="2x"></fa></button>
+            <button mat-icon-button color="accent" (click)="dataSource.createNew()"><fa name="plus-square" size="2x"></fa></button>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <button *ngIf="!row.editing" mat-icon-button color="primary" focusable="false" (click)="row.startEdit()">
+                <fa name="pencil" size="1x"></fa>
+                </button>
+            <button *ngIf="row.editing" mat-icon-button color="primary" focusable="false" (click)="row.confirmEditCreate()">
+                <fa name="check" size="1x"></fa>
+                </button>
+            <button mat-icon-button color="primary" focusable="false" (click)="row.cancelOrDelete()">
+                <fa name="trash" size="1x"></fa>
+                </button>
+          </mat-cell>
+        </ng-container>
+
+
+      <mat-header-row *matHeaderRowDef="displayedColumnsAndActions" class="matHeaderRow" ></mat-header-row>
+      <mat-row class="cell" *matRowDef="let row; columns: displayedColumnsAndActions;">
+
+      </mat-row>
+
+    </mat-table>
+
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>

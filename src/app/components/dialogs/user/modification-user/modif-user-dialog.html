@@ -1,0 +1,37 @@
+<mat-card-header>
+<div>Modification des données d'un collaborateur</div>
+<br>
+<br>
+</mat-card-header>
+
+<mat-card-content>
+<form (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.user.id" placeholder="Identifiant" disabled="true" name="id">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.user.lastname" placeholder="nom" name="lastname">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.user.firstname" placeholder="prénom" name="firstname">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.user.phoneNumber" placeholder="numéro de téléphone" name="phoneNumber">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.user.townOfResidence" placeholder="Ville de résidence" name="townOfResidence">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.user.referent" placeholder="nom du référent" name="referent">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.user.email" placeholder="email" name="email">
+    </mat-form-field>
+
+    <div class="actions">
+        <button mat-button type="submit" color="primary" [mat-dialog-close]="data.user" cdkFocusInitial>Enregitrer les modifications</button>
+        <button mat-button type="button" color="primary" (click)="onCancel()">Annuler</button>
+    </div>
+
+</form>
+</mat-card-content>

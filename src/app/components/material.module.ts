@@ -29,11 +29,12 @@ import { MatCardModule, MatDividerModule } from '@angular/material';
 import {MatExpansionModule} from '@angular/material';
 
 /*popup modals*/
-import { MatTooltipModule, MatDialogModule} from '@angular/material';
+import { MatTooltipModule, MatDialogModule, MatSnackBarModule} from '@angular/material';
 
 
 /*directives*/
 import {} from '@angular/material';
+
 
 @NgModule({
     imports: [
@@ -60,7 +61,8 @@ import {} from '@angular/material';
         MatDialogModule,
         MatMenuModule,
         MatExpansionModule,
-        MatToolbarModule
+        MatToolbarModule, 
+        MatSnackBarModule
     ],
     exports: [
         MatTableModule,
@@ -86,7 +88,9 @@ import {} from '@angular/material';
         MatMenuModule,
         MatExpansionModule,
         MatToolbarModule,
-        MatDividerModule
-    ]
+        MatDividerModule,
+        MatSnackBarModule
+    ],
+    declarations: []
 })
 export class MaterialModule { }

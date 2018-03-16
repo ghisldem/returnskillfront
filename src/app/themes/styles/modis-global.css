@@ -42,3 +42,19 @@ html{
 a{
   text-decoration: none;
 }
+
+.snackbar-success{
+  background : #3aa066;
+  opacity:0.92;
+}
+
+.snackbar-error{
+  background :#dd593f  ;
+  opacity:0.92;
+}
+.snackbar-warn{
+  background : #f7b018;
+  font-weight: bold;
+  color : #373A36;
+  opacity:0.92;
+}
