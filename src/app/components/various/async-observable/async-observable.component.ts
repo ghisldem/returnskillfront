@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscriber, Observable } from 'rxjs';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-async-observable',

@@ -1,37 +1,50 @@
+import { PaginatorBack } from "./features/paginator";
+import { JsonProperty } from 'json-typescript-mapper';
+
 export class User {
+  @JsonProperty('id')
   id: number;
+  @JsonProperty('lastname')
   lastname?: string;
+  @JsonProperty('firstname')
   firstname?: string;
+  @JsonProperty('email')
   email?: string;
+  @JsonProperty('phoneNumber')
   phoneNumber?: string;
+  @JsonProperty('townOfResidence')
   townOfResidence?: String;
+  @JsonProperty({clazz: User, name: 'referent'})
   referent?: User;
 
-  constructor(id? : number,lastname? : string,firstname? : string,email?: string,phoneNumber?: string,townOfResidence?: string,referent?: string) {
+  constructor() {
+    this.id = void 0;
+    this.lastname = void 0;
+    this.firstname = void 0;
+    this.email = void 0;
+    this.phoneNumber = void 0;
+    this.townOfResidence = void 0;
+    this.referent = void 0;
   }
 
-  copyFrom(o:Object) {
-    ['id','email','lastname','firstname','phoneNumber','townOfResidence','referent'].forEach(field => {
-      if(field in o) this[field] = o[field];
-    });
-  }
 
 
 
-  public compareBeforeCreate (otherUser: User): boolean{
+
+  public compareBeforeCreate(otherUser: User): boolean {
     let u = this;// user object this
     let ur = otherUser;//other object user
-    if (ur.id !=-1) {
+    if (ur.id != -1) {
       console.info("on fait l'insertion");
       return true;
-    }else {
+    } else {
       /** create exception */
       console.warn("action de création d'un user annulée, pas de mise à jour");
       return false;
     }
 
   }
- public compareBeforeUpdate(otherUser: User): boolean {
+  public compareBeforeUpdate(otherUser: User): boolean {
 
     let u = this;// user object this
     let ur = otherUser;//other object user
@@ -43,7 +56,7 @@ export class User {
 
     /** if id undefined == action cancelled*/
 
-    if (ur.id !=-1) {
+    if (ur.id != -1) {
       /** abnormal case */
       if (ur.id !== u.id) {
         /** create exception */
@@ -55,7 +68,7 @@ export class User {
         ur.firstname == u.firstname &&
         ur.lastname == u.lastname &&
         ur.phoneNumber == u.phoneNumber &&
-        
+
         //ur.referent.id == u.referent.id &&
         ur.email == u.email &&
         ur.townOfResidence == u.townOfResidence) {
@@ -93,6 +106,11 @@ export class UserAuthentication {
   password: string;
 }
 
+
+export class PaginatorAndUser {
+  paginator: PaginatorBack;
+  user: User;
+}
 
 
 

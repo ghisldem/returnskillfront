@@ -1,5 +1,9 @@
 {
   "compileOnSave": false,
+  "include": [
+    "src/**/*",
+    "node_modules/json-typescript-mapper/libs/utils.ts"
+  ],
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
