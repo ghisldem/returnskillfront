@@ -40,6 +40,8 @@ import { } from './forms';
 import { } from './forms';
 import { } from './forms';
 import { GenericTableComponent } from './tables/generic-table/generic-table.component';
+import { AsyncObservableComponent } from './various/async-observable/async-observable.component';
+
 
 
 
@@ -74,6 +76,11 @@ import { GenericTableComponent } from './tables/generic-table/generic-table.comp
          * components - tables
          */
         GenericTableComponent,
+        
+        /**
+         * components - various
+         */
+        AsyncObservableComponent,
 
         
     ],

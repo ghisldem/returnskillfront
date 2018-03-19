@@ -21,6 +21,7 @@ import { LoadDataDirective } from './utils/directives/load-data.directive';
 import { CapitalizeFirstPipe } from './utils/pipes/capitalize-first.pipe';
 import { AddSearchBarDirective } from './utils/directives/add-search-bar.directive';
 import { EqualValidatorDirective} from './utils/directives/equal-validator.directive';
+import { AsyncObservablePipe } from './utils/pipes/async-observable.pipe';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { EqualValidatorDirective} from './utils/directives/equal-validator.direc
     LoadDataDirective,
     CapitalizeFirstPipe,
     AddSearchBarDirective,
-    EqualValidatorDirective
+    EqualValidatorDirective,
+    AsyncObservablePipe
   ],
 
   providers: [
@@ -56,6 +58,7 @@ import { EqualValidatorDirective} from './utils/directives/equal-validator.direc
     LoadDataDirective,
     CapitalizeFirstPipe,
     EqualValidatorDirective,
+    AsyncObservablePipe
   ]
 
 })

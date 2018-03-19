@@ -29,6 +29,8 @@ export class HomeComponent implements OnInit {
   actionsOnUser: Action[];
   actionsOnListUsers: Action[];
 
+  updateDataSourceUser : boolean = false;
+
   constructor(private userService: UserService, private skillService: SkillService, public dialog: MatDialog, public snackBar: MatSnackBar) { }
 
 
@@ -59,17 +61,17 @@ export class HomeComponent implements OnInit {
       console.log(userResult);
 
       if (user.compareBeforeCreate(userResult)) {
-        console.log("**************on fait une insertion*************");
+
         this.userService.create(userResult).subscribe(
 
           userIdentified => { Object.assign(user, userIdentified); 
-          console.log("taille user list avant" + this.usersList.length);
-          this.usersList.push(user);
-          console.log("********************************");
-          console.log("taille user list après" + this.usersList.length);
 
-          // this.observavleUserList.map(result=>{return this.usersList});
-          // this.observavleUserList.subscribe(data=> console.log("taille :: : " + data.length))
+          this.usersList.push(user);
+
+          this.updateDataSourceUser=true;
+          console.log("ordre de mettre à jour" + this.updateDataSourceUser);
+          setTimeout(() => {this.updateDataSourceUser=false
+          }, 3000);
           
           },
           /**handler error */
@@ -129,6 +131,8 @@ export class HomeComponent implements OnInit {
       });
   }
 
+
+  
 
 
   /**

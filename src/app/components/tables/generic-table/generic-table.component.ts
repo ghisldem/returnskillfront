@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output } from '@angular/core';
 
 import { MatPaginator, MatSort, MatTableDataSource, MatInputModule } from '@angular/material';
 
@@ -23,6 +23,8 @@ import { ActionsUserService } from '../../../services/actions/actions-user.servi
  */
 import { Action } from '../../../models/features/action';
 import { error } from 'util';
+import { Subscriber, pipe } from 'rxjs';
+import { EventEmitter } from 'events';
 
 
 
@@ -40,6 +42,7 @@ export class GenericTableComponent implements OnInit {
   @Input() actionsHeader: Action[];
   @Input() actionsRow: Action[];
   @Input() titleTable: string;
+  @Input() updateDatasource: boolean =  false;
 
 
 
@@ -57,6 +60,7 @@ export class GenericTableComponent implements OnInit {
 
   constructor(private actionsUserSevice: ActionsUserService, public snackBar: MatSnackBar) {
 
+    setInterval(() => ( this.refreshPage()), 2000);
   }
 
   ngOnInit() {
@@ -82,10 +86,12 @@ export class GenericTableComponent implements OnInit {
       data => {
 
         this.dataSource.data = data;
+        //setInterval(() => (this.updateDataSource()), 2000);
 
         if (data.length > 0) {
           this.isData = true;
         }
+      
       },
       /**handler error */
       error => {
@@ -94,9 +100,31 @@ export class GenericTableComponent implements OnInit {
           duration: 5000, panelClass:"snackbar-error",
         });
       }
+      
     );
 
   }
+
+/**
+ * update datasource
+ */
+
+updateDataSource(){
+  console.log("contrôle passage");
+  this.observableDataTable.subscribe( data => {this.dataSource.data = data;});
+}
+
+/**
+ * refresh page
+ */
+refreshPage(){
+  console.log("état signal de mise à jour " + this.updateDatasource);
+if (this.updateDatasource){
+  this.updateDataSource();
+  this.updateDatasource =  false;
+}
+
+}
 
 
   /** 
@@ -193,4 +221,15 @@ interface DataTable {
 class Column {
   nameProperty: string;
   nameTitle: String;
+}
+
+
+/**
+ * Asynchrone observable pipe
+ */
+
+export class AsyncObservablePipeComponent {
+  time = new Observable<string>((observer: Subscriber<string>) => {
+    setInterval(() => observer.next(new Date().toString()), 1000);
+  });
 }
