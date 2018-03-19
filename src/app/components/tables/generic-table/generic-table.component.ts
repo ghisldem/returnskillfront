@@ -165,7 +165,9 @@ if (this.updateDatasource){
    */
 
   ngAfterViewInit() {
+
     this.dataSource.paginator = this.paginator;
+
     this.dataSource.sort = this.sort;
   }
 
@@ -223,13 +225,3 @@ class Column {
   nameTitle: String;
 }
 
-
-/**
- * Asynchrone observable pipe
- */
-
-export class AsyncObservablePipeComponent {
-  time = new Observable<string>((observer: Subscriber<string>) => {
-    setInterval(() => observer.next(new Date().toString()), 1000);
-  });
-}

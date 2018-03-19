@@ -3,7 +3,7 @@
 
 
 <div *ngIf="true" class="gt-container element">
-    <app-async-observable></app-async-observable>
+
   
   <mat-card-content class="title2-modis mat-elevation-z8">{{titleTable}}</mat-card-content>
   
@@ -60,7 +60,7 @@
       </mat-table>
     </div>
 
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    <mat-paginator pageSize=15 showFirstLastButtons [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
   </div>
 </div>
 
