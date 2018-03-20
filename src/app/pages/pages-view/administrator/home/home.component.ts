@@ -13,7 +13,7 @@ import { Action } from '../../../../models/features/action';
 /**
  * Services
  */
-import { UserService} from '../../../../services/data/user.service';
+import { UserService } from '../../../../services/data/user.service';
 import { SkillService } from '../../../../services/data/skill.service';
 import { MatSnackBar } from '@angular/material';
 
@@ -21,7 +21,7 @@ import { MatSnackBar } from '@angular/material';
 /**
  * component
  */
-import {UserTableConfig1} from '../../../../components/config/table/user-table-config'
+import { UserTableConfig1 } from '../../../../components/config/table/user-table-config'
 
 @Component({
   selector: 'app-home',
@@ -32,150 +32,36 @@ export class HomeComponent implements OnInit {
 
   /** actions to apply to a table de type user */
 
-  actionsOnUser: Action[];
-  actionsOnListUsers: Action[];
 
-  updateDataSourceUser : boolean = false;
-
+  
   userTable3Config: UserTableConfig1;
-  
-  
 
-  constructor(private userService: UserService, private skillService: SkillService, public dialog: MatDialog, public snackBar: MatSnackBar)  {
+
+
+  constructor(private userService: UserService, private skillService: SkillService, public dialog: MatDialog, public snackBar: MatSnackBar) {
 
     this.userTable3Config = new UserTableConfig1(this.userService, this.snackBar, this.dialog);
 
-   }
+    setInterval(() => (this.table3UpdateDataSourceUser = this.userTable3Config.updateDataSourceUser), 1000);
+
+  }
 
 
   ngOnInit() {
-    const that = this;
-    this.actionsOnUser = [
-      { tag: 'edit', icon: 'pencil', control: function (user) { that.editUserFromTable(user); } }
-    ];
-    this.actionsOnListUsers = [
-      { tag: 'edit', icon: 'plus-square', control: function (user) { that.addUserFromTable(); } }
-    ]
 
-    this.getUsersList();
+
     this.getSkillsList();
 
-   this.table3COLUMNSTABLE =  this.userTable3Config.COLUMNSTABLE;
+    this.table3COLUMNSTABLE = this.userTable3Config.COLUMNSTABLE;
     this.table3ActionsOnUser = this.userTable3Config.actionsOnUser;
+    this.table3ActionsOnListUsers = this.userTable3Config.actionsOnListUsers;
+    this.table3TitleTableUser = this.userTable3Config.titleTableUser;
+    this.table3ObservavleUserList = this.userTable3Config.observavleUserList;
+    this.table3UsersList = this.userTable3Config.usersList;
+    this.table3UpdateDataSourceUser = this.userTable3Config.updateDataSourceUser;
+
 
   }
-
-  /**
-   * definition actions on user
-   */
-
-  addUserFromTable() {
-    let user: User = new User();
-    let userResult: User;
-    this.openModificationUserForm(user).subscribe(result => {
-      userResult = result;
-      console.log(user);
-      console.log(userResult);
-
-      if (user.compareBeforeCreate(userResult)) {
-
-        this.userService.create(userResult).subscribe(
-
-          userIdentified => { Object.assign(user, userIdentified); 
-
-          this.usersList.push(user);
-
-          this.updateDataSourceUser=true;
-          console.log("ordre de mettre à jour" + this.updateDataSourceUser);
-          setTimeout(() => {this.updateDataSourceUser=false
-          }, 3000);
-          
-          },
-          /**handler error */
-          error => {
-            let message = 'collaborateur non sauvegardé';
-            this.snackBar.open(message, null, {
-              duration: 5000, panelClass: "snackbar-error",
-            });
-          },
-          /**handler success */
-          () => {
-            let message = 'collaborateur sauvegardé';
-            this.snackBar.open(message, null, {
-              duration: 5000, panelClass: "snackbar-success",
-            });
-          }
-        );
-      };
-
-    });
-  }
-
-
-  editUserFromTable(user: User) {
-
-    let userCopy = Object.assign({}, user);
-    let userResult: User;
-
-    this.openModificationUserForm(userCopy).subscribe(
-      result => {
-
-        userResult = result;
-
-        if (user.compareBeforeUpdate(userResult)) {
-          console.log("**************on fait une mise à jour*************");
-          this.userService.update(userResult).subscribe(
-
-            userIdentified => { Object.assign(user, userIdentified); },
-
-            /**handler error */
-            error => {
-              let message = 'collaborateur non sauvegardé';
-              this.snackBar.open(message, null, {
-                duration: 5000, panelClass: "snackbar-error",
-              });
-            },
-            /**handler success */
-            () => {
-              let message = 'collaborateur sauvegardé';
-              this.snackBar.open(message, null, {
-                duration: 5000, panelClass: "snackbar-success",
-              });
-            }
-
-          );
-        }
-      });
-  }
-
-
-  
-
-
-  /**
-   * dialog modify user
-   */
-
-  openModificationUserForm(user: User): Observable<User> {
-
-    let userResult: User = new User();
-    /**create dialog, transmit component linked, configuration of box dialog and open the box dialog */
-    const dialogRef = this.dialog.open(ModificationUserFormComponent, {
-
-      /** configuration of modal settings */
-      height: '500px',
-      width: '500px',
-      data: { user: user },
-      hasBackdrop: true,
-      disableClose: true,
-
-    });
-
-    /** return observable */
-    return dialogRef.afterClosed();
-
-  }
-
 
   /**
    * display table 3 users
@@ -185,34 +71,14 @@ export class HomeComponent implements OnInit {
   table3TitleTableUser: string = 'Liste des collaborateurs';
   table3ObservavleUserList: Observable<any[]>;
   table3UsersList: User[];
-  table3COLUMNSTABLE: Array<[string, string]> = [
-    ['id', 'Id'],
-    ['firstname', 'Prénom'],
-    ['lastname', 'Nom'],
-    ['email', 'Email'],
+  table3COLUMNSTABLE: Array<[string, string]>;
+  table3UpdateDataSourceUser: boolean = false;
 
-  ];
 
-  /*
-  *display tab users
-  */
-  titleTableUser: string = 'Liste des collaborateurs';
-  observavleUserList: Observable<any[]>;
-  usersList: User[];
-  COLUMNSTABLE: Array<[string, string]> = [
-    ['id', 'Id'],
-    ['firstname', 'Prénom'],
-    ['lastname', 'Nom'],
-    ['email', 'Email'],
 
-    // ['phoneNumber', 'num tel']
-  ];
 
-  getUsersList() {
 
-    this.observavleUserList = this.userService.getAll();
-    this.observavleUserList.subscribe(reponse => this.usersList = reponse);
-  }
+
 
   /*
   *display tab Skills
@@ -238,36 +104,3 @@ export class HomeComponent implements OnInit {
 
 
 
-
-
-@Component({
-  templateUrl: '../../../../components/dialogs/user/modification-user/modif-user-dialog.html',
-  styleUrls: ['../../../../components/dialogs/user/modification-user/modif-user-dialog.css']
-})
-export class ModificationUserFormComponent {
-
-  userEmpty: User = new User();
-
-
-  constructor(
-    public dialogRef: MatDialogRef<ModificationUserFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) {
-
-  }
-
-  onSubmit() {
-    if (this.dialogRef) {
-      this.dialogRef.close();
-    }
-  }
-
-  onCancel() {
-    this.userEmpty.id = -1;
-
-    console.log(this.userEmpty);
-    if (this.dialogRef) {
-      this.dialogRef.close(this.userEmpty);
-    }
-  }
-
-}

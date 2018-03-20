@@ -5,7 +5,7 @@ import { ThemesModule } from '../../../themes/themes.module';
 import { ComponentsModule } from '../../../components/components.modules';
 import { SkillsComponent } from './skills/skills.component';
 import { UsersComponent } from './users/users.component';
-import { HomeComponent, ModificationUserFormComponent } from './home/home.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -19,10 +19,10 @@ import { HomeComponent, ModificationUserFormComponent } from './home/home.compon
     ...routedComponents,
     SkillsComponent,
     UsersComponent,
-    ModificationUserFormComponent,
+   
   ],
   entryComponents: [
-    HomeComponent, ModificationUserFormComponent,
+    HomeComponent
   ]
 })
 export class AdministratorModule { }

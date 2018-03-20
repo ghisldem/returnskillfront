@@ -25,6 +25,7 @@ import { Action } from '../../../models/features/action';
 import { error } from 'util';
 import { Subscriber, pipe } from 'rxjs';
 import { EventEmitter } from 'events';
+import { TableConfig } from '../../config/table/table-config';
 
 
 
@@ -38,11 +39,11 @@ export class GenericTableComponent implements OnInit {
 
   @Input() observableDataTable: Observable<any[]>;
   @Input() columnsData: Array<[string, string]>;
-  @Input() actions: boolean = false;
+  @Input() actions: boolean;
   @Input() actionsHeader: Action[];
-  @Input() actionsRow: Action[];
-  @Input() titleTable: string;
-  @Input() updateDatasource: boolean =  false;
+  @Input() actionsRow: Action[] ;
+  @Input() titleTable: string ;
+  @Input() updateDatasource: boolean ;
 
 
 
@@ -60,7 +61,9 @@ export class GenericTableComponent implements OnInit {
 
   constructor(private actionsUserSevice: ActionsUserService, public snackBar: MatSnackBar) {
 
+
     setInterval(() => ( this.refreshPage()), 2000);
+
   }
 
   ngOnInit() {
@@ -73,6 +76,7 @@ export class GenericTableComponent implements OnInit {
     //   { tag: 'search', icon: 'search', control: this.onClickDisplaySearchBar },
     // ];
 
+    console.log(this.updateDatasource)
   
     /**formatting column */
     this.updateDisplayedColumns();
