@@ -31,10 +31,13 @@ export abstract class UserTableConfig {
     }
 
 
-    /**
+    /***********************************************************************************************
     * definition actions on user
-    */
+    ************************************************************************************************/
 
+    /**
+     * create user
+     */
     addUserFromTable() {
         let user: User = new User();
         let userResult: User;
@@ -82,7 +85,23 @@ export abstract class UserTableConfig {
         });
     }
 
+    removeUserFromTable(user){
 
+
+        this.openConfirmSuppressionUser(user).subscribe(result => {
+console.log("testetst");
+            this.userService.delete(user);
+
+
+        });
+
+    }
+
+
+/**
+ * update user
+ * @param user 
+ */
     editUserFromTable(user: User) {
 
         let userCopy = Object.assign({}, user);
@@ -117,6 +136,33 @@ export abstract class UserTableConfig {
                     );
                 }
             });
+    }
+
+
+/**************************************************************************
+ * Dialogs methods
+ **************************************************************************/
+
+
+    /**
+     * dialog suprresion user
+     */
+    openConfirmSuppressionUser(user: User){
+        let message: string = 'Confirmez vous la suppression du collaborateur ' + user.firstname + ' ' + user.lastname;
+        const dialogRef = this.dialog.open(ConfirmSuppressionUser, {
+
+            /** configuration of modal settings */
+            height: '200px',
+            width: '400px',
+            data: { message: message },
+            hasBackdrop: true,
+            disableClose: true,
+
+        });
+
+                /** return observable */
+                return dialogRef.afterClosed();
+
     }
 
 
@@ -183,11 +229,12 @@ export class UserTableConfig1 extends UserTableConfig {
 
         this.actionsOnUser = [
             { tag: 'edit', icon: 'pencil', control: function (user) { that.editUserFromTable(user); } },
-            { tag: 'edit', icon: 'trash', control: function (user) { that.editUserFromTable(user); } }
+            { tag: 'delete', icon: 'trash', control: function (user) { that.removeUserFromTable(user); } }
         ];
 
         this.actionsOnListUsers = [
-            { tag: 'edit', icon: 'trash', control: function (user) { that.addUserFromTable(); } }
+            { tag: 'add', icon: 'plus-square', control: function (user) { that.addUserFromTable(); } }, 
+            { tag: 'search', icon: 'search', control: function (user) { that.addUserFromTable(); } }
         ];
     }
 }
@@ -222,6 +269,33 @@ export class ModificationUserFormComponent {
         if (this.dialogRef) {
             this.dialogRef.close(this.userEmpty);
         }
+    }
+
+}
+
+
+@Component({
+    templateUrl: '../../dialogs/confirm-suppression/confirm-suppression-dialog.html',
+    styleUrls: ['../../dialogs/confirm-suppression/confirm-suppression-dialog.css']
+})
+export class ConfirmSuppressionUser {
+
+
+
+    constructor(
+        public dialogRef: MatDialogRef<ConfirmSuppressionUser>,
+        @Inject(MAT_DIALOG_DATA) public data: any) {
+
+    }
+
+    onSubmit() {
+        if (this.dialogRef) {
+            this.dialogRef.close();
+        }
+    }
+
+    onCancel() {
+        this.dialogRef.close();
     }
 
 }

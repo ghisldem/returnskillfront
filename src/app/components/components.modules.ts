@@ -41,8 +41,11 @@ import { } from './forms';
 import { } from './forms';
 import { GenericTableComponent } from './tables/generic-table/generic-table.component';
 import { AsyncObservableComponent } from './various/async-observable/async-observable.component';
-import { ModificationUserFormComponent  } from './config/table/user-table-config';
 
+/**
+ * dialogs components
+ */
+import { ModificationUserFormComponent, ConfirmSuppressionUser  } from './config/table/user-table-config';
 
 
 
@@ -89,6 +92,7 @@ import { ModificationUserFormComponent  } from './config/table/user-table-config
          */
 
         ModificationUserFormComponent,
+        ConfirmSuppressionUser ,
         
     ],
     providers: [
@@ -108,6 +112,7 @@ import { ModificationUserFormComponent  } from './config/table/user-table-config
     ],
     entryComponents: [
         ModificationUserFormComponent,
+        ConfirmSuppressionUser, 
     
       ],
 

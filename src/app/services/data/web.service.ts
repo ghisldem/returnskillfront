@@ -28,7 +28,8 @@ export class WebService {
   }
 
   delete(type: string, id: number) {
-    return this.http.delete(this.url + type + '/' + id).map(r => r.json());
+    console.log(id);
+   this.http.delete(this.url + type + id);
   }
 
   update(type: string, body: Object) {

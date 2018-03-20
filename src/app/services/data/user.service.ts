@@ -53,7 +53,9 @@ export class UserService {
     return this.webService.create("users/", user);
   }
 
-  delete(): void { }
+  delete(user:User): void { 
+    this.webService.delete("users/", user.id);
+  }
 
   update(user: User): Observable<User> {
     let id: number = user.id;

@@ -31,8 +31,6 @@ import { UserTableConfig1 } from '../../../../components/config/table/user-table
 export class HomeComponent implements OnInit {
 
   /** actions to apply to a table de type user */
-
-
   
   userTable3Config: UserTableConfig1;
 
@@ -73,9 +71,6 @@ export class HomeComponent implements OnInit {
   table3UsersList: User[];
   table3COLUMNSTABLE: Array<[string, string]>;
   table3UpdateDataSourceUser: boolean = false;
-
-
-
 
 
 
