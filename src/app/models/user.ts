@@ -1,4 +1,4 @@
-import { PaginatorBack } from "./features/paginator";
+
 import { JsonProperty } from 'json-typescript-mapper';
 
 export class User {
@@ -106,11 +106,6 @@ export class UserAuthentication {
   password: string;
 }
 
-
-export class PaginatorAndUser {
-  paginator: PaginatorBack;
-  user: User;
-}
 
 
 

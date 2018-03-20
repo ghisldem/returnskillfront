@@ -13,7 +13,7 @@ import { Action } from '../../../../models/features/action';
 /**
  * Services
  */
-import { UserService } from '../../../../services/data/user.service';
+import { UserService, UserTableConfig1 } from '../../../../services/data/user.service';
 import { SkillService } from '../../../../services/data/skill.service';
 import { MatSnackBar } from '@angular/material';
 
@@ -26,12 +26,21 @@ import { MatSnackBar } from '@angular/material';
 export class HomeComponent implements OnInit {
 
   /** actions to apply to a table de type user */
+
   actionsOnUser: Action[];
   actionsOnListUsers: Action[];
 
   updateDataSourceUser : boolean = false;
 
-  constructor(private userService: UserService, private skillService: SkillService, public dialog: MatDialog, public snackBar: MatSnackBar) { }
+  userTable3Config: UserTableConfig1;
+  
+  
+
+  constructor(private userService: UserService, private skillService: SkillService, public dialog: MatDialog, public snackBar: MatSnackBar)  {
+
+    this.userTable3Config = new UserTableConfig1(this.userService, this.snackBar, this.dialog);
+
+   }
 
 
   ngOnInit() {
@@ -45,6 +54,9 @@ export class HomeComponent implements OnInit {
 
     this.getUsersList();
     this.getSkillsList();
+
+   this.table3COLUMNSTABLE =  this.userTable3Config.COLUMNSTABLE;
+    this.table3ActionsOnUser = this.userTable3Config.actionsOnUser;
 
   }
 
@@ -159,6 +171,22 @@ export class HomeComponent implements OnInit {
 
   }
 
+
+  /**
+   * display table 3 users
+   */
+  table3ActionsOnUser: Action[];
+  table3ActionsOnListUsers: Action[];
+  table3TitleTableUser: string = 'Liste des collaborateurs';
+  table3ObservavleUserList: Observable<any[]>;
+  table3UsersList: User[];
+  table3COLUMNSTABLE: Array<[string, string]> = [
+    ['id', 'Id'],
+    ['firstname', 'Prénom'],
+    ['lastname', 'Nom'],
+    ['email', 'Email'],
+
+  ];
 
   /*
   *display tab users
