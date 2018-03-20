@@ -13,10 +13,15 @@ import { Action } from '../../../../models/features/action';
 /**
  * Services
  */
-import { UserService, UserTableConfig1 } from '../../../../services/data/user.service';
+import { UserService} from '../../../../services/data/user.service';
 import { SkillService } from '../../../../services/data/skill.service';
 import { MatSnackBar } from '@angular/material';
 
+
+/**
+ * component
+ */
+import {UserTableConfig1} from '../../../../components/config/table/user-table-config'
 
 @Component({
   selector: 'app-home',

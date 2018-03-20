@@ -41,6 +41,8 @@ import { } from './forms';
 import { } from './forms';
 import { GenericTableComponent } from './tables/generic-table/generic-table.component';
 import { AsyncObservableComponent } from './various/async-observable/async-observable.component';
+import { ModificationUserFormComponent  } from './config/table/user-table-config';
+
 
 
 
@@ -82,6 +84,11 @@ import { AsyncObservableComponent } from './various/async-observable/async-obser
          */
         AsyncObservableComponent,
 
+        /**
+         * components - dialogs
+         */
+
+        ModificationUserFormComponent,
         
     ],
     providers: [
@@ -98,6 +105,11 @@ import { AsyncObservableComponent } from './various/async-observable/async-obser
         UserCompleteFormComponent,
         GenericTableComponent,
         MaterialModule,
-    ]
+    ],
+    entryComponents: [
+        ModificationUserFormComponent,
+    
+      ],
+
 })
 export class ComponentsModule { }

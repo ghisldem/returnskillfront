@@ -1,4 +1,6 @@
+
 import { NgModule } from '@angular/core';
+
 /**
 *Services-data
 */
@@ -23,6 +25,9 @@ import { AddSearchBarDirective } from './utils/directives/add-search-bar.directi
 import { EqualValidatorDirective} from './utils/directives/equal-validator.directive';
 import { AsyncObservablePipe } from './utils/pipes/async-observable.pipe';
 
+
+
+
 @NgModule({
   imports: [
 
@@ -34,7 +39,9 @@ import { AsyncObservablePipe } from './utils/pipes/async-observable.pipe';
     CapitalizeFirstPipe,
     AddSearchBarDirective,
     EqualValidatorDirective,
-    AsyncObservablePipe
+    AsyncObservablePipe,
+
+ 
   ],
 
   providers: [
@@ -50,8 +57,11 @@ import { AsyncObservablePipe } from './utils/pipes/async-observable.pipe';
     /**
      * service actions
      */
-    ActionsUserService
+    ActionsUserService,
+
+
   ],
+
   
   exports : [
     ChangeColorDirective,

@@ -8,8 +8,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-modification-user-dialog',
-  templateUrl: './components/dialogs/user/modification-user/modif-user-dialog.html',
-  styleUrls: ['./components/dialogs/user/modification-user/modif-user-dialog.css']
+  templateUrl: './modif-user-dialog.html',
+  styleUrls: ['./modif-user-dialog.css']
 })
 
 export class ModificationUserFormComponent {
